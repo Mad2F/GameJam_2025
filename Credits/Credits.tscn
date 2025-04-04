@@ -10,11 +10,20 @@ script = ExtResource("1_ga4ak")
 offset_right = 716.0
 offset_bottom = 481.0
 
+[node name="Label5" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 285.0
+offset_right = 282.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Kytsop"
+
 [node name="Label" type="Label" parent="."]
-offset_left = 299.0
-offset_top = 159.0
-offset_right = 408.0
-offset_bottom = 182.0
+offset_left = 302.0
+offset_top = 49.0
+offset_right = 411.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "ROLE CREDITS"
 
@@ -25,3 +34,35 @@ offset_right = 694.0
 offset_bottom = 465.0
 text = "OK"
 script = ExtResource("1_pqpwq")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 489.0
+offset_top = 261.0
+offset_right = 570.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "fihuren"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 284.0
+offset_top = 378.0
+offset_right = 365.0
+offset_bottom = 405.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MadelineF"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 214.0
+offset_right = 425.0
+offset_bottom = 241.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Civ"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 494.0
+offset_top = 347.0
+offset_right = 575.0
+offset_bottom = 374.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "jfederleyi"
