@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5gjq2hvrco3g"]
+[gd_scene load_steps=7 format=3 uid="uid://b5gjq2hvrco3g"]
 
 [ext_resource type="Script" uid="uid://dixh7deqxp3py" path="res://MainMenu/main_menu.gd" id="1_otibh"]
 [ext_resource type="Script" uid="uid://dnlonxvfx0y32" path="res://MainMenu/credits.gd" id="2_cruaa"]
 [ext_resource type="Script" uid="uid://dvnqcs5gli2h4" path="res://MainMenu/new_game.gd" id="2_lbqne"]
 [ext_resource type="Script" uid="uid://bx2t1cvto3wsh" path="res://MainMenu/tutoriel.gd" id="3_b76km"]
+[ext_resource type="AudioStream" uid="uid://bgxc5mxk5k5ul" path="res://Game/resources/audio/placeholder_menu_select.ogg" id="5_3p42x"]
+[ext_resource type="AudioStream" uid="uid://dnqkse01ioyev" path="res://Game/resources/audio/placeholder_menu_validation.ogg" id="6_3clmd"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_otibh")
@@ -44,3 +46,16 @@ offset_right = 460.0
 offset_bottom = 335.0
 text = "Tutorial"
 script = ExtResource("3_b76km")
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3p42x")
+
+[node name="MenuValidation" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3clmd")
+
+[connection signal="mouse_entered" from="NewGame" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="NewGame" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Credits" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Credits" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Tutorial" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Tutorial" to="." method="_on_button_pressed"]
