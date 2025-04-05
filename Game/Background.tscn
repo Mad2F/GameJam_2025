@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ulb44haa5t7t"]
+[gd_scene load_steps=5 format=3 uid="uid://ulb44haa5t7t"]
 
 [ext_resource type="Script" uid="uid://qi17vfaou4vf" path="res://Game/src/background.gd" id="1_fyu2n"]
 [ext_resource type="Texture2D" uid="uid://q4m4u58bwrs4" path="res://Game/resources/Capture d’écran 2025-03-18 à 14.28.18.png" id="2_xwwo7"]
+[ext_resource type="PackedScene" uid="uid://dgk3j14qj66fo" path="res://Game/player.tscn" id="3_7upop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7upop"]
+size = Vector2(361, 17)
 
 [node name="Background" type="Node2D"]
 script = ExtResource("1_fyu2n")
@@ -21,3 +25,18 @@ dialog_text = "Do you want to exit this game ?"
 position = Vector2i(320, 190)
 size = Vector2i(112, 100)
 dialog_text = "Game Over !"
+
+[node name="Player" parent="." instance=ExtResource("3_7upop")]
+
+[node name="test_floor" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="test_floor"]
+offset_left = 12.0
+offset_top = 235.0
+offset_right = 373.0
+offset_bottom = 252.0
+color = Color(1, 0.137255, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="test_floor"]
+position = Vector2(192.5, 243.5)
+shape = SubResource("RectangleShape2D_7upop")
