@@ -19,3 +19,7 @@ res://TestLumiere/test_lumiere.gd
 res://TestLumiere/light_source.gd
 res://TestLumiere/LightSource.tscn
 res://TestLumiere/test.gd
+res://Game/Objects/LightSource.gd
+res://Game/Objects/LightSource.tscn
+res://Game/rope.tscn
+res://Game/Rope_Area.tscn

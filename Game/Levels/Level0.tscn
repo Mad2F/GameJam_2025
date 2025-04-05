@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bqj7lqs8icmuv"]
+[gd_scene load_steps=9 format=4 uid="uid://bqj7lqs8icmuv"]
 
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="1_2rmtn"]
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
 [ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="1_m160h"]
+[ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="1_wanyh"]
 [ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerStartPosition.tscn" id="2_m27d4"]
-[ext_resource type="Texture2D" uid="uid://d1lygb75kf0n" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
+[ext_resource type="Texture2D" uid="uid://cr1yphqi42cdr" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wanyh"]
 texture = ExtResource("5_m160h")
@@ -24,6 +25,8 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_wanyh")
 
 [node name="Level0" type="Node2D"]
+
+[node name="LevelShadow" parent="." instance=ExtResource("1_wanyh")]
 
 [node name="WaterDrop" parent="." instance=ExtResource("1_m160h")]
 position = Vector2(225, 33)
