@@ -83,16 +83,16 @@ func _physics_process(delta):
 			state = State.IDLE
 			var effect = AudioServer.get_bus_effect(2, 0)
 			effect.drive = 0
-			#fall_sound.play()
+			fall_sound.play()
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction = Input.get_axis("move_left", "move_right")
 		if direction:
 			velocity.x = direction * SPEED
 			movement = "Walk"
-			#if not step_sound.playing and is_on_floor() :
-			#	state = State.WALKING
-			#	step_sound.play()
+			if not step_sound.playing and is_on_floor() :
+				state = State.WALKING
+				step_sound.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
@@ -104,7 +104,7 @@ func _physics_process(delta):
 			var rope_position = calculate_rope_position()
 			if (rope_position != null):
 				state = State.CLIMBING
-				#rope_under_tension_sound.play()
+				rope_under_tension_sound.play()
 				createRope.emit(rope_position)
 				global_position = rope_position
 				_last_y_on_ground = global_position.y
@@ -186,5 +186,5 @@ func _process_fall():
 			fall_drive = (fall_drive / MAX_FALL_PX) * JUMP_FALL_SOUND_DRIVE
 			var effect = AudioServer.get_bus_effect(2, 0) # SFX Jump Bus -> Distorition
 			effect.drive = fall_drive
-			#fall_sound.play()
+			fall_sound.play()
 		_last_safe_y = position.y 
