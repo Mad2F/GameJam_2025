@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckybsv2pyaliy"]
+[gd_scene load_steps=3 format=3 uid="uid://ckybsv2pyaliy"]
+
+[ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/rope_area.gd" id="1_wcj0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1h7e"]
 size = Vector2(2, 76.5)
 
 [node name="Area2D" type="Area2D"]
+disable_mode = 2
 collision_layer = 4
 collision_mask = 7
+script = ExtResource("1_wcj0g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 37.75)

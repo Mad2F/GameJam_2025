@@ -4,6 +4,8 @@ func _ready():
 	print("deploy !")
 	$AnimatedSprite2D.play("deploy")
 	await($AnimatedSprite2D.animation_finished)
+	
+
 
 func _exit_tree():
 	print("get it back !")

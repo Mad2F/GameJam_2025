@@ -102,8 +102,8 @@ func _physics_process(delta):
 			isOnRope = false
 			timeoff = timeoff0
 			destroyRope.emit()
-			set_collision_mask_value(1, false)
-			set_collision_mask_value(3, true)
+			set_collision_mask_value(1, true)
+			set_collision_mask_value(3, false)
 			#$CollisionShape2D.disabled = false
 			return
 			
@@ -116,6 +116,8 @@ func _physics_process(delta):
 	if movement == "Walk":
 		animation.flip_h = (velocity.x < 0)
 		toRight = (velocity.x < 0)
+	if isOnRope:
+		animation.flip_h = !toRight
 	animation.play(movement)
 	
 	_process_fall()
@@ -135,6 +137,6 @@ func calculate_rope_position():
 func _process_fall():
 	var fall_height = int(position.y - _last_y_on_ground)
 	if (is_on_floor() or isOnRope): #on considere la corde comme le sol d'un point de vue chute
-		if (fall_height > 0):
-			print("Aie, tombé d'une hauteur de " + str(fall_height) + " pixels") #on est tombé
+		#if (fall_height > 0):
+			#print("Aie, tombé d'une hauteur de " + str(fall_height) + " pixels") #on est tombé
 		_last_y_on_ground = position.y 

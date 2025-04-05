@@ -8,3 +8,8 @@ res://TestLumiere/Fog.tscn
 res://Game/LevelsComponents/Fog.tscn
 res://Game/LevelsComponents/Fog.gd
 res://Game/Objects/LightSource.gd
+res://Game/player.gd
+res://Game/rope.gd
+res://Game/rope.tscn
+res://Game/rope_area.gd
+res://Game/Rope_Area.tscn
