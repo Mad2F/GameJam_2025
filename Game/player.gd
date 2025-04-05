@@ -106,7 +106,9 @@ func _physics_process(delta):
 				state = State.CLIMBING
 				rope_under_tension_sound.play()
 				_on_rope_created(rope_position)
+				print(rope_position)
 				global_position = rope_position
+				print(global_position)
 				_last_y_on_ground = global_position.y
 
 				set_collision_mask_value(1, false)
@@ -192,11 +194,11 @@ func _process_fall():
 
 func _on_rope_created(pos):
 	scene_instance = scene.instantiate()
+	add_sibling(scene_instance)
 	scene_instance.set_name("Rope")
 	scene_instance.set_global_position(pos)
 	scene_instance.z_index = 2
 	scene_instance.player_leaves_rope.connect(falls_off_rope)
-	add_child(scene_instance)
 
 func _on_rope_destroyed():
 	scene_instance.queue_free()

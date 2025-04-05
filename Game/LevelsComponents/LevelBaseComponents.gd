@@ -8,7 +8,6 @@ extends Node
 
 @onready var background_sfx := $BackgroundSFX
 
-
 func _ready():
 	print("Level " + _levelName + " _ready")
 	_playMusic()

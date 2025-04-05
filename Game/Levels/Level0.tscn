@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
 [ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="1_m160h"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="1_wanyh"]
-[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerPhysics.tscn" id="2_m27d4"]
 [ext_resource type="PackedScene" uid="uid://b28udu7of0te7" path="res://Game/LevelsComponents/Fog.tscn" id="2_vjihd"]
 [ext_resource type="Texture2D" uid="uid://d1lygb75kf0n" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
+[ext_resource type="PackedScene" uid="uid://bos2a20xobnkf" path="res://Game/LevelsComponents/LevelTransitionEntry.tscn" id="7_vjihd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wanyh"]
 texture = ExtResource("5_m160h")
@@ -37,13 +37,13 @@ loop_time_second = 1
 
 [node name="BaseComponents" parent="." instance=ExtResource("1_dn721")]
 
-[node name="PlayerStartPosition" parent="." instance=ExtResource("2_m27d4")]
-
 [node name="LevelTransition" parent="." instance=ExtResource("1_2rmtn")]
 position = Vector2(16, 251)
 _nextLevelSceneName = "res://MainMenu/MainMenu.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQABAAAAAAADAAMAAQABAAAAAAAEAAMAAQABAAAAAAAFAAMAAQABAAAAAAAGAAMAAQABAAAAAAAHAAMAAQABAAAAAAAAAAYAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAYAAQABAAAAAAAEAAYAAQABAAAAAAAFAAYAAQABAAAAAAAGAAYAAQABAAAAAAAHAAYAAQABAAAAAAALAAYAAQABAAAAAAAAAAkAAQABAAAAAAABAAkAAQABAAAAAAACAAkAAQABAAAAAAADAAkAAQABAAAAAAAEAAkAAQABAAAAAAAFAAkAAQABAAAAAAAGAAkAAQABAAAAAAAHAAkAAQABAAAAAAAIAAkAAQABAAAAAAAJAAkAAQABAAAAAAAKAAkAAQABAAAAAAALAAkAAQABAAAAAAAMAAkAAQABAAAAAAANAAkAAQABAAAAAAAOAAkAAQABAAAAAAAPAAkAAQABAAAAAAAMAAMAAQABAAAAAAANAAMAAQABAAAAAAAOAAMAAQABAAAAAAAPAAMAAQABAAAAAAAQAAMAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_vjihd")
+
+[node name="PlayerStartPosition" parent="." instance=ExtResource("7_vjihd")]
+position = Vector2(150, 0)

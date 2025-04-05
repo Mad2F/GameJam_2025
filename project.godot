@@ -14,10 +14,14 @@ config/name="GodotExample"
 run/main_scene="uid://bqj7lqs8icmuv"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+Globals="*res://Game/globals.gd"
+
 [display]
 
 window/size/viewport_width=1080
-window/size/viewport_height=480
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [input]
