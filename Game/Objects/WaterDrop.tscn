@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwi1sj4yf21f4"]
+
+[ext_resource type="Script" uid="uid://dku0oiog6ei6g" path="res://Game/Objects/WaterDrop.gd" id="1_d14mi"]
+
+[node name="WaterDrop" type="Node2D"]
+script = ExtResource("1_d14mi")

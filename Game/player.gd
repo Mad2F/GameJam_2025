@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 # Animation Player child node
 @onready var animation = get_node("Animation")
 
