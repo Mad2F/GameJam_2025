@@ -42,8 +42,8 @@ var toRight = true
 
 var currentFloor = null
 
-signal createRope(message: Vector2)
-signal destroyRope()
+@onready var scene = preload("res://Game/rope.tscn")
+@onready var scene_instance = null
 
 # Start front idle animation on load
 func _ready():
@@ -105,7 +105,7 @@ func _physics_process(delta):
 			if (rope_position != null):
 				state = State.CLIMBING
 				rope_under_tension_sound.play()
-				createRope.emit(rope_position)
+				_on_rope_created(rope_position)
 				global_position = rope_position
 				_last_y_on_ground = global_position.y
 
@@ -129,7 +129,7 @@ func _physics_process(delta):
 			rope_under_tension_sound.stop()
 			state = State.IDLE
 			timeoff = timeoff0
-			destroyRope.emit()
+			_on_rope_destroyed()
 			set_collision_mask_value(1, true)
 			set_collision_mask_value(3, false)
 			#$CollisionShape2D.disabled = false
@@ -167,7 +167,7 @@ func calculate_rope_position():
 func falls_off_rope():
 	print("player falls off")
 	isOnRope = false
-	destroyRope.emit()
+	_on_rope_destroyed()
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(3, false)
 	
@@ -188,3 +188,15 @@ func _process_fall():
 			effect.drive = fall_drive
 			fall_sound.play()
 		_last_safe_y = position.y 
+		
+
+func _on_rope_created(pos):
+	scene_instance = scene.instantiate()
+	scene_instance.set_name("Rope")
+	scene_instance.set_global_position(pos)
+	scene_instance.z_index = 2
+	scene_instance.player_leaves_rope.connect(falls_off_rope)
+	add_child(scene_instance)
+
+func _on_rope_destroyed():
+	scene_instance.queue_free()
