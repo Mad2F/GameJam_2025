@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://2348svrf3ir"]
 
 [ext_resource type="Script" uid="uid://bhpmge1dyvlo3" path="res://Game/rope.gd" id="1_h1h7e"]
-[ext_resource type="Texture2D" uid="uid://u010oiiw8ld0" path="res://Game/resources/misc/piolet.jpg" id="1_j0smb"]
-[ext_resource type="Texture2D" uid="uid://byqm4ci4isa6l" path="res://Game/resources/misc/piolet_1.jpg" id="2_72abu"]
-[ext_resource type="Texture2D" uid="uid://c7h54c8x85i5l" path="res://Game/resources/misc/piolet_2.jpg" id="3_svnwx"]
-[ext_resource type="Texture2D" uid="uid://df3f3xa8llx8" path="res://Game/resources/misc/piolet_3.jpg" id="4_svnwx"]
-[ext_resource type="Texture2D" uid="uid://bfbu54rt10hsg" path="res://Game/resources/misc/piolet_4.jpg" id="5_h1h7e"]
+[ext_resource type="Texture2D" uid="uid://civomkrimi83a" path="res://Game/resources/misc/piolet.jpg" id="1_j0smb"]
+[ext_resource type="Texture2D" uid="uid://cm1xmgk0blck0" path="res://Game/resources/misc/piolet_1.jpg" id="2_72abu"]
+[ext_resource type="Texture2D" uid="uid://b2tlx8mpyr86p" path="res://Game/resources/misc/piolet_2.jpg" id="3_svnwx"]
+[ext_resource type="Texture2D" uid="uid://w2pknb04c6jo" path="res://Game/resources/misc/piolet_3.jpg" id="4_svnwx"]
+[ext_resource type="Texture2D" uid="uid://c82f1cs7qpbb6" path="res://Game/resources/misc/piolet_4.jpg" id="5_h1h7e"]
 [ext_resource type="PackedScene" uid="uid://ddpidf15dw3w6" path="res://Game/Rope_Area.tscn" id="7_6yuh4"]
 [ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/rope_area.gd" id="8_xq6us"]
-[ext_resource type="AudioStream" uid="uid://m3bx2o5bxv2w" path="res://Game/resources/audio/rope.ogg" id="9_skrkf"]
+[ext_resource type="AudioStream" uid="uid://cjrg5xujxgu6r" path="res://Game/resources/audio/rope.ogg" id="9_skrkf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3h45g"]
 animations = [{
@@ -74,4 +74,3 @@ script = ExtResource("8_xq6us")
 
 [node name="Rope" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_skrkf")
-bus = &"SFX Bus"
