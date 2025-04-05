@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://sdu51cj7kk0"]
+
+[ext_resource type="Script" uid="uid://ceia2kvcasd77" path="res://Game/LevelsComponents/LevelBaseComponents.gd" id="1_onlbt"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_onlbt")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
