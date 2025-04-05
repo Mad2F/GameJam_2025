@@ -3,9 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="1_2rmtn"]
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="1_wanyh"]
-
-[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerPhysics.tscn" id="2_m27d4"]
-[ext_resource type="Texture2D" uid="uid://d1lygb75kf0n" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
+[ext_resource type="Texture2D" uid="uid://dx8kq63nb6fmv" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
+[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerPhysics.tscn" id="5_wanyh"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m160h"]
 polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
@@ -56,5 +55,5 @@ scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQABAAAAAAADAAMAAQABAAAAAAAEAAMAAQABAAAAAAAFAAMAAQABAAAAAAAGAAMAAQABAAAAAAAHAAMAAQABAAAAAAAAAAYAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAYAAQABAAAAAAAAAAkAAQABAAAAAAABAAkAAQABAAAAAAACAAkAAQABAAAAAAADAAkAAQABAAAAAAAEAAkAAQABAAAAAAAFAAkAAQABAAAAAAAGAAkAAQABAAAAAAAHAAkAAQABAAAAAAAIAAkAAQABAAAAAAAJAAkAAQABAAAAAAAKAAkAAQABAAAAAAALAAkAAQABAAAAAAAMAAkAAQABAAAAAAANAAkAAQABAAAAAAAOAAkAAQABAAAAAAAPAAkAAQABAAAAAAAMAAMAAQABAAAAAAANAAMAAQABAAAAAAAOAAMAAQABAAAAAAAPAAMAAQABAAAAAAAQAAMAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_vjihd")
 
-[node name="PlayerStartPosition" parent="." instance=ExtResource("2_m27d4")]
-position = Vector2(28, 15)
+[node name="PlayerStartPosition2" parent="." instance=ExtResource("5_wanyh")]
+position = Vector2(21, 20)
