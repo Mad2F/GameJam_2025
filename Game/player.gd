@@ -4,8 +4,8 @@ class_name Player
 
 # Animation Player child node
 @onready var animation = get_node("Animation")
-@onready var scene = preload("res://Game/rope_area.tscn")
-@onready var scene_instance = null
+@onready var collider: CollisionShape2D = $CollisionShape2D  # Any given collider.
+				
 
 # Properties
 var animation_to_play := "Idle"
@@ -82,7 +82,10 @@ func _physics_process(delta):
 			if (rope_position != null):
 				createRope.emit(rope_position)
 				global_position = rope_position
-				$CollisionShape2D.disabled = true
+
+				set_collision_mask_value(1, false)
+				set_collision_mask_value(3, true)
+				#$CollisionShape2D.disabled = true
 			else:
 				isOnRope = false
 				timeoff = 0
@@ -99,7 +102,9 @@ func _physics_process(delta):
 			isOnRope = false
 			timeoff = timeoff0
 			destroyRope.emit()
-			$CollisionShape2D.disabled = false
+			set_collision_mask_value(1, false)
+			set_collision_mask_value(3, true)
+			#$CollisionShape2D.disabled = false
 			return
 			
 		var updown = Input.get_axis("ui_up", "ui_down")
