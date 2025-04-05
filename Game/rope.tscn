@@ -1,8 +1,72 @@
-[gd_scene format=3 uid="uid://ccpkyoidtdo4m"]
+[gd_scene load_steps=10 format=3 uid="uid://ccpkyoidtdo4m"]
+
+[ext_resource type="Script" uid="uid://bhpmge1dyvlo3" path="res://Game/rope.gd" id="1_h1h7e"]
+[ext_resource type="Texture2D" uid="uid://civomkrimi83a" path="res://Game/resources/misc/piolet.jpg" id="1_j0smb"]
+[ext_resource type="Texture2D" uid="uid://cm1xmgk0blck0" path="res://Game/resources/misc/piolet_1.jpg" id="2_72abu"]
+[ext_resource type="Texture2D" uid="uid://b2tlx8mpyr86p" path="res://Game/resources/misc/piolet_2.jpg" id="3_svnwx"]
+[ext_resource type="Texture2D" uid="uid://w2pknb04c6jo" path="res://Game/resources/misc/piolet_3.jpg" id="4_svnwx"]
+[ext_resource type="Texture2D" uid="uid://c82f1cs7qpbb6" path="res://Game/resources/misc/piolet_4.jpg" id="5_h1h7e"]
+[ext_resource type="PackedScene" uid="uid://ckybsv2pyaliy" path="res://Game/Rope_Area.tscn" id="7_6yuh4"]
+[ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/rope_area.gd" id="8_xq6us"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3h45g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j0smb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_72abu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_svnwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_svnwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h1h7e")
+}],
+"loop": false,
+"name": &"deploy",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_h1h7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_svnwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_svnwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_72abu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_j0smb")
+}],
+"loop": false,
+"name": &"retract",
+"speed": 1.0
+}]
 
 [node name="Rope" type="Node2D"]
+script = ExtResource("1_h1h7e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1.0
-offset_bottom = 185.0
+offset_bottom = 192.0
 color = Color(0.222974, 0.981415, 0.81395, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.166667, 0.25)
+sprite_frames = SubResource("SpriteFrames_3h45g")
+animation = &"retract"
+speed_scale = 5.0
+centered = false
+
+[node name="Area2D" parent="." instance=ExtResource("7_6yuh4")]
+script = ExtResource("8_xq6us")

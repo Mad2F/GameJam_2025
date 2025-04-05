@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgk3j14qj66fo"]
+[gd_scene load_steps=24 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
 [ext_resource type="Texture2D" uid="uid://crpmaa636055e" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
@@ -148,6 +148,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5leg"]
+size = Vector2(20, 117)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_h4tjw")
 
@@ -159,3 +162,15 @@ shape = SubResource("RectangleShape2D_5gpxt")
 position = Vector2(12, 24)
 sprite_frames = SubResource("SpriteFrames_5gpxt")
 animation = &"Climb_Idle"
+
+[node name="left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(-10, 106.5)
+shape = SubResource("RectangleShape2D_c5leg")
+
+[node name="right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(-10, 106.5)
+shape = SubResource("RectangleShape2D_c5leg")

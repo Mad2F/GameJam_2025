@@ -12,3 +12,4 @@ export_credentials.cfg
 *.tmp
 *.import
 *.ogg.import
+*.uid

@@ -4,6 +4,8 @@ class_name Player
 
 # Animation Player child node
 @onready var animation = get_node("Animation")
+@onready var scene = preload("res://Game/rope_area.tscn")
+@onready var scene_instance = null
 
 # Properties
 var animation_to_play := "Idle"
@@ -22,6 +24,8 @@ var isOnRope = false
 var timeoff0 = 10
 var timeoff = 0
 var toRight = true
+
+var currentFloor = null
 
 signal createRope(message: Vector2)
 signal destroyRope()
@@ -72,8 +76,15 @@ func _physics_process(delta):
 			print("CLIMB ON")
 			isOnRope = true
 			timeoff = timeoff0
-			createRope.emit(calculate_rope_position())
-			$CollisionShape2D.disabled = true
+			var rope_position = calculate_rope_position()
+			if (rope_position != null):
+				createRope.emit(rope_position)
+				global_position = rope_position
+				$CollisionShape2D.disabled = true
+			else:
+				isOnRope = false
+				timeoff = 0
+				print("No rope")
 			return
 
 	#rope movements:
@@ -102,11 +113,32 @@ func _physics_process(delta):
 	
 	# Move character, slide at collision
 	move_and_slide()
-
+	
 func calculate_rope_position():
-	var pos = position
-	#if (toRight):
-	#	pos.x -= 10
-	#else:
-	#	pos.x += 50
-	return pos
+	scene_instance = scene.instantiate()
+	scene_instance.set_name("RopeArea")
+	scene_instance.set_global_position(global_position)
+	add_child(scene_instance)
+
+	var delta = -10
+	scene_instance.global_position.y += 40
+	if (not toRight):
+		scene_instance.global_position.x += 15
+		delta = +10
+	
+	for i in range(5):
+		scene_instance.global_position.x += delta
+		print(scene_instance.global_position)
+		#print(scene_instance.tiles)
+		if scene_instance.has_overlapping_areas():
+			print("overlapping")
+		else:
+			print("not overlapping")
+			return scene_instance.global_position
+		
+	scene_instance.queue_free()
+	return null
+
+func _on_Area2D_body_entered(body):
+
+	print(body.name," found")

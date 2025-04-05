@@ -13,7 +13,7 @@ func _ready():
 	
 func _initPlayerPosition():
 	_player = playerScene.instantiate()
-	_player.z_index = 2
+	_player.z_index = 3
 	_player.position = $PlayerStartPosition.position
 	add_child(_player)
 
