@@ -101,7 +101,6 @@ func _physics_process(delta):
 	animation.play(movement)
 	
 	# Move character, slide at collision
-	print(velocity.y)
 	move_and_slide()
 
 func calculate_rope_position():

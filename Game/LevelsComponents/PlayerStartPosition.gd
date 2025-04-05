@@ -6,12 +6,12 @@ var _player : Player
 @onready var scene_instance = null
 
 func _ready():
+	$PlayerStartPosition.hide()
 	_initPlayerPosition()
 	_player.createRope.connect(_on_rope_created)
 	_player.destroyRope.connect(_on_rope_destroyed)
 	
 func _initPlayerPosition():
-	print("_initPlayerPosition")
 	_player = playerScene.instantiate()
 	_player.z_index = 2
 	_player.position = $PlayerStartPosition.position

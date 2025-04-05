@@ -8,6 +8,5 @@ func _ready():
 	_playMusic()
 	
 func _playMusic():
-	print("_playMusic")
 	$BackgroundMusic.set_stream(load(_audioFile))
 	#$BackgroundMusic.play()
