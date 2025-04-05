@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5ojl52neouqr"]
+[gd_scene load_steps=26 format=3 uid="uid://c5ojl52neouqr"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
 [ext_resource type="Texture2D" uid="uid://cgcehp5jvn8sq" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
 [ext_resource type="Texture2D" uid="uid://dmhjaah4w5okf" path="res://Game/resources/sprites_player/idle.JPG" id="3_c5leg"]
 [ext_resource type="Texture2D" uid="uid://7817beffijnq" path="res://Game/resources/sprites_player/jump.jpg" id="4_c5leg"]
 [ext_resource type="Texture2D" uid="uid://cghd60hjnrti2" path="res://Game/resources/sprites_player/walk.JPG" id="4_oyrjc"]
+[ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="6_oyrjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
 size = Vector2(20, 40)
@@ -190,3 +191,7 @@ shape = SubResource("RectangleShape2D_c5leg")
 position = Vector2(33, 80)
 node_a = NodePath("../Ropeholder")
 node_b = NodePath("../Rope")
+
+[node name="LightSource" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(2, -4)
+offset = Vector2(25, 35)

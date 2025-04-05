@@ -2,23 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://b1hsk0r167rrm" path="res://TestLumiere/soundRoom.png" id="1_ae8g1"]
 [ext_resource type="Script" uid="uid://0s6n7qoibawk" path="res://TestLumiere/test_lumiere.gd" id="1_yv16m"]
-[ext_resource type="Shader" uid="uid://g4qqr7li22vg" path="res://Game/LevelsComponents/LevelShadow.gdshader" id="3_erdhv"]
-[ext_resource type="Script" uid="uid://sy7f4r5shbqa" path="res://Game/LevelsComponents/LevelShadow.gd" id="4_48qy5"]
+[ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="3_48qy5"]
+[ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="4_vuknt"]
+
+[sub_resource type="Resource" id="Resource_yv16m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_erdhv"]
 blend_mode = 3
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vuknt"]
-shader = ExtResource("3_erdhv")
-shader_parameter/NumberOfLightSource = 0
-shader_parameter/CircleCentre = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/CircleRadius = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/CircleBlur = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/FlickerStrength = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/Foreground = Color(0, 0, 0, 0.941176)
-
 [node name="TestLumiere" type="Node2D"]
 script = ExtResource("1_yv16m")
+metadata/LightSource = SubResource("Resource_yv16m")
+
+[node name="LevelShadow" parent="." instance=ExtResource("4_vuknt")]
 
 [node name="SoundRoom" type="Sprite2D" parent="."]
 position = Vector2(365, 236)
@@ -29,17 +25,10 @@ texture = ExtResource("1_ae8g1")
 material = SubResource("CanvasItemMaterial_erdhv")
 centered = false
 
+[node name="Test" type="Node2D" parent="."]
+position = Vector2(259, 222)
+
+[node name="LightSource1" parent="Test" instance=ExtResource("3_48qy5")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(360, 236)
-
-[node name="shadow" type="CanvasLayer" parent="."]
-
-[node name="foreground" type="ColorRect" parent="shadow"]
-material = SubResource("ShaderMaterial_vuknt")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.933333)
-script = ExtResource("4_48qy5")

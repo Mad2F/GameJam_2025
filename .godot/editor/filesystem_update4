@@ -10,3 +10,12 @@ res://Game/LevelsComponents/LevelShadow.gd
 res://TestLumiere/LevelShadow.gdshader
 res://Game/LevelsComponents/LevelShadow.tscn
 res://Game/LevelsComponents/LevelShadow.gdshader
+res://Game/player.gd
+res://Game/LevelsComponents/LevelBaseComponents.gd
+res://Game/LevelsComponents/PlayerStartPosition.gd
+res://Game/Objects/WaterDrop.gd
+res://Game/src/background.gd
+res://TestLumiere/test_lumiere.gd
+res://TestLumiere/light_source.gd
+res://TestLumiere/LightSource.tscn
+res://TestLumiere/test.gd
