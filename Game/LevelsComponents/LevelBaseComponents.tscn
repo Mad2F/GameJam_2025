@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://sdu51cj7kk0"]
+[gd_scene load_steps=3 format=3 uid="uid://sdu51cj7kk0"]
 
 [ext_resource type="Script" uid="uid://ceia2kvcasd77" path="res://Game/LevelsComponents/LevelBaseComponents.gd" id="1_onlbt"]
+[ext_resource type="AudioStream" uid="uid://cak1lmqkdp20c" path="res://Game/resources/audio/falling_rock.ogg" id="2_383i8"]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_onlbt")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="BackgroundSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="FallingRock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_383i8")

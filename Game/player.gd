@@ -2,15 +2,27 @@ extends CharacterBody2D
 
 class_name Player
 
+enum State {IDLE, WALKING, IN_THE_AIR, CLIMBING} 
+
+
 # Animation Player child node
 @onready var animation = get_node("Animation")
 @onready var collider: CollisionShape2D = $CollisionShape2D  # Any given collider.
 				
 
+@onready var fall_sound := $Fall
+@onready var step_sound := $Step
+#@onready var falling_rock_sound := $FallingRock
+@onready var rope_under_tension_sound := $RopeUnderTension
+
 # Properties
 var animation_to_play := "Idle"
+var state : State = State.IDLE
 
 const SPEED = 300.0
+# About jump sound effect
+const JUMP_FALL_SOUND_DRIVE := 0.65 # Between 0.0 - 1.0, 0.65 is a sweet spot
+const MAX_FALL_PX := 200.0 # Max falling height (in px) for the fall sound effect 
 
 @export var jump_height : float = 50
 @export var jump_time_to_peak : float = 0.4
@@ -36,7 +48,8 @@ signal destroyRope()
 func _ready():
 	animation.stop()
 	animation.play("Walk_Idle")
-	
+
+
 func _get_gravity():
 	if velocity.y < 0:
 		return _jump_gravity
@@ -63,13 +76,22 @@ func _physics_process(delta):
 		# Handle Jump.
 		if Input.is_action_just_pressed("move_jump") and is_on_floor():
 			velocity.y = _jump_velocity #move_toward(JUMP_VELOCITY, 0, SPEED)
+			state = State.IN_THE_AIR
 			print("JUMP")
+		elif state == State.IN_THE_AIR and is_on_floor():
+			state = State.IDLE
+			var effect = AudioServer.get_bus_effect(2, 0)
+			effect.drive = 0
+			fall_sound.play()
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction = Input.get_axis("move_left", "move_right")
 		if direction:
 			velocity.x = direction * SPEED
 			movement = "Walk"
+			if not step_sound.playing and is_on_floor() :
+				state = State.WALKING
+				step_sound.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
@@ -80,6 +102,8 @@ func _physics_process(delta):
 			timeoff = timeoff0
 			var rope_position = calculate_rope_position()
 			if (rope_position != null):
+				state = State.CLIMBING
+				rope_under_tension_sound.play()
 				createRope.emit(rope_position)
 				global_position = rope_position
 
@@ -100,6 +124,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("climb"):
 			print("CLIMB OFF")
 			isOnRope = false
+			rope_under_tension_sound.stop()
+			state = State.IDLE
 			timeoff = timeoff0
 			destroyRope.emit()
 			set_collision_mask_value(1, true)
@@ -139,4 +165,12 @@ func _process_fall():
 	if (is_on_floor() or isOnRope): #on considere la corde comme le sol d'un point de vue chute
 		#if (fall_height > 0):
 			#print("Aie, tombé d'une hauteur de " + str(fall_height) + " pixels") #on est tombé
+		if fall_height > 0 and not isOnRope:
+			var fall_drive = fall_height
+			if fall_drive > MAX_FALL_PX:
+				fall_drive = MAX_FALL_PX
+			fall_drive = (fall_drive / MAX_FALL_PX) * JUMP_FALL_SOUND_DRIVE
+			var effect = AudioServer.get_bus_effect(2, 0) # SFX Jump Bus -> Distorition
+			effect.drive = fall_drive
+			fall_sound.play()
 		_last_y_on_ground = position.y 
