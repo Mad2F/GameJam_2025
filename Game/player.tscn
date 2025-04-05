@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn6xrryx6jpn4"]
+[gd_scene load_steps=25 format=3 uid="uid://c5ojl52neouqr"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
 [ext_resource type="Texture2D" uid="uid://ywd0gcscsa47" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://di5tfffmek22v" path="res://Game/resources/sprites_player/walk.JPG" id="4_oyrjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
-size = Vector2(44, 53)
+size = Vector2(20, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ltdye"]
 atlas = ExtResource("2_0c3g1")
@@ -24,22 +24,6 @@ region = Rect2(50, 0, 24, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyn4x"]
 atlas = ExtResource("2_0c3g1")
 region = Rect2(74, 0, 24, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_55vsq"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(1, 0, 24, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uan04"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(25, 0, 24, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0ihy"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(49, 0, 24, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgdgw"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(73, 0, 24, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyrjc"]
 atlas = ExtResource("4_c5leg")
@@ -69,6 +53,22 @@ region = Rect2(48, 0, 24, 50)
 atlas = ExtResource("4_oyrjc")
 region = Rect2(72, 0, 24, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_55vsq"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(1, 0, 24, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uan04"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(25, 0, 24, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0ihy"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(49, 0, 24, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgdgw"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(73, 0, 24, 50)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5gpxt"]
 animations = [{
 "frames": [{
@@ -90,19 +90,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_55vsq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uan04")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i0ihy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgdgw")
+"texture": SubResource("AtlasTexture_ltdye")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Climb_Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -138,17 +129,64 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55vsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uan04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0ihy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgdgw")
+}],
+"loop": true,
+"name": &"Walk_Idle",
+"speed": 5.0
 }]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_c5leg"]
+b = Vector2(0, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5leg"]
+size = Vector2(9, 8)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_h4tjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31, 57)
+position = Vector2(33, 45)
 shape = SubResource("RectangleShape2D_5gpxt")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(32, 47)
 sprite_frames = SubResource("SpriteFrames_5gpxt")
-animation = &"Jump"
-frame_progress = 0.808069
+animation = &"Climb_Idle"
+
+[node name="Rope" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope"]
+position = Vector2(33, 79)
+shape = SubResource("SegmentShape2D_c5leg")
+
+[node name="ColorRect" type="ColorRect" parent="Rope"]
+offset_left = 32.0
+offset_top = 79.0
+offset_right = 34.0
+offset_bottom = 145.0
+color = Color(1, 0.04, 0.04, 1)
+
+[node name="Ropeholder" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ropeholder"]
+position = Vector2(33, 75)
+shape = SubResource("RectangleShape2D_c5leg")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(33, 80)
+node_a = NodePath("../Ropeholder")
+node_b = NodePath("../Rope")
