@@ -1,10 +1,6 @@
+res://default_bus_layout.tres
 res://Credits/Credits.tscn
 res://Game/Rope_Area.tscn
 res://Game/rope.tscn
-res://Game/player.gd
 res://Game/player.tscn
-res://Game/rope.gd
-res://Game/rope_area.gd
-res://Game/LevelsComponents/LevelBaseComponents.gd
-res://Game/Objects/LightSource.gd
-res://Game/Objects/WaterDrop.gd
+res://Game/player.gd

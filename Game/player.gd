@@ -137,8 +137,8 @@ func _physics_process(delta):
 			
 		var updown = Input.get_axis("ui_up", "ui_down")
 		if updown:
-			print(position.y + delta * velocity.y, " ", _last_y_on_ground)
-			if position.y + delta * velocity.y >= _last_y_on_ground:
+			#cannot go above rope limit
+			if position.y + delta * updown * SPEED >= _last_y_on_ground:
 				velocity.y = updown * SPEED
 				movement = "Climb"
 	
