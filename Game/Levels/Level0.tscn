@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
 [ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="1_m160h"]
 [ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerStartPosition.tscn" id="2_m27d4"]
-[ext_resource type="Texture2D" uid="uid://3rst3x2pjkn7" path="res://Game/resources/tilesets/spritesheet_tiles.png" id="4_d1hgr"]
+[ext_resource type="Texture2D" uid="uid://n4uucvd0u0gm" path="res://Game/resources/tilesets/spritesheet_tiles.png" id="4_d1hgr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m160h"]
 texture = ExtResource("4_d1hgr")

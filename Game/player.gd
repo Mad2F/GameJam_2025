@@ -120,18 +120,20 @@ func _physics_process(delta):
 func calculate_rope_position():
 	scene_instance = scene.instantiate()
 	scene_instance.set_name("RopeArea")
-	scene_instance.set_global_position(global_position)
 	add_child(scene_instance)
+	print("GLobal position", global_position)
+	print("Position", position)
+	scene_instance.set_global_position(global_position)
 
 	var delta = -10
-	scene_instance.global_position.y += 40
+	scene_instance.global_position.y += 20
 	if (not toRight):
-		scene_instance.global_position.x += 15
+		scene_instance.global_position.x += 10
 		delta = +10
 	
 	for i in range(5):
 		scene_instance.global_position.x += delta
-		print(scene_instance.global_position)
+		print("Scene instance position", scene_instance.global_position)
 		#print(scene_instance.tiles)
 		if scene_instance.has_overlapping_areas():
 			print("overlapping")
