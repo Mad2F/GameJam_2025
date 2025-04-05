@@ -25,22 +25,6 @@ region = Rect2(50, 0, 24, 48)
 atlas = ExtResource("2_0c3g1")
 region = Rect2(74, 0, 24, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_55vsq"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(1, 0, 24, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uan04"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(25, 0, 24, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0ihy"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(49, 0, 24, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgdgw"]
-atlas = ExtResource("3_c5leg")
-region = Rect2(73, 0, 24, 50)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyrjc"]
 atlas = ExtResource("4_c5leg")
 region = Rect2(0, 0, 26, 58)
@@ -69,6 +53,22 @@ region = Rect2(48, 0, 24, 50)
 atlas = ExtResource("4_oyrjc")
 region = Rect2(72, 0, 24, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_55vsq"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(1, 0, 24, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uan04"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(25, 0, 24, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0ihy"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(49, 0, 24, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgdgw"]
+atlas = ExtResource("3_c5leg")
+region = Rect2(73, 0, 24, 50)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5gpxt"]
 animations = [{
 "frames": [{
@@ -90,19 +90,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_55vsq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uan04")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i0ihy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgdgw")
+"texture": SubResource("AtlasTexture_ltdye")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"Climb_Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -138,6 +129,23 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55vsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uan04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0ihy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgdgw")
+}],
+"loop": true,
+"name": &"Walk_Idle",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -150,5 +158,4 @@ shape = SubResource("RectangleShape2D_5gpxt")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(32, 47)
 sprite_frames = SubResource("SpriteFrames_5gpxt")
-animation = &"Jump"
-frame_progress = 0.808069
+animation = &"Climb_Idle"
