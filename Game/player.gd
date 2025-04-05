@@ -8,9 +8,15 @@ class_name Player
 # Properties
 var animation_to_play := "Idle"
 
-var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 const SPEED = 300.0
-const JUMP_VELOCITY = -3000.0
+
+@export var jump_height : float = 50
+@export var jump_time_to_peak : float = 0.4
+@export var jump_fall_time : float = 0.3
+
+var _jump_velocity : float = - 2.0 * jump_height / jump_time_to_peak
+var _jump_gravity : float = 2.0 * jump_height / (jump_time_to_peak * jump_time_to_peak)
+var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time)
 
 var isOnRope = false
 var timeoff0 = 10
@@ -24,11 +30,16 @@ signal destroyRope()
 func _ready():
 	animation.stop()
 	animation.play("Walk_Idle")
+	
+func _get_gravity():
+	if velocity.y < 0:
+		return _jump_gravity
+	else:
+		return _fall_gravity
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var movement = "Walk_Idle"
-	velocity = Vector2.ZERO
 	
 	#Small timeoff for playability
 	if (timeoff > 0):
@@ -41,11 +52,11 @@ func _physics_process(_delta):
 	if not isOnRope:
 		#add gravity
 		if not is_on_floor():
-			velocity.y += GRAVITY
+			velocity.y += _get_gravity() * delta
 	
 		# Handle Jump.
 		if Input.is_action_just_pressed("move_jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY #move_toward(JUMP_VELOCITY, 0, SPEED)
+			velocity.y = _jump_velocity #move_toward(JUMP_VELOCITY, 0, SPEED)
 			print("JUMP")
 
 		# Get the input direction and handle the movement/deceleration.
@@ -90,6 +101,7 @@ func _physics_process(_delta):
 	animation.play(movement)
 	
 	# Move character, slide at collision
+	print(velocity.y)
 	move_and_slide()
 
 func calculate_rope_position():
