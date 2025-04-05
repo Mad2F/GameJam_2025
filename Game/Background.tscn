@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ulb44haa5t7t"]
 
 [ext_resource type="Script" uid="uid://qi17vfaou4vf" path="res://Game/src/background.gd" id="1_fyu2n"]
-[ext_resource type="Texture2D" uid="uid://q4m4u58bwrs4" path="res://Game/resources/Capture d’écran 2025-03-18 à 14.28.18.png" id="2_xwwo7"]
+[ext_resource type="Texture2D" uid="uid://q4m4u58bwrs4" path="res://Game/resources/graphics/Capture d’écran 2025-03-18 à 14.28.18.png" id="2_xwwo7"]
 [ext_resource type="PackedScene" uid="uid://dgk3j14qj66fo" path="res://Game/player.tscn" id="3_7upop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7upop"]
