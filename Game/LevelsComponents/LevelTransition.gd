@@ -1,11 +1,13 @@
 extends Node
 
-@export var _nextLevelSceneName : String = ""
+@export var nextLevelSceneName : String = ""
+@export var currentLevelSceneName : String = ""
 	
 func _moveToLevel():
-	print("_moveToLevel " + _nextLevelSceneName)
+	Globals.previousLevel = currentLevelSceneName
+	print("_moveToLevel " + nextLevelSceneName)
 	queue_free()
-	get_tree().change_scene_to_file(_nextLevelSceneName)
+	get_tree().change_scene_to_file(nextLevelSceneName)
 
 func _on_next_level_transition_body_entered(body):
 	if body is Player:
