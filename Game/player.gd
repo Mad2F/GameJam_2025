@@ -20,6 +20,7 @@ var _jump_velocity : float = - 2.0 * jump_height / jump_time_to_peak
 var _jump_gravity : float = 2.0 * jump_height / (jump_time_to_peak * jump_time_to_peak)
 var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time)
 
+var _last_safe_y := 0.
 var _last_y_on_ground := 0.
 
 var isOnRope = false
@@ -82,6 +83,7 @@ func _physics_process(delta):
 			if (rope_position != null):
 				createRope.emit(rope_position)
 				global_position = rope_position
+				_last_y_on_ground = global_position.y
 
 				set_collision_mask_value(1, false)
 				set_collision_mask_value(3, true)
@@ -109,8 +111,10 @@ func _physics_process(delta):
 			
 		var updown = Input.get_axis("ui_up", "ui_down")
 		if updown:
-			velocity.y = updown * SPEED
-			movement = "Climb"
+			print(position.y + delta * velocity.y, " ", _last_y_on_ground)
+			if position.y + delta * velocity.y >= _last_y_on_ground:
+				velocity.y = updown * SPEED
+				movement = "Climb"
 	
 	# All movement animations named appropriately
 	if movement == "Walk":
@@ -134,9 +138,18 @@ func calculate_rope_position():
 
 	return null
 
+func falls_off_rope():
+	print("player falls off")
+	isOnRope = false
+	destroyRope.emit()
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(3, false)
+	
+	return null
+
 func _process_fall():
-	var fall_height = int(position.y - _last_y_on_ground)
+	var fall_height = int(position.y - _last_safe_y)
 	if (is_on_floor() or isOnRope): #on considere la corde comme le sol d'un point de vue chute
 		#if (fall_height > 0):
 			#print("Aie, tombé d'une hauteur de " + str(fall_height) + " pixels") #on est tombé
-		_last_y_on_ground = position.y 
+		_last_safe_y = position.y 

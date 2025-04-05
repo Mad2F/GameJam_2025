@@ -20,7 +20,6 @@ func _on_body_area_exited(area: Node2D) -> void:
 	
 	print(area.name)
 	if area is Player:
-		print(name, "Palyer exited")
 		player_leaves_rope.emit()
 	if area is TileMapLayer:
 		print(name, "TileMap exited")

@@ -10,6 +10,7 @@ func _ready():
 	_initPlayerPosition()
 	_player.createRope.connect(_on_rope_created)
 	_player.destroyRope.connect(_on_rope_destroyed)
+		
 	
 func _initPlayerPosition():
 	_player = playerScene.instantiate()
@@ -22,9 +23,8 @@ func _on_rope_created(pos):
 	scene_instance.set_name("Rope")
 	scene_instance.set_global_position(pos)
 	scene_instance.z_index = 2
-	print("GOTIT")
+	scene_instance.player_leaves_rope.connect(_player.falls_off_rope)
 	add_child(scene_instance)
 
 func _on_rope_destroyed():
 	scene_instance.queue_free()
-	print("FOLD")
