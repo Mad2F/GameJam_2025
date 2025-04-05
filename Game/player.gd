@@ -8,7 +8,7 @@ var animation_to_play := "Idle"
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 const SPEED = 300.0
-const JUMP_VELOCITY = -1000.0
+const JUMP_VELOCITY = -3000.0
 
 var isOnRope = false
 var timeoff0 = 10
@@ -17,13 +17,12 @@ var timeoff = 0
 # Start front idle animation on load
 func _ready():
 	animation.stop()
-	animation.play("Idle")
+	animation.play("Walk_Idle")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var movement = "Walk_Idle"
 	velocity = Vector2.ZERO
-	var falling = false
 	
 	#Small timeoff for playability
 	if (timeoff > 0):
@@ -44,11 +43,10 @@ func _physics_process(delta):
 		#add gravity
 		if not is_on_floor():
 			velocity.y += GRAVITY
-			falling = true
 	
 		# Handle Jump.
 		if Input.is_action_just_pressed("move_jump") and is_on_floor():
-			velocity.y = move_toward(JUMP_VELOCITY, 0, SPEED)
+			velocity.y = JUMP_VELOCITY #move_toward(JUMP_VELOCITY, 0, SPEED)
 			print("JUMP")
 
 		# Get the input direction and handle the movement/deceleration.
