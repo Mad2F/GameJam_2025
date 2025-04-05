@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwi1sj4yf21f4"]
+[gd_scene load_steps=3 format=3 uid="uid://bwi1sj4yf21f4"]
 
 [ext_resource type="Script" uid="uid://dku0oiog6ei6g" path="res://Game/Objects/WaterDrop.gd" id="1_d14mi"]
 
-[node name="WaterDrop" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eosxd"]
+size = Vector2(5, 5)
+
+[node name="WaterDrop" type="Area2D"]
 script = ExtResource("1_d14mi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eosxd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

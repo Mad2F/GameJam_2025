@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://bqj7lqs8icmuv"]
+[gd_scene load_steps=8 format=4 uid="uid://bqj7lqs8icmuv"]
 
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="1_2rmtn"]
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
+[ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="1_m160h"]
 [ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerStartPosition.tscn" id="2_m27d4"]
 [ext_resource type="Texture2D" uid="uid://3rst3x2pjkn7" path="res://Game/resources/tilesets/spritesheet_tiles.png" id="4_d1hgr"]
 
@@ -1757,6 +1758,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_m160h")
 
 [node name="Level0" type="Node2D"]
+
+[node name="WaterDrop" parent="." instance=ExtResource("1_m160h")]
+position = Vector2(283, 12)
+loop_time_second = 1
 
 [node name="BaseComponents" parent="." instance=ExtResource("1_dn721")]
 

@@ -10,4 +10,4 @@ func _ready():
 func _playMusic():
 	print("_playMusic")
 	$BackgroundMusic.set_stream(load(_audioFile))
-	$BackgroundMusic.play()
+	#$BackgroundMusic.play()
