@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqt4olwg0dp8v"]
+
+[ext_resource type="Shader" uid="uid://g4qqr7li22vg" path="res://Game/LevelsComponents/LevelShadow.gdshader" id="1_mw3re"]
+[ext_resource type="Script" uid="uid://sy7f4r5shbqa" path="res://Game/LevelsComponents/LevelShadow.gd" id="2_sur85"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_665g8"]
+shader = ExtResource("1_mw3re")
+shader_parameter/NumberOfLightSource = 0
+shader_parameter/CircleCentre = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/CircleRadius = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/CircleBlur = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FlickerStrength = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/Foreground = Color(0, 0, 0, 0.85)
+
+[node name="LevelShadow" type="CanvasLayer"]
+
+[node name="foreground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_665g8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.788235)
+script = ExtResource("2_sur85")

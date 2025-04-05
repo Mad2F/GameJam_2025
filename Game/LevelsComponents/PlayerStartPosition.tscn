@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh3xiehdhlxkt"]
 
 [ext_resource type="Script" uid="uid://cyx7rq75aqpiu" path="res://Game/LevelsComponents/PlayerStartPosition.gd" id="1_spbhw"]
-[ext_resource type="Texture2D" uid="uid://kjut82ri3tog" path="res://Game/resources/misc/green_circle.png" id="2_56e6e"]
+[ext_resource type="Texture2D" uid="uid://cky3osdpwfypn" path="res://Game/resources/misc/green_circle.png" id="2_56e6e"]
 
 [node name="PlayerStartPosition" type="Node2D"]
 script = ExtResource("1_spbhw")

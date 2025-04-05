@@ -1,5 +1,12 @@
 res://TestLumiere/TestLumiere.tscn
-res://TestLumiere/Light.gdshader
-res://TestLumiere/test_lumiere.gd
-res://TestLumiere/SeeThrough.gdshader
+res://Game/Levels/Level0.tscn
+res://Game/LevelsComponents/LevelBaseComponents.tscn
+res://Game/LevelsComponents/LevelTransition.tscn
+res://Game/LevelsComponents/PlayerStartPosition.tscn
+res://Game/player.tscn
 res://TestLumiere/shadow.gd
+res://TestLumiere/SeeThrough.gdshader
+res://Game/LevelsComponents/LevelShadow.gd
+res://TestLumiere/LevelShadow.gdshader
+res://Game/LevelsComponents/LevelShadow.tscn
+res://Game/LevelsComponents/LevelShadow.gdshader
