@@ -1,11 +1,11 @@
 [gd_scene load_steps=24 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
-[ext_resource type="Texture2D" uid="uid://crpmaa636055e" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
-[ext_resource type="Texture2D" uid="uid://dhhb7qw4a875k" path="res://Game/resources/sprites_player/idle.JPG" id="3_c5leg"]
-[ext_resource type="Texture2D" uid="uid://cnrbdgc8kxrro" path="res://Game/resources/sprites_player/jump.jpg" id="4_c5leg"]
-[ext_resource type="Texture2D" uid="uid://dn6ssdj6ylmgr" path="res://Game/resources/sprites_player/walk.JPG" id="4_oyrjc"]
-[ext_resource type="PackedScene" uid="uid://ckybsv2pyaliy" path="res://Game/Rope_Area.tscn" id="6_oyrjc"]
+[ext_resource type="Texture2D" uid="uid://ywd0gcscsa47" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
+[ext_resource type="Texture2D" uid="uid://puurr0x11gjf" path="res://Game/resources/sprites_player/idle.JPG" id="3_c5leg"]
+[ext_resource type="Texture2D" uid="uid://cshs81wh170sj" path="res://Game/resources/sprites_player/jump.jpg" id="4_c5leg"]
+[ext_resource type="Texture2D" uid="uid://di5tfffmek22v" path="res://Game/resources/sprites_player/walk.JPG" id="4_oyrjc"]
+[ext_resource type="PackedScene" path="res://Game/Rope_Area.tscn" id="6_oyrjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
 size = Vector2(20, 40)
