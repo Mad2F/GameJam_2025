@@ -171,4 +171,4 @@ position = Vector2(-14, 40)
 position = Vector2(34, 40)
 
 [node name="LightSource" parent="." instance=ExtResource("7_ltdye")]
-offset = Vector2(25, 40)
+offset = Vector2(13.215, 35)

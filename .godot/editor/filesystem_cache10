@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743879058
+::res://::1743879947
 export_presets.cfg::TextFile/TextFile::-1::1743861891::0::1::::<><><>0<>0<><>::
 README.md::TextFile/TextFile::-1::1743177581::0::1::::<><><>0<>0<><>::
 ::res://Common Scripts/::1743177581
@@ -9,26 +9,26 @@ panel.gd::GDScript/GDScript::8567234972615491387::1743177581::0::1::::<>Node2D<>
 Credits.tscn::PackedScene/PackedScene::5290442999133615615::1743861891::0::1::::<><><>0<>0<><>::uid://ducbdxha6vdkd::::res://Common Scripts/panel.gd<>uid://dpudiw1ltntuj::::res://Common Scripts/Back.gd
 ::res://Game/::1743879812
 Background.tscn::PackedScene/PackedScene::1426599067063300943::1743874466::0::1::::<><><>0<>0<><>::uid://qi17vfaou4vf::::res://Game/src/background.gd<>uid://q4m4u58bwrs4::::res://Game/resources/graphics/Capture d’écran 2025-03-18 à 14.28.18.png<>uid://dgk3j14qj66fo::::res://Game/player.tscn
-player.gd::GDScript/GDScript::6972915435093028535::1743879735::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::6972915435093028535::1743879735::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
 player.tscn::PackedScene::7602756449537380348::1743879812::0::1::::<><><>0<>0<><>::uid://c6ly5svc3dstr::::res://Game/player.gd<>uid://cgcehp5jvn8sq::::res://Game/resources/sprites_player/climb.JPG<>uid://dmhjaah4w5okf::::res://Game/resources/sprites_player/idle.JPG<>uid://7817beffijnq::::res://Game/resources/sprites_player/jump.jpg<>uid://cghd60hjnrti2::::res://Game/resources/sprites_player/walk.JPG<>uid://ckybsv2pyaliy::::res://Game/Rope_Area.tscn<>uid://m08mibsg58x0::::res://Game/Objects/LightSource.tscn
-rope.gd::GDScript/GDScript::-1::1743879735::0::1::::<>Node2D<><>0<>0<><>::
-rope.tscn::PackedScene/PackedScene::4944835497801714758::1743879735::0::1::::<><><>0<>0<><>::uid://bhpmge1dyvlo3::::res://Game/rope.gd<>uid://civomkrimi83a::::res://Game/resources/misc/piolet.jpg<>uid://cm1xmgk0blck0::::res://Game/resources/misc/piolet_1.jpg<>uid://b2tlx8mpyr86p::::res://Game/resources/misc/piolet_2.jpg<>uid://w2pknb04c6jo::::res://Game/resources/misc/piolet_3.jpg<>uid://c82f1cs7qpbb6::::res://Game/resources/misc/piolet_4.jpg<>uid://ckybsv2pyaliy::::res://Game/Rope_Area.tscn<>uid://ddut5xx2ix5vn::::res://Game/rope_area.gd
-rope_area.gd::GDScript/GDScript::-1::1743879735::0::1::::<>Area2D<><>0<>0<><>::
-Rope_Area.tscn::PackedScene/PackedScene::5524368876560703860::1743879735::0::1::::<><><>0<>0<><>::
+rope.gd::GDScript::2909447824574383660::1743879735::0::1::::<>Node2D<><>0<>0<><>::
+rope.tscn::PackedScene::4944835497801714758::1743879735::0::1::::<><><>0<>0<><>::uid://bhpmge1dyvlo3::::res://Game/rope.gd<>uid://civomkrimi83a::::res://Game/resources/misc/piolet.jpg<>uid://cm1xmgk0blck0::::res://Game/resources/misc/piolet_1.jpg<>uid://b2tlx8mpyr86p::::res://Game/resources/misc/piolet_2.jpg<>uid://w2pknb04c6jo::::res://Game/resources/misc/piolet_3.jpg<>uid://c82f1cs7qpbb6::::res://Game/resources/misc/piolet_4.jpg<>uid://ckybsv2pyaliy::::res://Game/Rope_Area.tscn
+rope_area.gd::GDScript::7412324578560246951::1743879735::0::1::::<>Area2D<><>0<>0<><>::
+Rope_Area.tscn::PackedScene::5524368876560703860::1743879735::0::1::::<><><>0<>0<><>::uid://ddut5xx2ix5vn::::res://Game/rope_area.gd
 ::res://Game/Levels/::1743879812
 Level0.tscn::PackedScene::3529985038879872541::1743879812::0::1::::<><><>0<>0<><>::uid://cl2n5cgbtahk0::::res://Game/LevelsComponents/LevelTransition.tscn<>uid://sdu51cj7kk0::::res://Game/LevelsComponents/LevelBaseComponents.tscn<>uid://bwi1sj4yf21f4::::res://Game/Objects/WaterDrop.tscn<>uid://cqt4olwg0dp8v::::res://Game/LevelsComponents/LevelShadow.tscn<>uid://bh3xiehdhlxkt::::res://Game/LevelsComponents/PlayerStartPosition.tscn<>uid://b28udu7of0te7::::res://Game/LevelsComponents/Fog.tscn<>uid://cr1yphqi42cdr::::res://Game/resources/tilesets/demo.png
-::res://Game/LevelsComponents/::1743879812
+::res://Game/LevelsComponents/::1743879864
 Fog.gd::GDScript::1793787038731311550::1743879624::0::1::::Fog<>Sprite2D<><>0<>0<><>::
 Fog.tscn::PackedScene::4350864725585518540::1743879812::0::1::::<><><>0<>0<><>::uid://0s6n7qoibawk::::res://Game/LevelsComponents/Fog.gd
 LevelBaseComponents.gd::GDScript/GDScript::5070160538172219132::1743874466::0::1::::<>Node<><>0<>0<><>::
 LevelBaseComponents.tscn::PackedScene/PackedScene::37378282399059941::1743867222::0::1::::<><><>0<>0<><>::uid://ceia2kvcasd77::::res://Game/LevelsComponents/LevelBaseComponents.gd
 LevelShadow.gd::GDScript/GDScript::1314897675146291708::1743874739::0::1::::LevelShadow<>CanvasLayer<><>0<>0<><>::
-LevelShadow.gdshader::Shader::482001004124936820::1743879812::0::1::::<><><>0<>0<><>::
+LevelShadow.gdshader::Shader::482001004124936820::1743879864::0::1::::<><><>0<>0<><>::
 LevelShadow.tscn::PackedScene::5936872448875458075::1743879812::0::1::::<><><>0<>0<><>::uid://g4qqr7li22vg::::res://Game/LevelsComponents/LevelShadow.gdshader<>uid://sy7f4r5shbqa::::res://Game/LevelsComponents/LevelShadow.gd
 LevelTransition.gd::GDScript/GDScript::5483027924154410666::1743861891::0::1::::<>Node<><>0<>0<><>::
 LevelTransition.tscn::PackedScene/PackedScene::5601499855873644249::1743867222::0::1::::<><><>0<>0<><>::uid://ckeaw0fyfveko::::res://Game/LevelsComponents/LevelTransition.gd
-PlayerPhysics.gd::GDScript::5881810963594850555::1743879735::0::1::::<>Node<><>0<>0<><>::
-PlayerPhysics.tscn::PackedScene::-1::1743879735::0::1::::<><><>0<>0<><>::
+PlayerPhysics.gd::GDScript/GDScript::5881810963594850555::1743879735::0::1::::<>Node<><>0<>0<><>::
+PlayerPhysics.tscn::PackedScene::2936956164511020715::1743879821::0::1::::<><><>0<>0<><>::uid://cyx7rq75aqpiu::::res://Game/LevelsComponents/PlayerPhysics.gd<>uid://kjut82ri3tog::::res://Game/resources/misc/green_circle.png
 TileSetDemo.tscn::PackedScene/PackedScene::2934631483611969125::1743874783::0::1::::<><><>0<>0<><>::uid://d1lygb75kf0n::::res://Game/resources/tilesets/demo.png
 ::res://Game/Objects/::1743879651
 LightSource.gd::GDScript::1558859440807654089::1743879651::0::1::::<>Node2D<><>0<>0<><>::
@@ -52,12 +52,12 @@ piolet_2.jpg::CompressedTexture2D/CompressedTexture2D::6867764104542672056::1743
 piolet_3.jpg::CompressedTexture2D/CompressedTexture2D::4549529327610782807::1743874466::1743874783::1::::<><><>0<>0<>f325d3e8b39b3ae22c94645c16c930ff<>res://.godot/imported/piolet_3.jpg-df93a6f9f0bb7aba75cc89c3ec25604c.ctex::
 piolet_4.jpg::CompressedTexture2D/CompressedTexture2D::3841098710353019239::1743874466::1743874783::1::::<><><>0<>0<>532664d18faae8afac4edd1bd39e4185<>res://.godot/imported/piolet_4.jpg-cc5103ab2609cfa895faae787791fa2d.ctex::
 water_drop.png::CompressedTexture2D/CompressedTexture2D::5388599082590346777::1743861891::1743862204::1::::<><><>0<>0<>e6ad2b2bcd4ca23a2eff1ca2dd41fb7a<>res://.godot/imported/water_drop.png-069f32810fb03e9cae7fcc81d8535d8b.ctex::
-::res://Game/resources/sprites_player/::1743879735
-sprite-walking.png::CompressedTexture2D::6529998138552362783::1743879735::1743879822::1::::<><><>0<>0<>4b5db8ee3df3ad966264e55761004280<>res://.godot/imported/sprite-walking.png-ef0424949979cb8148aabfeccab4b19e.ctex::
-sprites-climbing-idle.png::CompressedTexture2D::6661327955356180509::1743879735::1743879822::1::::<><><>0<>0<>38d83a43561f1bf7c5c08151140c36dd<>res://.godot/imported/sprites-climbing-idle.png-ce04f35ca820a579b47bd39234216734.ctex::
-sprites-climbing.png::CompressedTexture2D::6765736216036984912::1743879735::1743879822::1::::<><><>0<>0<>9a017d92d5dd1e8cc5788c1686747f72<>res://.godot/imported/sprites-climbing.png-dde68067c36b8db4948d2d9acfaea5ed.ctex::
-sprites-idle.png::CompressedTexture2D::1580522455579387412::1743879735::1743879822::1::::<><><>0<>0<>62ab76c5a7ede124f4f11308c52cc641<>res://.godot/imported/sprites-idle.png-7343e03b352dc8b0c4f79492bf03b9c2.ctex::
-sprites-jump.png::CompressedTexture2D::7773685393621803317::1743879735::1743879822::1::::<><><>0<>0<>7e9aa0a317ccdb66741fde4493f70a2d<>res://.godot/imported/sprites-jump.png-82189f1f874365dcd6e80832c838870c.ctex::
+::res://Game/resources/sprites_player/::1743879822
+sprite-walking.png::CompressedTexture2D/CompressedTexture2D::6529998138552362783::1743879735::1743879822::1::::<><><>0<>0<>4b5db8ee3df3ad966264e55761004280<>res://.godot/imported/sprite-walking.png-ef0424949979cb8148aabfeccab4b19e.ctex::
+sprites-climbing-idle.png::CompressedTexture2D/CompressedTexture2D::6661327955356180509::1743879735::1743879822::1::::<><><>0<>0<>38d83a43561f1bf7c5c08151140c36dd<>res://.godot/imported/sprites-climbing-idle.png-ce04f35ca820a579b47bd39234216734.ctex::
+sprites-climbing.png::CompressedTexture2D/CompressedTexture2D::6765736216036984912::1743879735::1743879822::1::::<><><>0<>0<>9a017d92d5dd1e8cc5788c1686747f72<>res://.godot/imported/sprites-climbing.png-dde68067c36b8db4948d2d9acfaea5ed.ctex::
+sprites-idle.png::CompressedTexture2D/CompressedTexture2D::1580522455579387412::1743879735::1743879822::1::::<><><>0<>0<>62ab76c5a7ede124f4f11308c52cc641<>res://.godot/imported/sprites-idle.png-7343e03b352dc8b0c4f79492bf03b9c2.ctex::
+sprites-jump.png::CompressedTexture2D/CompressedTexture2D::7773685393621803317::1743879735::1743879822::1::::<><><>0<>0<>7e9aa0a317ccdb66741fde4493f70a2d<>res://.godot/imported/sprites-jump.png-82189f1f874365dcd6e80832c838870c.ctex::
 ::res://Game/resources/tilesets/::1743874783
 demo.png::CompressedTexture2D/CompressedTexture2D::6021209918356897831::1743874466::1743874783::1::::<><><>0<>0<>931fd46a2f7de3ce4d853d340a167dcc<>res://.godot/imported/demo.png-69fe95ddc7432ea2653cef5dcaeff56a.ctex::
 ::res://Game/src/::1743874466

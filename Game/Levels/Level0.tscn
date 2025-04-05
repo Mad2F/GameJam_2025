@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
 [ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="1_m160h"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="1_wanyh"]
-[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerStartPosition.tscn" id="2_m27d4"]
+[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerPhysics.tscn" id="2_m27d4"]
 [ext_resource type="PackedScene" uid="uid://b28udu7of0te7" path="res://Game/LevelsComponents/Fog.tscn" id="2_vjihd"]
 [ext_resource type="Texture2D" uid="uid://cr1yphqi42cdr" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
 
