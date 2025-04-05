@@ -1,0 +1,30 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1743852449
+README.md::TextFile/TextFile::-1::1743177581::0::1::::<><><>0<>0<><>::
+::res://Common Scripts/::1743177581
+Back.gd::GDScript/GDScript::8253579894264854645::1743177581::0::1::::<>Button<><>0<>0<><>::
+panel.gd::GDScript/GDScript::8567234972615491387::1743177581::0::1::::<>Node2D<><>0<>0<><>::
+::res://Credits/::1743177581
+Credits.tscn::PackedScene/PackedScene::5290442999133615615::1743177581::0::1::::<><><>0<>0<><>::uid://ducbdxha6vdkd::::res://Common Scripts/panel.gd<>uid://dpudiw1ltntuj::::res://Common Scripts/Back.gd
+::res://Game/::1743177581
+Background.tscn::PackedScene/PackedScene::1426599067063300943::1743177581::0::1::::<><><>0<>0<><>::uid://qi17vfaou4vf::::res://Game/src/background.gd<>uid://q4m4u58bwrs4::::res://Game/resources/Capture d’écran 2025-03-18 à 14.28.18.png
+::res://Game/resources/::1743177680
+Capture d’écran 2025-03-18 à 14.28.18.png::CompressedTexture2D/CompressedTexture2D::1183669943325416869::1743177581::1743177680::1::::<><><>0<>0<>f9ed2f7e23ce4c907f8a0e11204a651e<>res://.godot/imported/Capture d’écran 2025-03-18 à 14.28.18.png-c85d0bb99ed627d2c426fda636a8d173.ctex::
+::res://Game/src/::1743177581
+background.gd::GDScript/GDScript::1141173418191785219::1743177581::0::1::::<>Node2D<><>0<>0<><>::
+::res://MainMenu/::1743177581
+credits.gd::GDScript/GDScript::8095299667624746059::1743177581::0::1::::<>Button<><>0<>0<><>::
+MainMenu.tscn::PackedScene/PackedScene::4505048714916849910::1743177581::0::1::::<><><>0<>0<><>::uid://dixh7deqxp3py::::res://MainMenu/main_menu.gd<>uid://dnlonxvfx0y32::::res://MainMenu/credits.gd<>uid://dvnqcs5gli2h4::::res://MainMenu/new_game.gd<>uid://bx2t1cvto3wsh::::res://MainMenu/tutoriel.gd
+main_menu.gd::GDScript/GDScript::7768735817388852078::1743177581::0::1::::<>Node2D<><>0<>0<><>::
+new_game.gd::GDScript/GDScript::8661040713804926759::1743177581::0::1::::<>Button<><>0<>0<><>::
+tutoriel.gd::GDScript/GDScript::4057702478602251299::1743177581::0::1::::<>Button<><>0<>0<><>::
+::res://TestLumiere/::1743857703
+bgAlpha.png::CompressedTexture2D::6807938788832824268::1743857703::1743857703::1::::<><><>0<>0<>44147dad051e2d25903d9fd1ebf184f0<>res://.godot/imported/bgAlpha.png-60f468586902657236b0ad6515806468.ctex::
+Light.png::CompressedTexture2D::4379865515173565586::1743851727::1743851728::1::::<><><>0<>0<>3c1fb74f3e29294dcb14800b48a850be<>res://.godot/imported/Light.png-df96630164f19455b9a7f75823944123.ctex::
+shadow.gd::GDScript::1314897675146291708::1743857494::0::1::::<>Sprite2D<><>0<>0<><>::
+SeeThrough.gdshader::Shader::482001004124936820::1743856252::0::1::::<><><>0<>0<><>::
+test_lumiere.gd::GDScript::1793787038731311550::1743857115::0::1::::<>Node2D<><>0<>0<><>::
+soundRoom.png::CompressedTexture2D::4226893366938660866::1743847454::1743847455::1::::<><><>0<>0<>bbf0cd0237b61b11b2fb8b9234856d67<>res://.godot/imported/soundRoom.png-d9d4e5df2da79d25d01663d471900d80.ctex::
+TestLumiere.tscn::PackedScene::4350864725585518540::1743857565::0::1::::<><><>0<>0<><>::uid://b1hsk0r167rrm::::res://TestLumiere/soundRoom.png<>uid://0s6n7qoibawk::::res://TestLumiere/test_lumiere.gd<>uid://g4qqr7li22vg::::res://TestLumiere/SeeThrough.gdshader<>uid://sy7f4r5shbqa::::res://TestLumiere/shadow.gd
+::res://Tutorial/::1743177581
+Tutorial.tscn::PackedScene/PackedScene::3173334989049846555::1743177581::0::1::::<><><>0<>0<><>::uid://ducbdxha6vdkd::::res://Common Scripts/panel.gd<>uid://dpudiw1ltntuj::::res://Common Scripts/Back.gd

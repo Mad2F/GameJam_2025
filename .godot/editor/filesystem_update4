@@ -1,0 +1,5 @@
+res://TestLumiere/TestLumiere.tscn
+res://TestLumiere/Light.gdshader
+res://TestLumiere/test_lumiere.gd
+res://TestLumiere/SeeThrough.gdshader
+res://TestLumiere/shadow.gd
