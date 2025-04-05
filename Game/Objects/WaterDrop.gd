@@ -43,7 +43,7 @@ func _doAgain():
 	global_position = _initial_position
 	$CollisionShape2D.disabled = false;
 	
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	if loop_time_second > 0 :
 		call_deferred("_hide_with_sound")
 	else:	
