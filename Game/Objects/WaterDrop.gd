@@ -2,7 +2,7 @@ extends Area2D
 
 class_name WaterDrop
 
-@export_file var sound = "res://Game/resources/audio/water_drop.wav"
+@export_file var sound = "res://Game/resources/audio/water_drop.ogg"
 @export_file var sprite = "res://Game/resources/misc/water_drop.png"
 @export var loop_time_second : int = -1
 @export var drop_acceleration : int = 40
@@ -19,7 +19,7 @@ func _ready():
 	$CollisionShape2D.scale = collision_size / $CollisionShape2D.shape.get_rect().size
 	$Sprite2D.scale = collision_size / $Sprite2D.texture.get_size()
 	_initial_position = global_position
-	
+
 func throw(x_positive : bool):
 	_velocity.x = throw_velocity.x if x_positive else -throw_velocity.x
 	_velocity.y = throw_velocity.y 

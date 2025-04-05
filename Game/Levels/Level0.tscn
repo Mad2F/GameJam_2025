@@ -1,42 +1,27 @@
-[gd_scene load_steps=12 format=4 uid="uid://bqj7lqs8icmuv"]
+[gd_scene load_steps=10 format=4 uid="uid://bqj7lqs8icmuv"]
 
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="1_2rmtn"]
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
+[ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="1_m160h"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="1_wanyh"]
-[ext_resource type="Texture2D" uid="uid://dx8kq63nb6fmv" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
-[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerPhysics.tscn" id="5_wanyh"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m160h"]
-polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wanyh"]
-polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vjihd"]
-polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aeq32"]
-polygon = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
+[ext_resource type="PackedScene" uid="uid://bh3xiehdhlxkt" path="res://Game/LevelsComponents/PlayerPhysics.tscn" id="2_m27d4"]
+[ext_resource type="PackedScene" uid="uid://b28udu7of0te7" path="res://Game/LevelsComponents/Fog.tscn" id="2_vjihd"]
+[ext_resource type="Texture2D" uid="uid://cr1yphqi42cdr" path="res://Game/resources/tilesets/demo.png" id="5_m160h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wanyh"]
 texture = ExtResource("5_m160h")
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
-0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_m160h")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
 1:0/0 = 0
-1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wanyh")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
 2:0/0 = 0
-2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_vjihd")
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
 3:0/0 = 0
-3:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_aeq32")
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
 
 [sub_resource type="TileSet" id="TileSet_vjihd"]
 tile_size = Vector2i(60, 60)
-occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_wanyh")
 
@@ -44,7 +29,15 @@ sources/1 = SubResource("TileSetAtlasSource_wanyh")
 
 [node name="LevelShadow" parent="." instance=ExtResource("1_wanyh")]
 
+[node name="Fog" parent="." instance=ExtResource("2_vjihd")]
+
+[node name="WaterDrop" parent="." instance=ExtResource("1_m160h")]
+position = Vector2(225, 33)
+loop_time_second = 1
+
 [node name="BaseComponents" parent="." instance=ExtResource("1_dn721")]
+
+[node name="PlayerStartPosition" parent="." instance=ExtResource("2_m27d4")]
 
 [node name="LevelTransition" parent="." instance=ExtResource("1_2rmtn")]
 position = Vector2(16, 251)
@@ -52,8 +45,5 @@ _nextLevelSceneName = "res://MainMenu/MainMenu.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQABAAAAAAADAAMAAQABAAAAAAAEAAMAAQABAAAAAAAFAAMAAQABAAAAAAAGAAMAAQABAAAAAAAHAAMAAQABAAAAAAAAAAYAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAYAAQABAAAAAAAAAAkAAQABAAAAAAABAAkAAQABAAAAAAACAAkAAQABAAAAAAADAAkAAQABAAAAAAAEAAkAAQABAAAAAAAFAAkAAQABAAAAAAAGAAkAAQABAAAAAAAHAAkAAQABAAAAAAAIAAkAAQABAAAAAAAJAAkAAQABAAAAAAAKAAkAAQABAAAAAAALAAkAAQABAAAAAAAMAAkAAQABAAAAAAANAAkAAQABAAAAAAAOAAkAAQABAAAAAAAPAAkAAQABAAAAAAAMAAMAAQABAAAAAAANAAMAAQABAAAAAAAOAAMAAQABAAAAAAAPAAMAAQABAAAAAAAQAAMAAQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQABAAAAAAADAAMAAQABAAAAAAAEAAMAAQABAAAAAAAFAAMAAQABAAAAAAAGAAMAAQABAAAAAAAHAAMAAQABAAAAAAAAAAYAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAYAAQABAAAAAAAEAAYAAQABAAAAAAAFAAYAAQABAAAAAAAGAAYAAQABAAAAAAAHAAYAAQABAAAAAAALAAYAAQABAAAAAAAAAAkAAQABAAAAAAABAAkAAQABAAAAAAACAAkAAQABAAAAAAADAAkAAQABAAAAAAAEAAkAAQABAAAAAAAFAAkAAQABAAAAAAAGAAkAAQABAAAAAAAHAAkAAQABAAAAAAAIAAkAAQABAAAAAAAJAAkAAQABAAAAAAAKAAkAAQABAAAAAAALAAkAAQABAAAAAAAMAAkAAQABAAAAAAANAAkAAQABAAAAAAAOAAkAAQABAAAAAAAPAAkAAQABAAAAAAAMAAMAAQABAAAAAAANAAMAAQABAAAAAAAOAAMAAQABAAAAAAAPAAMAAQABAAAAAAAQAAMAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_vjihd")
-
-[node name="PlayerStartPosition2" parent="." instance=ExtResource("5_wanyh")]
-position = Vector2(21, 20)
