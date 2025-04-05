@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccpkyoidtdo4m"]
+[gd_scene load_steps=9 format=3 uid="uid://ccpkyoidtdo4m"]
 
 [ext_resource type="Script" uid="uid://bhpmge1dyvlo3" path="res://Game/rope.gd" id="1_h1h7e"]
 [ext_resource type="Texture2D" uid="uid://civomkrimi83a" path="res://Game/resources/misc/piolet.jpg" id="1_j0smb"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://w2pknb04c6jo" path="res://Game/resources/misc/piolet_3.jpg" id="4_svnwx"]
 [ext_resource type="Texture2D" uid="uid://c82f1cs7qpbb6" path="res://Game/resources/misc/piolet_4.jpg" id="5_h1h7e"]
 [ext_resource type="PackedScene" uid="uid://ckybsv2pyaliy" path="res://Game/Rope_Area.tscn" id="7_6yuh4"]
-[ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/rope_area.gd" id="8_xq6us"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3h45g"]
 animations = [{
@@ -69,4 +68,3 @@ speed_scale = 5.0
 centered = false
 
 [node name="Area2D" parent="." instance=ExtResource("7_6yuh4")]
-script = ExtResource("8_xq6us")
