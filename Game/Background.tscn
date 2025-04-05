@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ulb44haa5t7t"]
+[gd_scene load_steps=6 format=3 uid="uid://ulb44haa5t7t"]
 
 [ext_resource type="Script" uid="uid://qi17vfaou4vf" path="res://Game/src/background.gd" id="1_fyu2n"]
 [ext_resource type="Texture2D" uid="uid://q4m4u58bwrs4" path="res://Game/resources/graphics/Capture d’écran 2025-03-18 à 14.28.18.png" id="2_xwwo7"]
 [ext_resource type="PackedScene" uid="uid://dgk3j14qj66fo" path="res://Game/player.tscn" id="3_7upop"]
+[ext_resource type="PackedScene" uid="uid://ccpkyoidtdo4m" path="res://Game/rope.tscn" id="4_fyu2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7upop"]
 size = Vector2(361, 17)
@@ -40,3 +41,6 @@ color = Color(1, 0.137255, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="test_floor"]
 position = Vector2(192.5, 243.5)
 shape = SubResource("RectangleShape2D_7upop")
+
+[node name="Rope" parent="." instance=ExtResource("4_fyu2n")]
+position = Vector2(373, 235)

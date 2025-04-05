@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgk3j14qj66fo"]
+[gd_scene load_steps=23 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
 [ext_resource type="Texture2D" uid="uid://crpmaa636055e" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
@@ -148,45 +148,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_c5leg"]
-b = Vector2(0, 68)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5leg"]
-size = Vector2(9, 8)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_h4tjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33, 45)
+position = Vector2(13, 22)
 shape = SubResource("RectangleShape2D_5gpxt")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(32, 47)
+position = Vector2(12, 24)
 sprite_frames = SubResource("SpriteFrames_5gpxt")
 animation = &"Climb_Idle"
-
-[node name="Rope" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope"]
-position = Vector2(33, 79)
-shape = SubResource("SegmentShape2D_c5leg")
-
-[node name="ColorRect" type="ColorRect" parent="Rope"]
-offset_left = 32.0
-offset_top = 79.0
-offset_right = 34.0
-offset_bottom = 145.0
-color = Color(1, 0.04, 0.04, 1)
-
-[node name="Ropeholder" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ropeholder"]
-position = Vector2(33, 75)
-shape = SubResource("RectangleShape2D_c5leg")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(33, 80)
-node_a = NodePath("../Ropeholder")
-node_b = NodePath("../Rope")
