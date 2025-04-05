@@ -118,35 +118,14 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func calculate_rope_position():
-	scene_instance = scene.instantiate()
-	scene_instance.set_name("RopeArea")
-	add_child(scene_instance)
-	print("GLobal position", global_position)
-	print("Position", position)
-	scene_instance.set_global_position(global_position)
+	if (toRight):
+		if $left.has_overlapping_bodies() == false:
+			return $left.global_position
+	else:
+		if $right.has_overlapping_bodies() == false:
+			return $right.global_position
 
-	var delta = -10
-	scene_instance.global_position.y += 20
-	if (not toRight):
-		scene_instance.global_position.x += 10
-		delta = +10
-	
-	for i in range(5):
-		scene_instance.global_position.x += delta
-		print("Scene instance position", scene_instance.global_position)
-		#print(scene_instance.tiles)
-		if scene_instance.has_overlapping_areas():
-			print("overlapping")
-		else:
-			print("not overlapping")
-			return scene_instance.global_position
-		
-	scene_instance.queue_free()
 	return null
-
-func _on_Area2D_body_entered(body):
-
-	print(body.name," found")
 
 func _process_fall():
 	var fall_height = int(position.y - _last_y_on_ground)
