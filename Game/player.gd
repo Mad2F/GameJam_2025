@@ -20,6 +20,8 @@ var _jump_velocity : float = - 2.0 * jump_height / jump_time_to_peak
 var _jump_gravity : float = 2.0 * jump_height / (jump_time_to_peak * jump_time_to_peak)
 var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time)
 
+var _last_y_on_ground := 0.
+
 var isOnRope = false
 var timeoff0 = 10
 var timeoff = 0
@@ -72,7 +74,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		#jump on/off rope
-		if Input.is_action_pressed("climb"):
+		if Input.is_action_just_pressed("climb"):
 			print("CLIMB ON")
 			isOnRope = true
 			timeoff = timeoff0
@@ -89,9 +91,10 @@ func _physics_process(delta):
 
 	#rope movements:
 	else:
+		velocity.y = 0
 		movement = "Climb_Idle"
 		
-		if Input.is_action_pressed("climb"):
+		if Input.is_action_just_pressed("climb"):
 			print("CLIMB OFF")
 			isOnRope = false
 			timeoff = timeoff0
@@ -104,13 +107,13 @@ func _physics_process(delta):
 			velocity.y = updown * SPEED
 			movement = "Climb"
 	
-	
 	# All movement animations named appropriately
 	if movement == "Walk":
 		animation.flip_h = (velocity.x < 0)
 		toRight = (velocity.x < 0)
 	animation.play(movement)
 	
+	_process_fall()
 	# Move character, slide at collision
 	move_and_slide()
 	
@@ -142,3 +145,10 @@ func calculate_rope_position():
 func _on_Area2D_body_entered(body):
 
 	print(body.name," found")
+
+func _process_fall():
+	var fall_height = int(position.y - _last_y_on_ground)
+	if (is_on_floor() or isOnRope): #on considere la corde comme le sol d'un point de vue chute
+		if (fall_height > 0):
+			print("Aie, tombé d'une hauteur de " + str(fall_height) + " pixels") #on est tombé
+		_last_y_on_ground = position.y 
