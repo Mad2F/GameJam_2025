@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://gcjamr68iw70"]
+
+[ext_resource type="Script" uid="uid://bwgmdnbf15jin" path="res://Game/Map.gd" id="1_m3v7p"]
+
+[node name="Map" type="CanvasLayer"]
+script = ExtResource("1_m3v7p")
+
+[node name="MapHidden" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
