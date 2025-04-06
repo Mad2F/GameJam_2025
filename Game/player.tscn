@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dgk3j14qj66fo"]
+[gd_scene load_steps=41 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
 [ext_resource type="Texture2D" uid="uid://bgogyjqupyml3" path="res://Game/resources/sprites_player/sprites-climbing.png" id="2_oyrjc"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bhnsufli8o2ad" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
 [ext_resource type="AudioStream" uid="uid://yduxwrcvrxjt" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
 [ext_resource type="AudioStream" uid="uid://b3wndiq6rfoly" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="PackedScene" path="res://Game/Objects/Lanterne.tscn" id="12_uan04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
 size = Vector2(49, 98)
@@ -267,3 +268,7 @@ offset = Vector2(22.835, 28.395)
 
 [node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wxy0c")
+
+[node name="lanterne" parent="." instance=ExtResource("12_uan04")]
+visible = false
+position = Vector2(23, 87)

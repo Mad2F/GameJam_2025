@@ -8,3 +8,4 @@ res://Game/player.gd
 res://Game/LevelsComponents/LevelShadow.gdshader
 res://Game/Objects/LightSource.gd
 res://Game/rope_area.gd
+res://Game/Objects/Lanterne.gd
