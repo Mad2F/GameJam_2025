@@ -73,7 +73,6 @@ func _physics_process(delta):
 	
 	#Player is available
 	#If not on rope :
-	
 	if not isOnRope:
 		#add gravity
 		if not is_on_floor():
@@ -86,72 +85,75 @@ func _physics_process(delta):
 			else:
 				if ($lanterne.visible):
 					$lanterne.visible = false
-
 	
 		# Handle Jump.
 		if Input.is_action_just_pressed("move_jump") and is_on_floor():
 			velocity.y = _jump_velocity #move_toward(JUMP_VELOCITY, 0, SPEED)
 			state = State.IN_THE_AIR
-			print("JUMP")
 		elif state == State.IN_THE_AIR and is_on_floor():
 			state = State.IDLE
 			var effect = AudioServer.get_bus_effect(2, 0)
 			effect.drive = 0
 			fall_sound.play()
 
-		# Get the input direction and handle the movement/deceleration.
-		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
-			velocity.x = direction * SPEED
-			movement = "Walk"
-			if not step_sound.playing and is_on_floor() :
-				state = State.WALKING
-				step_sound.play()
+		if (not is_on_floor()):
+			if position.y - _last_safe_y > 150:
+				movement = "Falling"
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			# Get the input direction and handle the movement/deceleration.
+			var direction = Input.get_axis("move_left", "move_right")
+			if direction:
+				velocity.x = direction * SPEED
+				movement = "Walk"
+				if not step_sound.playing and is_on_floor() :
+					state = State.WALKING
+					step_sound.play()
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		#jump on/off rope
-		if Input.is_action_just_pressed("climb"):
-			print("CLIMB ON")
-			var rope_down_position = calculate_rope_down_position()
-			if (rope_down_position != null):
-				isOnRope = true
+			#jump on/off rope
+			if Input.is_action_just_pressed("climb"):
+				print("CLIMB ON")
+				var rope_down_position = calculate_rope_down_position()
+				if (rope_down_position != null):
+					isOnRope = true
+					timeoff = timeoff0
+					state = State.CLIMBING
+					rope_under_tension_sound.play()
+					_on_rope_down_created(rope_down_position)
+					_last_position_on_ground = global_position
+					global_position = rope_down_position
+					toRight = !toRight
+				
+					set_collision_mask_value(1, true)
+					set_collision_mask_value(3, true)
+					#$CollisionShape2D.disabled = true
+				else:
+					isOnRope = false
+					timeoff = 0
+					print("No rope")
+				return
+			if Input.is_action_just_pressed("use_grapin"):
+				print("GRAPIN ON")
+				#isOnRope = true
 				timeoff = timeoff0
-				state = State.CLIMBING
-				rope_under_tension_sound.play()
-				_on_rope_down_created(rope_down_position)
-				_last_position_on_ground = global_position
-				global_position = rope_down_position
-				toRight = !toRight
+				var rope_up_position = calculate_rope_up_position()
+				if (rope_up_position != null):
+					state = State.CLIMBING
+					rope_under_tension_sound.play()
+					_on_rope_up_created(rope_up_position)
+					#_last_position_on_ground = global_position
+					#global_position = rope_down_position
 				
-				set_collision_mask_value(1, true)
-				set_collision_mask_value(3, true)
-				#$CollisionShape2D.disabled = true
-			else:
-				isOnRope = false
-				timeoff = 0
-				print("No rope")
-			return
-		if Input.is_action_just_pressed("use_grapin"):
-			print("GRAPIN ON")
-			#isOnRope = true
-			timeoff = timeoff0
-			var rope_up_position = calculate_rope_up_position()
-			if (rope_up_position != null):
-				state = State.CLIMBING
-				rope_under_tension_sound.play()
-				_on_rope_up_created(rope_up_position)
-				#_last_position_on_ground = global_position
-				#global_position = rope_down_position
-				
-				set_collision_mask_value(1, true)
-				set_collision_mask_value(3, true)
-				#$CollisionShape2D.disabled = true
-			else:
-				#isOnRope = false
-				timeoff = 0
-				print("No grapin")
-			return
+					set_collision_mask_value(1, true)
+					set_collision_mask_value(3, true)
+					#$CollisionShape2D.disabled = true
+				else:
+					#isOnRope = false
+					timeoff = 0
+					print("No grapin")
+				return
+
 	#rope movements:
 	else:
 		velocity.y = 0
@@ -194,10 +196,14 @@ func _physics_process(delta):
 func calculate_rope_down_position():
 	if (toRight):
 		if $bottom_right.has_overlapping_bodies() == false:
-			return $bottom_right.global_position
+			var pos = $bottom_right.global_position
+			pos.x = floor($bottom_right.global_position.x / 120) * 120
+			return pos
 	else:
 		if $bottom_left.has_overlapping_bodies() == false:
-			return $bottom_left.global_position
+			var pos = $bottom_left.global_position
+			pos.x = floor($bottom_left.global_position.x / 120) * 120
+			return pos
 
 	return null
 
@@ -205,9 +211,13 @@ func calculate_rope_up_position():
 	print('above head ', $above_head.has_overlapping_bodies(), $jump_left.has_overlapping_bodies(), $jump_right.has_overlapping_bodies())
 	if $above_head.has_overlapping_bodies() == false:
 		if (toRight):
-			return $jump_right.global_position
+			var pos = $jump_right.global_position
+			pos.x = floor($jump_right.global_position.x / 120) * 120 + 60
+			return pos
 		else:
-			return $jump_left.global_position
+			var pos = $jump_left.global_position
+			pos.x = floor($jump_left.global_position.x / 120) * 120
+			return pos
 
 	return null
 
