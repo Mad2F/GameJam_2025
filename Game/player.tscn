@@ -1,13 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://cn63x1sm4k445"]
+[gd_scene load_steps=28 format=3 uid="uid://cn63x1sm4k445"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
-[ext_resource type="Texture2D" uid="uid://bdjfc1y34e4l8" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
-[ext_resource type="Texture2D" uid="uid://b0c4pkk782nth" path="res://Game/resources/sprites_player/idle.JPG" id="3_c5leg"]
-[ext_resource type="Texture2D" uid="uid://d3jllj8s76t5x" path="res://Game/resources/sprites_player/jump.jpg" id="4_c5leg"]
-[ext_resource type="Texture2D" uid="uid://bqvbkimvc4lxb" path="res://Game/resources/sprites_player/walk.JPG" id="4_oyrjc"]
-[ext_resource type="AudioStream" uid="uid://dvohl471wv1lt" path="res://Game/resources/audio/fall.ogg" id="6_oyrjc"]
-[ext_resource type="AudioStream" uid="uid://d2epxa4d4rxob" path="res://Game/resources/audio/step.ogg" id="7_ltdye"]
-[ext_resource type="AudioStream" uid="uid://dddhp6iit4nsk" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="Texture2D" uid="uid://cgcehp5jvn8sq" path="res://Game/resources/sprites_player/climb.JPG" id="2_0c3g1"]
+[ext_resource type="Texture2D" uid="uid://dmhjaah4w5okf" path="res://Game/resources/sprites_player/idle.JPG" id="3_c5leg"]
+[ext_resource type="Texture2D" uid="uid://7817beffijnq" path="res://Game/resources/sprites_player/jump.jpg" id="4_c5leg"]
+[ext_resource type="Texture2D" uid="uid://cghd60hjnrti2" path="res://Game/resources/sprites_player/walk.JPG" id="4_oyrjc"]
+[ext_resource type="AudioStream" uid="uid://cpfwdo1qysuae" path="res://Game/resources/audio/fall.ogg" id="6_oyrjc"]
+[ext_resource type="AudioStream" uid="uid://cau4gubj342cg" path="res://Game/resources/audio/step.ogg" id="7_ltdye"]
+[ext_resource type="AudioStream" uid="uid://bbpwdwn6hk15d" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="9_oah4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
 size = Vector2(20, 40)
@@ -180,11 +181,12 @@ shape = SubResource("RectangleShape2D_c5leg")
 
 [node name="Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_oyrjc")
-bus = &"SFX Jump Bus"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ltdye")
 
 [node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wxy0c")
-bus = &"SFX Bus"
+
+[node name="LightSource" parent="." instance=ExtResource("9_oah4x")]
+intensity = 0.6
