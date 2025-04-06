@@ -22,4 +22,3 @@ func increaseLight(delta : float):
 
 func _process(delta):
 	increaseLight(delta)
-	print($LightSource.radius)

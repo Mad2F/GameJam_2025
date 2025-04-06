@@ -1,6 +1,6 @@
 extends Node
 
-@onready var scene = preload("res://Game/rope.tscn")
+@onready var scene = preload("res://Game/Objects/rope.tscn")
 @onready var scene_instance = null
 
 @onready var playerScene = preload("res://Game/player.tscn")

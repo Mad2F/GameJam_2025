@@ -45,9 +45,10 @@ var currentFloor = null
 
 signal dead;
 
-@onready var scene = preload("res://Game/rope.tscn")
+@onready var scene = preload("res://Game/Objects/rope.tscn")
 @onready var stone = preload("res://Game/Objects/Stone.tscn")
 @onready var scene_instance = null
+@onready var grapin_stone_instance = null
 
 # Start front idle animation on load
 func _ready():
@@ -112,15 +113,16 @@ func _physics_process(delta):
 		#jump on/off rope
 		if Input.is_action_just_pressed("climb"):
 			print("CLIMB ON")
-			isOnRope = true
-			timeoff = timeoff0
-			var rope_position = calculate_rope_position()
-			if (rope_position != null):
+			var rope_down_position = calculate_rope_down_position()
+			if (rope_down_position != null):
+				isOnRope = true
+				timeoff = timeoff0
 				state = State.CLIMBING
 				rope_under_tension_sound.play()
-				_on_rope_created(rope_position)
+				_on_rope_down_created(rope_down_position)
 				_last_position_on_ground = global_position
-				global_position = rope_position
+				global_position = rope_down_position
+				toRight = !toRight
 				
 				set_collision_mask_value(1, true)
 				set_collision_mask_value(3, true)
@@ -129,6 +131,26 @@ func _physics_process(delta):
 				isOnRope = false
 				timeoff = 0
 				print("No rope")
+			return
+		if Input.is_action_just_pressed("use_grapin"):
+			print("GRAPIN ON")
+			#isOnRope = true
+			timeoff = timeoff0
+			var rope_up_position = calculate_rope_up_position()
+			if (rope_up_position != null):
+				state = State.CLIMBING
+				rope_under_tension_sound.play()
+				_on_rope_up_created(rope_up_position)
+				#_last_position_on_ground = global_position
+				#global_position = rope_down_position
+				
+				set_collision_mask_value(1, true)
+				set_collision_mask_value(3, true)
+				#$CollisionShape2D.disabled = true
+			else:
+				#isOnRope = false
+				timeoff = 0
+				print("No grapin")
 			return
 	#rope movements:
 	else:
@@ -160,10 +182,8 @@ func _physics_process(delta):
 	
 	# All movement animations named appropriately
 	if movement == "Walk":
-		animation.flip_h = (velocity.x < 0)
-		toRight = (velocity.x < 0)
-	if isOnRope:
-		animation.flip_h = !toRight
+		toRight = (velocity.x > 0)
+	animation.flip_h = !toRight
 	animation.play(movement)
 	handleSonar()
 	
@@ -171,18 +191,28 @@ func _physics_process(delta):
 	# Move character, slide at collision
 	move_and_slide()
 	
-func calculate_rope_position():
+func calculate_rope_down_position():
 	if (toRight):
-		if $bottom_left.has_overlapping_bodies() == false:
-			return $bottom_left.global_position
-	else:
 		if $bottom_right.has_overlapping_bodies() == false:
 			return $bottom_right.global_position
+	else:
+		if $bottom_left.has_overlapping_bodies() == false:
+			return $bottom_left.global_position
+
+	return null
+
+func calculate_rope_up_position():
+	print('above head ', $above_head.has_overlapping_bodies(), $jump_left.has_overlapping_bodies(), $jump_right.has_overlapping_bodies())
+	if $above_head.has_overlapping_bodies() == false:
+		if (toRight):
+			return $jump_right.global_position
+		else:
+			return $jump_left.global_position
 
 	return null
 
 func isJumpOffFree():
-	if (toRight):
+	if (not toRight):
 		if $jump_left.has_overlapping_bodies() == false:
 			return $jump_left.global_position
 	else:
@@ -199,7 +229,6 @@ func goOffRope(pos):
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(3, false)
 	#$CollisionShape2D.disabled = false
-	print("HI", global_position, " ", pos)
 	if (pos != null):
 		set_global_position(pos)
 	_on_rope_destroyed()
@@ -236,13 +265,36 @@ func _process_fall():
 		
 		
 
-func _on_rope_created(pos):
+func _on_rope_down_created(pos):
 	scene_instance = scene.instantiate()
 	add_sibling(scene_instance)
 	scene_instance.set_name("Rope")
 	scene_instance.set_global_position(pos)
 	scene_instance.z_index = 2
 	scene_instance.player_leaves_rope.connect(falls_off_rope)
+	isOnRope = true
+
+func _on_rope_up_created(pos):
+	grapin_stone_instance = stone.instantiate()
+	var force = Vector2(0, -300)
+	var p = $grapin_right.global_position if toRight else $grapin_left.global_position
+	grapin_stone_instance.position = p
+	grapin_stone_instance.linear_velocity = force
+	grapin_stone_instance.floor.connect(_on_floor_grapin_found)
+	get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(grapin_stone_instance)
+
+func _on_floor_grapin_found(pos):
+	grapin_stone_instance.queue_free()
+	if (pos.y < global_position.y):
+		pos.y = pos.y - 60
+		_last_position_on_ground = pos
+		if (toRight):
+			_last_position_on_ground.x += 60 
+		else:
+			_last_position_on_ground.x -= 60
+		_on_rope_down_created(pos)
+	else:
+		print("GRAPIN not created")
 
 func _on_rope_destroyed():
 	scene_instance.queue_free()
