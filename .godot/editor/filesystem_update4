@@ -3,4 +3,4 @@ res://Credits/Credits.tscn
 res://Game/Rope_Area.tscn
 res://Game/rope.tscn
 res://Game/player.tscn
-res://Game/player.gd
+res://Game/Levels/Level1.tscn
