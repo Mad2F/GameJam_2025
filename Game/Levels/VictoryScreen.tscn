@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wnk8ov2brybr"]
 
-[ext_resource type="Texture2D" uid="uid://cmmqjx1t1aqwq" path="res://Game/resources/graphics/victory.png" id="1_3aek6"]
-[ext_resource type="Script" uid="uid://dsou7q5qqvunw" path="res://Game/Levels/VictoryScreen.gd" id="1_4k85o"]
+[ext_resource type="Texture2D" uid="uid://1adhea18l83p" path="res://Game/resources/graphics/victory.png" id="1_3aek6"]
+[ext_resource type="Script" uid="uid://1wo33cqxl0d4" path="res://Game/Levels/VictoryScreen.gd" id="1_4k85o"]
 
 [node name="VictoryScreen" type="Node2D"]
 script = ExtResource("1_4k85o")
