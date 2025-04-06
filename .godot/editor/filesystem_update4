@@ -5,3 +5,4 @@ res://Game/player.tscn
 res://Game/Objects/rope.tscn
 res://Game/Levels/LevelTutorial.tscn
 res://Game/player.gd
+res://Game/LevelsComponents/Camera.gd

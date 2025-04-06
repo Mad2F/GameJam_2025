@@ -7,7 +7,6 @@ func _ready() -> void:
 	playerCharacter = Globals.player
 
 func _physics_process(delta: float) -> void:
-	print(delta)
 	position.x = playerCharacter.position.x- ProjectSettings.get("display/window/size/viewport_height") / 2
 	position.y = playerCharacter.position.y - ProjectSettings.get("display/window/size/viewport_height") / 4
 	#if(position.y - playerCharacter.position.y < -ProjectSettings.get("display/window/size/viewport_height") / 3 * 2):
