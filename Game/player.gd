@@ -167,6 +167,7 @@ func _physics_process(delta):
 	#rope movements:
 	else:
 		velocity.y = 0
+		velocity.x = 0
 		movement = "Climb_Idle"
 		
 		if Input.is_action_just_pressed("climb"):
@@ -181,6 +182,7 @@ func _physics_process(delta):
 			print("JUMP OFF")
 			var jumpPos = isJumpOffFree()
 			if (jumpPos != null):
+				print("JUMP OFF now")
 				goOffRope(jumpPos)
 			return
 			
@@ -319,6 +321,7 @@ func _on_rope_up_created(pos):
 		grapin_stone_instances[i].linear_velocity = force
 		grapin_stone_instances[i].floor.connect(_on_floor_grapin_found)
 		grapin_stone_instances[i].index = i
+		grapin_stone_instances[i].hide()
 		get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(grapin_stone_instances[i])
 
 func _on_floor_grapin_found(pos, index):

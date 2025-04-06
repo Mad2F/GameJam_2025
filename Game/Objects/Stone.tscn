@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://clua3ygrpptq"]
 
-[ext_resource type="Script" uid="uid://buj7xh5bs1qgq" path="res://Game/Objects/Stone.gd" id="1_yxoc6"]
-[ext_resource type="Texture2D" uid="uid://o26vu5ubxpdm" path="res://Game/resources/misc/sprites-sonar.png" id="2_qx0n5"]
+[ext_resource type="Script" uid="uid://bgclkhij6qtk3" path="res://Game/Objects/Stone.gd" id="1_yxoc6"]
+[ext_resource type="Texture2D" uid="uid://bua3moydbvoy6" path="res://Game/resources/misc/sprites-sonar.png" id="2_qx0n5"]
 [ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="3_qx0n5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sd4xo"]
@@ -25,4 +25,5 @@ radius = 50.0
 intensity = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
