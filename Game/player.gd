@@ -19,7 +19,7 @@ enum State {IDLE, WALKING, IN_THE_AIR, CLIMBING}
 var animation_to_play := "Idle"
 var state : State = State.IDLE
 
-const SPEED = 300.0
+const SPEED = 100.0
 # About jump sound effect
 const JUMP_FALL_SOUND_DRIVE := 0.65 # Between 0.0 - 1.0, 0.65 is a sweet spot
 const MAX_FALL_PX := 200.0 # Max falling height (in px) for the fall sound effect 
@@ -34,6 +34,7 @@ var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time
 
 var _last_safe_y := 0.
 var _last_y_on_ground := 0.
+var _last_position_on_ground := Vector2(0.,0.)
 
 var isOnRope = false
 var timeoff0 = 10
@@ -106,10 +107,9 @@ func _physics_process(delta):
 				state = State.CLIMBING
 				rope_under_tension_sound.play()
 				_on_rope_created(rope_position)
-				print(rope_position)
+				_last_position_on_ground = global_position
 				global_position = rope_position
-				print(global_position)
-				_last_y_on_ground = global_position.y
+				print("Create", global_position, " ", _last_position_on_ground)
 
 				set_collision_mask_value(1, false)
 				set_collision_mask_value(3, true)
@@ -126,21 +126,25 @@ func _physics_process(delta):
 		movement = "Climb_Idle"
 		
 		if Input.is_action_just_pressed("climb"):
-			print("CLIMB OFF")
-			isOnRope = false
-			rope_under_tension_sound.stop()
-			state = State.IDLE
-			timeoff = timeoff0
-			_on_rope_destroyed()
-			set_collision_mask_value(1, true)
-			set_collision_mask_value(3, false)
-			#$CollisionShape2D.disabled = false
+			var potentialPosition = null
+			if (global_position.y - _last_position_on_ground.y < 75):
+				potentialPosition = _last_position_on_ground
+			goOffRope(potentialPosition)
+
+			return
+		
+		if Input.is_action_just_pressed("move_jump"):
+			print("JUMP OFF")
+			var jumpPos = isJumpOffFree()
+			print(jumpPos)
+			if (jumpPos != null):
+				goOffRope(jumpPos)
 			return
 			
 		var updown = Input.get_axis("ui_up", "ui_down")
 		if updown:
 			#cannot go above rope limit
-			if position.y + delta * updown * SPEED >= _last_y_on_ground:
+			if position.y + delta * updown * SPEED >= _last_position_on_ground.y:
 				velocity.y = updown * SPEED
 				movement = "Climb"
 	
@@ -158,13 +162,36 @@ func _physics_process(delta):
 	
 func calculate_rope_position():
 	if (toRight):
-		if $left.has_overlapping_bodies() == false:
-			return $left.global_position
+		if $bottom_left.has_overlapping_bodies() == false:
+			return $bottom_left.global_position
 	else:
-		if $right.has_overlapping_bodies() == false:
-			return $right.global_position
+		if $bottom_right.has_overlapping_bodies() == false:
+			return $bottom_right.global_position
 
 	return null
+
+func isJumpOffFree():
+	if (toRight):
+		if $jump_left.has_overlapping_bodies() == false:
+			return $jump_left.global_position
+	else:
+		if $jump_right.has_overlapping_bodies() == false:
+			return $jump_right.global_position
+
+	return null
+
+func goOffRope(pos):
+	isOnRope = false
+	rope_under_tension_sound.stop()
+	state = State.IDLE
+	timeoff = timeoff0
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(3, false)
+	#$CollisionShape2D.disabled = false
+	print("HI", global_position, " ", pos)
+	if (pos != null):
+		set_global_position(pos)
+	_on_rope_destroyed()
 
 func falls_off_rope():
 	print("player falls off")

@@ -4,3 +4,4 @@ res://Game/rope.tscn
 res://Game/player.tscn
 res://Game/rope.gd
 res://Game/rope_area.tscn
+res://Game/player.gd

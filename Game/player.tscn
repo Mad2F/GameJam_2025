@@ -240,11 +240,19 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_5gpxt")
 animation = &"Walk_Idle"
 
-[node name="left" parent="." instance=ExtResource("6_oyrjc")]
+[node name="bottom_left" parent="." instance=ExtResource("6_oyrjc")]
+visible = false
 position = Vector2(-60, 38)
 
-[node name="right" parent="." instance=ExtResource("6_oyrjc")]
+[node name="bottom_right" parent="." instance=ExtResource("6_oyrjc")]
+visible = false
 position = Vector2(49, 38)
+
+[node name="jump_left" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(49, -121)
+
+[node name="jump_right" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(-61, -120)
 
 [node name="Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oyrjc")
