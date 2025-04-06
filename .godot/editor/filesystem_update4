@@ -1,1 +1,12 @@
 res://default_bus_layout.tres
+res://Game/Levels/Level0.tscn
+res://Game/player.tscn
+res://Game/LevelsComponents/LevelShadow.gdshader
+res://Game/Levels/Level0_bis.tscn
+res://Game/Levels/Level1.tscn
+res://Game/LevelsComponents/LevelShadow.tscn
+res://Game/LevelsComponents/LevelTransitionEntry.gd
+res://Game/Objects/LightSource.gd
+res://Game/LevelsComponents/Camera.gd
+res://Game/LevelsComponents/Fog.gd
+res://Game/LevelsComponents/LevelShadow.gd

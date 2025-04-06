@@ -25,10 +25,14 @@ func _exit_tree() -> void:
 		level_shadow.remove_light_source(get_parent().name)
 
 func _process(delta: float) -> void:
-	#if(get_parent().position != last_position):
-	if(level_shadow):
-		var scale = Vector2(get_window().size) / Vector2(1080, 1080)
-		level_shadow.set_light_position(get_parent().name, scale * (get_parent().position + offset))
-	if(level_fog):
-		level_fog.clear_fog(get_parent().position + offset, lightImage)
+	if(get_parent().position != last_position):
+		if(level_shadow):
+			var coordScale = Vector2(get_window().size) / Vector2(1080, 720)
+			var cam = get_viewport().get_camera_2d()
+			if(cam):
+				level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset - cam.position))
+			else:
+				level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset))
+		if(level_fog):
+			level_fog.clear_fog(get_parent().position + offset, lightImage)
 	last_position = get_parent().position
