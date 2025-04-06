@@ -1,10 +1,10 @@
 shader_type canvas_item;
 
 uniform int NumberOfLightSource = 0;
-uniform vec2 CircleCentre[10];
-uniform float CircleRadius[10];
-uniform float CircleBlur[10];
-uniform float FlickerStrength[10];
+uniform vec2 CircleCentre[50];
+uniform float CircleRadius[50];
+uniform float CircleBlur[50];
+uniform float FlickerStrength[50];
 uniform vec4 Foreground: source_color = vec4(0.0, 0.0, 0.0, 0.85);
 
 
@@ -23,7 +23,9 @@ void fragment()
 {
     COLOR = Foreground;
     for(int i = 0; i<NumberOfLightSource; i++){
+        if(COLOR.a == 0.0 )
+            break;
         float a = RenderLightSource(i, FRAGCOORD.xy);
-         COLOR.a = min(COLOR.a, a);
+        COLOR.a = min(COLOR.a, a);        
     }
 }
