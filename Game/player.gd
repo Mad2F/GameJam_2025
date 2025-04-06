@@ -182,7 +182,7 @@ func _physics_process(delta):
 				goOffRope(jumpPos)
 			return
 			
-		var updown = Input.get_axis("ui_up", "ui_down")
+		var updown = Input.get_axis("move_up", "move_down")
 		if updown:
 			#cannot go above rope limit
 			if position.y + delta * updown * SPEED >= _last_position_on_ground.y:
