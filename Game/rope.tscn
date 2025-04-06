@@ -70,6 +70,8 @@ speed_scale = 5.0
 centered = false
 
 [node name="Area2D" parent="." instance=ExtResource("7_6yuh4")]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("8_xq6us")
 
 [node name="Rope" type="AudioStreamPlayer" parent="."]
