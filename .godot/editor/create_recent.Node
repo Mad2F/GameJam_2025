@@ -1,5 +1,8 @@
+Node
+Sprite2D
+CollisionShape2D
+RigidBody2D
 Camera2D
 Node2D
 ColorRect
 CanvasLayer
-Sprite2D

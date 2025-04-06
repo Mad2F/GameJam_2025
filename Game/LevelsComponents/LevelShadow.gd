@@ -20,6 +20,7 @@ func remove_light_source(id: String) -> void:
 	lightBlur.erase(id)
 	lightFlicker.erase(id)
 	updateShader()
+	print(id)
 
 func set_light_position(id: String, coord: Vector2) -> void:
 	lightCoord.set(id, coord)

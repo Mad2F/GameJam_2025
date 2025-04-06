@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://clua3ygrpptq"]
+
+[ext_resource type="Script" uid="uid://buj7xh5bs1qgq" path="res://Game/Objects/Stone.gd" id="1_yxoc6"]
+[ext_resource type="Texture2D" uid="uid://o26vu5ubxpdm" path="res://Game/resources/misc/sprites-sonar.png" id="2_qx0n5"]
+[ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="3_qx0n5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd4xo"]
+radius = 7.28011
+
+[node name="Stone" type="RigidBody2D"]
+collision_layer = 0
+contact_monitor = true
+max_contacts_reported = 4
+linear_velocity = Vector2(0, 0.505)
+script = ExtResource("1_yxoc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sd4xo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_qx0n5")
+
+[node name="LightSource" parent="." instance=ExtResource("3_qx0n5")]
+radius = 50.0
+intensity = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

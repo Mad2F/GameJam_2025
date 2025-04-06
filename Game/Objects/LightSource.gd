@@ -1,4 +1,5 @@
 extends Node2D
+class_name LightSource
 
 @export var radius: float = 100.0
 @export var flicker: float = 0.0
@@ -35,6 +36,10 @@ func _update_light():
 			level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset))
 	if(level_fog):
 		level_fog.clear_fog(get_parent().position + offset, lightImage)
+
+func updateIntensity():
+	if(level_shadow):
+		level_shadow.set_light_intensity(get_parent().name, intensity)
 
 func _process(delta: float) -> void:
 	if(get_parent().position != last_position):
