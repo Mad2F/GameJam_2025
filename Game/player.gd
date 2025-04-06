@@ -43,6 +43,8 @@ var toRight = true
 
 var currentFloor = null
 
+signal dead;
+
 @onready var scene = preload("res://Game/rope.tscn")
 @onready var scene_instance = null
 
@@ -109,9 +111,8 @@ func _physics_process(delta):
 				_on_rope_created(rope_position)
 				_last_position_on_ground = global_position
 				global_position = rope_position
-				print("Create", global_position, " ", _last_position_on_ground)
-
-				set_collision_mask_value(1, false)
+				
+				set_collision_mask_value(1, true)
 				set_collision_mask_value(3, true)
 				#$CollisionShape2D.disabled = true
 			else:
@@ -216,7 +217,13 @@ func _process_fall():
 			var effect = AudioServer.get_bus_effect(2, 0) # SFX Jump Bus -> Distorition
 			effect.drive = fall_drive
 			fall_sound.play()
+			
 		_last_safe_y = position.y 
+	
+	if (position.y - _last_safe_y> 120):
+		print("DEAD")
+		dead.emit()
+		
 		
 
 func _on_rope_created(pos):

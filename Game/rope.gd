@@ -5,31 +5,41 @@ signal player_leaves_rope
 @onready var on_any_rope := true
 @onready var timer := Timer.new()
 
+enum State {SMALL, MEDIUM, LONG}
+
+var state : State = State.SMALL
+
 func _ready():
 	rope_sound.play()
 	print("deploy !")
-	deploy()
-	#$AnimatedSprite2D.play("deploy")
-	#await($AnimatedSprite2D.animation_finished)
-	$RopeArea.player_leaves_rope.connect(release)
-	$RopeArea_middle.player_leaves_rope.connect(release)
-	$RopeArea_low.player_leaves_rope.connect(release)
-	$RopeArea.player_on_rope.connect(grab)
-	$RopeArea_middle.player_on_rope.connect(grab)
-	$RopeArea_low.player_on_rope.connect(grab)
+	
+	await get_tree().create_timer(0.2).timeout 
+	if $RopeArea_low.has_overlapping_bodies() == false:
+		state = State.LONG
+		$RopeTexture_middle.visible = true
+		await get_tree().create_timer(0.2).timeout
+		$RopeTexture_low.visible = true
+		$RopeArea_low.player_leaves_rope.connect(release)
+		$RopeArea_low.player_on_rope.connect(grab)
+		$RopeArea_low.set_collision_mask(2)
+	elif $RopeArea_middle.has_overlapping_bodies() == false:
+		state = State.MEDIUM
+		$RopeTexture_middle.visible = true
+		$RopeArea_middle.player_leaves_rope.connect(release)
+		$RopeArea_middle.player_on_rope.connect(grab) 
+		$RopeArea_middle.set_collision_mask(2)
+	else:
+		$RopeArea.player_leaves_rope.connect(release)
+		$RopeArea.player_on_rope.connect(grab)
+		$RopeArea.set_collision_mask(2)
+	print(state)
+	
 	
 	add_child(timer)
 	timer.wait_time = 0.5
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 
-func deploy():
-	await get_tree().create_timer(0.2).timeout 
-	if $RopeArea_middle.has_overlapping_bodies() == false:
-		$RopeTexture_middle.visible = true
-		await get_tree().create_timer(0.2).timeout 
-	if $RopeArea_low.has_overlapping_bodies() == false:
-			$RopeTexture_low.visible = true
 
 func _exit_tree():
 	print("call here destroy")
@@ -44,12 +54,14 @@ func _exit_tree():
 		$RopeTexture.visible = false
 		await get_tree().create_timer(0.5).timeout 
 	
-func grab():
+func grab(ropename):
 	on_any_rope = true
+	print("grab ",ropename)
 	if not timer.is_stopped():
 		timer.stop()
 
-func release():
+func release(ropename):
+	print("release ", ropename)
 	on_any_rope = false
 	timer.start()
 

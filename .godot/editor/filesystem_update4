@@ -5,3 +5,6 @@ res://Game/player.tscn
 res://Game/rope.gd
 res://Game/rope_area.tscn
 res://Game/player.gd
+res://Game/LevelsComponents/LevelShadow.gdshader
+res://Game/Objects/LightSource.gd
+res://Game/rope_area.gd
