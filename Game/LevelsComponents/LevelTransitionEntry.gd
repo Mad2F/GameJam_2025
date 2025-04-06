@@ -17,5 +17,4 @@ func _initPlayerPosition():
 	player = playerScene.instantiate()
 	player.z_index = 0
 	player.position = $PlayerStartPosition.global_position
-	print(player.position)
 	add_child(player)

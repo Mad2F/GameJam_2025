@@ -13,15 +13,16 @@ func _ready() -> void:
 	level_shadow = get_tree().get_root().get_node(get_tree().current_scene.name +"/LevelShadow")
 	level_fog = get_tree().get_root().get_node(get_tree().current_scene.name +"/Fog")	
 	if(level_shadow):
-		level_shadow.add_light_source(get_parent().name, get_parent().position + offset, radius, 1.0, flicker)
+		level_shadow.add_light_source(get_parent().name, get_parent().global_position + offset, radius, 1.0, flicker)
 
 func _exit_tree() -> void:
 	if(level_shadow):
 		level_shadow.remove_light_source(get_parent().name)
 
 func _process(delta: float) -> void:
-	if(level_shadow && get_parent().global_position != last_position):
-		level_shadow.set_light_position(get_parent().name, get_parent().global_position + offset)
+	#if(level_shadow && get_parent().global_position != last_position):
+	var scale = Vector2(get_window().size) / Vector2(1080, 1080)
+	level_shadow.set_light_position(get_parent().name, scale * (get_parent().global_position + offset))
 	if(level_fog):
 		level_fog.clear_fog(get_parent().global_position + offset)
 	last_position = get_parent().global_position
