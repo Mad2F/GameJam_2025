@@ -3,6 +3,7 @@ extends Node
 var playerScene = preload("res://Game/player.tscn")
 var _player : Player
 
+
 func _ready():
 	$PlayerStartPosition.hide()
 	_initPlayerPosition()
