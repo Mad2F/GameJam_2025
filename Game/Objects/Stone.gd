@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Stone
 
 var activated: bool = false
 var ephemeralLight: PackedScene = preload("res://Game/Objects/EphemeralLightSource.tscn")

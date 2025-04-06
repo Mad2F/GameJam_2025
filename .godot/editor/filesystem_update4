@@ -8,11 +8,8 @@ res://Game/Levels/Level0.tscn
 res://Game/rope.tscn
 res://Game/player.tscn
 res://Game/rope_area.tscn
-<<<<<<< HEAD
 res://Game/LevelsComponents/LevelShadow.gd
-=======
 res://Game/player.gd
-res://Game/LevelsComponents/LevelShadow.gdshader
-res://Game/Objects/LightSource.gd
+res://Game/rope.gd
 res://Game/rope_area.gd
->>>>>>> 3d8f911ec90df7c70ddbb4834b0ece931bb629b8
+res://Game/Objects/Lanterne.gd

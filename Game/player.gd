@@ -46,6 +46,7 @@ var currentFloor = null
 signal dead;
 
 @onready var scene = preload("res://Game/rope.tscn")
+@onready var stone = preload("res://Game/Objects/Stone.tscn")
 @onready var scene_instance = null
 
 # Start front idle animation on load
@@ -156,6 +157,7 @@ func _physics_process(delta):
 	if isOnRope:
 		animation.flip_h = !toRight
 	animation.play(movement)
+	handleSonar()
 	
 	_process_fall()
 	# Move character, slide at collision
@@ -236,3 +238,11 @@ func _on_rope_created(pos):
 
 func _on_rope_destroyed():
 	scene_instance.queue_free()
+
+func handleSonar():
+	if(Input.is_action_just_pressed("use_sonar")):
+		var instance: Stone = stone.instantiate()
+		var force = Vector2(-200.0, -300) if toRight else Vector2(200.0, -300.0)
+		instance.position = position
+		instance.linear_velocity = force
+		get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(instance)
