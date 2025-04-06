@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bqj7lqs8icmuv"]
+[gd_scene load_steps=51 format=4 uid="uid://bqj7lqs8icmuv"]
 
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="1_2rmtn"]
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="1_dn721"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://cuiepu8dbwgxt" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="22_jburu"]
 [ext_resource type="Texture2D" uid="uid://chhq48qg2x3un" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="23_73wo1"]
 [ext_resource type="Texture2D" uid="uid://8tet5xmya4a8" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="24_bovje"]
+[ext_resource type="PackedScene" uid="uid://gcjamr68iw70" path="res://Game/Map.tscn" id="29_2p4ue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("8_pkp1s")
@@ -207,3 +208,5 @@ use_kinematic_bodies = true
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("1_q1q7d")
+
+[node name="Map" parent="." instance=ExtResource("29_2p4ue")]

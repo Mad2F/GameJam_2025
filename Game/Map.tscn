@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://gcjamr68iw70"]
+[gd_scene load_steps=4 format=3 uid="uid://gcjamr68iw70"]
 
 [ext_resource type="Script" uid="uid://bwgmdnbf15jin" path="res://Game/Map.gd" id="1_m3v7p"]
+[ext_resource type="Texture2D" uid="uid://citoxe6ik73wy" path="res://Game/resources/misc/mapHidden.png" id="2_7vtpg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e2ksx"]
 
 [node name="Map" type="CanvasLayer"]
 script = ExtResource("1_m3v7p")
 
 [node name="MapHidden" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_e2ksx")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7vtpg")

@@ -1,8 +1,6 @@
 extends CanvasLayer
 class_name Map
 
-
-
 @onready var map_foreground: TextureRect = $MapHidden
 const LightTexture = preload("res://Game/resources/misc/light.png")
 const MapTexture = preload("res://Game/resources/misc/map.png")
@@ -24,8 +22,8 @@ func _ready():
 
 func clear_map(coord: Vector2):
 	var light_rect = Rect2(Vector2.ZERO, Vector2(lightImage.get_width(), lightImage.get_height()))		
-	var offset = Vector2(lightImage.get_width()/2.0, lightImage.get_height()/2.0)
-	mask_image.blend_rect(lightImage, light_rect, coord - offset)	
+	var off  = Vector2(lightImage.get_width()/2.0, lightImage.get_height()/2.0)
+	mask_image.blend_rect(lightImage, light_rect, coord - off)	
 	update_map_texture()
 
 func update_map_texture():
