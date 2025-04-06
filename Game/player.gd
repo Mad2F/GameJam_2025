@@ -44,6 +44,8 @@ var timeoff0 = 10
 var timeoff = 0
 var toRight = true
 
+var grapin_dict = {}
+
 var currentFloor = null
 
 signal dead;
@@ -51,7 +53,7 @@ signal dead;
 @onready var scene = preload("res://Game/Objects/rope.tscn")
 @onready var stone = preload("res://Game/Objects/Stone.tscn")
 @onready var scene_instance = null
-@onready var grapin_stone_instance = null
+@onready var grapin_stone_instances = [null, null, null, null, null]
 
 # Start front idle animation on load
 func _ready():
@@ -188,6 +190,8 @@ func _physics_process(delta):
 			if position.y + delta * updown * SPEED >= _last_position_on_ground.y:
 				velocity.y = updown * SPEED
 				movement = "Climb"
+			else:
+				goOffRope(_last_position_on_ground)
 	
 	# All movement animations named appropriately
 	if movement == "Walk":
@@ -201,20 +205,37 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func calculate_rope_down_position():
+	var pos = $bottom_right.global_position
 	if (toRight):
 		if $bottom_right.has_overlapping_bodies() == false:
-			var pos = $bottom_right.global_position
+			pos = $bottom_right.global_position
+			return pos
+		if $bottom_right2.has_overlapping_bodies() == false:
+			pos = $bottom_right2.global_position
+			return pos
+		if $bottom_right3.has_overlapping_bodies() == false:
+			pos = $bottom_right3.global_position
+			return pos
+		if $bottom_right4.has_overlapping_bodies() == false:
+			pos = $bottom_right4.global_position
 			return pos
 	else:
 		if $bottom_left.has_overlapping_bodies() == false:
-			var pos = $bottom_left.global_position
+			pos = $bottom_left.global_position
+			return pos
+		if $bottom_left2.has_overlapping_bodies() == false:
+			pos = $bottom_left2.global_position
+			return pos
+		if $bottom_left3.has_overlapping_bodies() == false:
+			pos = $bottom_left3.global_position
+			return pos
+		if $bottom_left4.has_overlapping_bodies() == false:
+			pos = $bottom_left4.global_position
 			return pos
 
 	return null
 
 func calculate_rope_up_position():
-	print('above head ', $above_head.has_overlapping_bodies(), $jump_left.has_overlapping_bodies(), $jump_right.has_overlapping_bodies())
-	#if $above_head.has_overlapping_bodies() == false:
 	if (toRight):
 		var pos = $jump_right.global_position
 		return pos
@@ -288,26 +309,56 @@ func _on_rope_down_created(pos):
 	isOnRope = true
 
 func _on_rope_up_created(pos):
-	grapin_stone_instance = stone.instantiate()
-	var force = Vector2(0, -300)
-	var p = $grapin_right.global_position if toRight else $grapin_left.global_position
-	grapin_stone_instance.position = p
-	grapin_stone_instance.linear_velocity = force
-	grapin_stone_instance.floor.connect(_on_floor_grapin_found)
-	get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(grapin_stone_instance)
+	grapin_dict.clear()
+	for i in range(5):
+		grapin_stone_instances[i] = stone.instantiate()
+		var force = Vector2(0, -300)
+		var p = $grapin_right.global_position if toRight else $grapin_left.global_position
+		p.x += i * 10 - 30
+		grapin_stone_instances[i].position = p
+		grapin_stone_instances[i].linear_velocity = force
+		grapin_stone_instances[i].floor.connect(_on_floor_grapin_found)
+		grapin_stone_instances[i].index = i
+		get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(grapin_stone_instances[i])
 
-func _on_floor_grapin_found(pos):
-	grapin_stone_instance.queue_free()
+func _on_floor_grapin_found(pos, index):
+	grapin_stone_instances[index].queue_free()
 	if (pos.y < global_position.y):
-		pos.y = pos.y - 60
-		_last_position_on_ground = pos
-		if (toRight):
-			_last_position_on_ground.x += 60 
-		else:
-			_last_position_on_ground.x -= 60
-		_on_rope_down_created(pos)
+		grapin_dict[pos] = true
 	else:
-		print("GRAPIN not created")
+		grapin_dict[pos] = false
+	
+	if grapin_dict.size() == 5:
+		print(grapin_dict)
+
+		var bestkey = null
+		var bestpos = -1
+		for key in grapin_dict:
+			print(key)
+			if (grapin_dict[key] == true):
+				if (bestpos == -1 or (not toRight and bestpos < key.x) or (toRight and bestpos > key.x)):
+					bestpos = key.x
+					bestkey = key
+		
+		if bestkey != null:
+			bestkey.y = bestkey.y - 60
+			if (toRight):
+				bestkey.x -= 40
+			else:
+				bestkey.x += 40
+				
+			_last_position_on_ground = bestkey
+			if (toRight):
+				_last_position_on_ground.x += 70 
+			else:
+				_last_position_on_ground.x -= 70
+			print("Create Rope at ", bestkey)
+			print("Last position on ground ", _last_position_on_ground)
+			_on_rope_down_created(bestkey)
+			global_position.x = bestkey.x
+			
+		else:
+			print("GRAPIN not created ")
 
 func _on_rope_destroyed():
 	scene_instance.queue_free()

@@ -1,9 +1,7 @@
 res://default_bus_layout.tres
-res://Game/player.gd
-res://Game/Objects/rope.tscn
 res://Game/Map.tscn
 res://Game/LevelsComponents/Fog.tscn
-res://Game/Map.gd
 res://Game/Levels/Level0.tscn
 res://Game/Levels/Level_biome1_1.tscn
 res://Game/Levels/Level_biome2_1.tscn
+res://Game/player.gd

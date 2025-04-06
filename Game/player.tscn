@@ -1,17 +1,17 @@
 [gd_scene load_steps=47 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
-[ext_resource type="Texture2D" uid="uid://dccoarhnrnlc0" path="res://Game/resources/sprites_player/sprites-climbing_2.png" id="2_uan04"]
-[ext_resource type="Texture2D" uid="uid://dlgfg5birdlpk" path="res://Game/resources/sprites_player/sprites-climbing-idle_2.png" id="3_uan04"]
-[ext_resource type="Texture2D" uid="uid://bgqhviuf2211f" path="res://Game/resources/sprites_player/sprites-jump_2.png" id="4_55vsq"]
-[ext_resource type="Texture2D" uid="uid://5qieolmxb72i" path="res://Game/resources/sprites_player/sprites-falling.png" id="4_i0ihy"]
-[ext_resource type="Texture2D" uid="uid://bvi0l5fufn7qe" path="res://Game/resources/sprites_player/sprite-walking_2.png" id="5_uan04"]
+[ext_resource type="Texture2D" uid="uid://dkudblk7oneng" path="res://Game/resources/sprites_player/sprites-climbing_2.png" id="2_uan04"]
+[ext_resource type="Texture2D" uid="uid://ckft70v84o36q" path="res://Game/resources/sprites_player/sprites-climbing-idle_2.png" id="3_uan04"]
+[ext_resource type="Texture2D" uid="uid://djym2gaegv584" path="res://Game/resources/sprites_player/sprites-jump_2.png" id="4_55vsq"]
+[ext_resource type="Texture2D" uid="uid://dmdmx3y03v8qa" path="res://Game/resources/sprites_player/sprites-falling.png" id="4_i0ihy"]
+[ext_resource type="Texture2D" uid="uid://b7atagdugplg4" path="res://Game/resources/sprites_player/sprite-walking_2.png" id="5_uan04"]
 [ext_resource type="PackedScene" uid="uid://bnh8n283yi8w1" path="res://Game/Objects/rope_area.tscn" id="6_oyrjc"]
-[ext_resource type="Texture2D" uid="uid://clsfxvhslwv3n" path="res://Game/resources/sprites_player/sprites-idle_2.png" id="6_uan04"]
+[ext_resource type="Texture2D" uid="uid://ccvqbwpfpa3fu" path="res://Game/resources/sprites_player/sprites-idle_2.png" id="6_uan04"]
 [ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="7_ltdye"]
-[ext_resource type="AudioStream" uid="uid://pfp1a3338jfw" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
-[ext_resource type="AudioStream" uid="uid://csmoemob41pfx" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
-[ext_resource type="AudioStream" uid="uid://ui3smnec8r47" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="AudioStream" uid="uid://bhnsufli8o2ad" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
+[ext_resource type="AudioStream" uid="uid://yduxwrcvrxjt" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
+[ext_resource type="AudioStream" uid="uid://b3wndiq6rfoly" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
 [ext_resource type="PackedScene" uid="uid://bmlosaeikhnm8" path="res://Game/Objects/Lanterne.tscn" id="12_uan04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
@@ -285,16 +285,16 @@ sprite_frames = SubResource("SpriteFrames_5gpxt")
 animation = &"Falling"
 
 [node name="bottom_left" parent="." instance=ExtResource("6_oyrjc")]
-position = Vector2(-60, 38)
+position = Vector2(-52, 37)
 
 [node name="bottom_right" parent="." instance=ExtResource("6_oyrjc")]
 position = Vector2(49, 38)
 
 [node name="jump_left" parent="." instance=ExtResource("6_oyrjc")]
-position = Vector2(-61, -121)
+position = Vector2(-52, -119)
 
 [node name="jump_right" parent="." instance=ExtResource("6_oyrjc")]
-position = Vector2(50, -120)
+position = Vector2(50, -119)
 
 [node name="Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oyrjc")
@@ -317,7 +317,7 @@ visible = false
 position = Vector2(23, 87)
 
 [node name="above_head" parent="." instance=ExtResource("6_oyrjc")]
-position = Vector2(-6, -120)
+position = Vector2(0, -118)
 
 [node name="grapin_left" type="Node2D" parent="."]
 position = Vector2(-23, -213)
@@ -327,3 +327,21 @@ position = Vector2(59, -211)
 
 [node name="grapin" type="Node2D" parent="."]
 position = Vector2(0, -212)
+
+[node name="bottom_right2" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(59, 38)
+
+[node name="bottom_left2" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(-62, 37)
+
+[node name="bottom_right3" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(69, 38)
+
+[node name="bottom_left3" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(-72, 37)
+
+[node name="bottom_right4" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(79, 38)
+
+[node name="bottom_left4" parent="." instance=ExtResource("6_oyrjc")]
+position = Vector2(-82, 37)

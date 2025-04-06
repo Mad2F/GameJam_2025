@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gcjamr68iw70"]
 
-[ext_resource type="Script" uid="uid://bwgmdnbf15jin" path="res://Game/Map.gd" id="1_m3v7p"]
-[ext_resource type="Texture2D" uid="uid://citoxe6ik73wy" path="res://Game/resources/misc/mapHidden.png" id="2_7vtpg"]
+[ext_resource type="Script" uid="uid://cr55j7oftf6y6" path="res://Game/Map.gd" id="1_m3v7p"]
+[ext_resource type="Texture2D" uid="uid://p13irnkqvmks" path="res://Game/resources/misc/mapHidden.png" id="2_7vtpg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e2ksx"]
 
