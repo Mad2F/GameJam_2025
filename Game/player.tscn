@@ -1,16 +1,16 @@
 [gd_scene load_steps=40 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
-[ext_resource type="Texture2D" uid="uid://bgogyjqupyml3" path="res://Game/resources/sprites_player/sprites-climbing.png" id="2_oyrjc"]
-[ext_resource type="Texture2D" uid="uid://dwhxf45jq7v74" path="res://Game/resources/sprites_player/sprites-climbing-idle.png" id="3_ltdye"]
-[ext_resource type="Texture2D" uid="uid://fqfd2lem0kw2" path="res://Game/resources/sprites_player/sprites-jump.png" id="4_wxy0c"]
-[ext_resource type="Texture2D" uid="uid://bcsb3e4n7tokm" path="res://Game/resources/sprites_player/sprite-walking.png" id="5_ltdye"]
+[ext_resource type="Texture2D" uid="uid://cc1heituqanon" path="res://Game/resources/sprites_player/sprites-climbing.png" id="2_oyrjc"]
+[ext_resource type="Texture2D" uid="uid://b7078mbrjvs7m" path="res://Game/resources/sprites_player/sprites-climbing-idle.png" id="3_ltdye"]
+[ext_resource type="Texture2D" uid="uid://cxj1kybayt0f1" path="res://Game/resources/sprites_player/sprites-jump.png" id="4_wxy0c"]
+[ext_resource type="Texture2D" uid="uid://cjdqvumm1uyms" path="res://Game/resources/sprites_player/sprite-walking.png" id="5_ltdye"]
 [ext_resource type="PackedScene" uid="uid://ddpidf15dw3w6" path="res://Game/Rope_Area.tscn" id="6_oyrjc"]
-[ext_resource type="Texture2D" uid="uid://slhbrjehhde1" path="res://Game/resources/sprites_player/sprites-idle.png" id="6_wxy0c"]
+[ext_resource type="Texture2D" uid="uid://b4jlse0tetifk" path="res://Game/resources/sprites_player/sprites-idle.png" id="6_wxy0c"]
 [ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="7_ltdye"]
-[ext_resource type="AudioStream" uid="uid://bhnsufli8o2ad" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
-[ext_resource type="AudioStream" uid="uid://yduxwrcvrxjt" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
-[ext_resource type="AudioStream" uid="uid://b3wndiq6rfoly" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="AudioStream" uid="uid://pfp1a3338jfw" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
+[ext_resource type="AudioStream" uid="uid://csmoemob41pfx" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
+[ext_resource type="AudioStream" uid="uid://ui3smnec8r47" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
 size = Vector2(49, 98)
@@ -253,7 +253,9 @@ stream = ExtResource("7_oyrjc")
 stream = ExtResource("8_ltdye")
 
 [node name="LightSource" parent="." instance=ExtResource("7_ltdye")]
-offset = Vector2(20, 30)
+radius = 200.0
+flicker = 10.0
+offset = Vector2(22.835, 28.395)
 
 [node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wxy0c")
