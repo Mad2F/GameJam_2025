@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://xwsxoedtwav7"]
+[gd_scene load_steps=66 format=4 uid="uid://xwsxoedtwav7"]
 
 [ext_resource type="Texture2D" uid="uid://bpgcwy1j6ucf1" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="1_1bby1"]
 [ext_resource type="Texture2D" uid="uid://b3qkd2nblitkx" path="res://Game/resources/graphics/backgrounds/biome1.png" id="2_hjad0"]
@@ -22,8 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://c3dpbebct2mtd" path="res://Game/resources/tilesets/120x120/tile-slope-mirror.png" id="20_6qnbw"]
 [ext_resource type="Texture2D" uid="uid://byfwglbse47nr" path="res://Game/resources/tilesets/120x120/stalactite-small.png" id="21_7iktu"]
 [ext_resource type="Texture2D" uid="uid://db1dmbrqbt0bh" path="res://Game/resources/tilesets/120x120/stalagmite-big.png" id="22_7ui8r"]
+[ext_resource type="Texture2D" uid="uid://b0unuwhhxaopi" path="res://Game/resources/tilesets/120x120/tile-corner50.png" id="22_g61gs"]
 [ext_resource type="Texture2D" uid="uid://bbptpswgvyyw6" path="res://Game/resources/tilesets/120x120/stalagmite-medium.png" id="23_ahaid"]
+[ext_resource type="Texture2D" uid="uid://xwo1eo8vbt73" path="res://Game/resources/tilesets/120x120/tile-corner50_mirror.png" id="23_b0sae"]
 [ext_resource type="Texture2D" uid="uid://csv26aoe2due" path="res://Game/resources/tilesets/120x120/stalagmite-small.png" id="24_8n7w5"]
+[ext_resource type="Texture2D" uid="uid://dpkgwq3mjdtjg" path="res://Game/resources/tilesets/120x120/tile-corner.png" id="24_lqu2l"]
+[ext_resource type="Texture2D" uid="uid://fjd0kpv61od3" path="res://Game/resources/tilesets/120x120/tile-corner_mirror.png" id="25_8wlq4"]
 [ext_resource type="Texture2D" uid="uid://1jr6yndpictr" path="res://Game/resources/tilesets/120x120/stalagmite-verybig.png" id="25_ru7yq"]
 [ext_resource type="Texture2D" uid="uid://patlijk7pd7g" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="26_jvilp"]
 [ext_resource type="Texture2D" uid="uid://bi4d5t3gs1ocf" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_uwvyo"]
@@ -113,6 +117,30 @@ texture = ExtResource("21_7iktu")
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egjgd"]
+texture = ExtResource("22_g61gs")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, -2.92821, -46.8512, 3.90426, 60, -60, 60)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jprc"]
+texture = ExtResource("23_b0sae")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.90427, -45.8751, 60, -60, 60, 60, -4.88034, 60)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uonwb"]
+texture = ExtResource("24_lqu2l")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eivbj"]
+texture = ExtResource("25_8wlq4")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81r17"]
 texture = ExtResource("22_7ui8r")
 texture_region_size = Vector2i(120, 120)
@@ -176,6 +204,10 @@ sources/16 = SubResource("TileSetAtlasSource_hej18")
 sources/17 = SubResource("TileSetAtlasSource_kvxvi")
 sources/18 = SubResource("TileSetAtlasSource_5jxsd")
 sources/19 = SubResource("TileSetAtlasSource_dfiqd")
+sources/20 = SubResource("TileSetAtlasSource_egjgd")
+sources/21 = SubResource("TileSetAtlasSource_2jprc")
+sources/22 = SubResource("TileSetAtlasSource_uonwb")
+sources/23 = SubResource("TileSetAtlasSource_eivbj")
 
 [node name="Biome1_Level1" type="Node2D"]
 
