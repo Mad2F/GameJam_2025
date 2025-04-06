@@ -19,9 +19,10 @@ func _ready():
 	fogImage.fill(Color.BLACK)
 	lightImage.convert(Image.FORMAT_RGBAH)
 
-func clear_fog(coord: Vector2):
-	var light_rect = Rect2(Vector2.ZERO, Vector2(lightImage.get_width(), lightImage.get_height()))	
-	fogImage.blend_rect(lightImage, light_rect, coord - light_offset)
+func clear_fog(coord: Vector2, light: Image):
+	var light_rect = Rect2(Vector2.ZERO, Vector2(light.get_width(), light.get_height()))	
+	var offset = Vector2(light.get_width()/2.0, light.get_height()/2.0)
+	fogImage.blend_rect(light, light_rect, coord - offset)
 	update_fog_image_texture()
 
 func update_fog_image_texture():
