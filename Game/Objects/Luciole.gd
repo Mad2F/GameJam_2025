@@ -12,6 +12,7 @@ func _ready():
 	_initial_position = position
 
 func _process(delta):
-	_displacement.x = clamp(_displacement.x + _rng.randf_range(-speed, speed) * delta, -_maxDisplacement.x, _maxDisplacement.x)
-	_displacement.y = clamp(_displacement.y + _rng.randf_range(-speed, speed) * delta, -_maxDisplacement.y, _maxDisplacement.y)
-	position = _initial_position + _displacement
+	pass
+	#_displacement.x = clamp(_displacement.x + _rng.randf_range(-speed, speed) * delta, -_maxDisplacement.x, _maxDisplacement.x)
+	#_displacement.y = clamp(_displacement.y + _rng.randf_range(-speed, speed) * delta, -_maxDisplacement.y, _maxDisplacement.y)
+	#position = _initial_position + _displacement
