@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnkm5fore2edu"]
+
+[ext_resource type="Texture2D" uid="uid://btmxinpjhchtg" path="res://Game/resources/misc/light.png" id="1_cyfis"]
+[ext_resource type="Script" uid="uid://bviojx2np8w6s" path="res://Game/Objects/Luciole.gd" id="1_y4np8"]
+[ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="2_y4np8"]
+
+[node name="Luciole" type="Node2D"]
+script = ExtResource("1_y4np8")
+
+[node name="LightSource" parent="." instance=ExtResource("2_y4np8")]
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cyfis")
