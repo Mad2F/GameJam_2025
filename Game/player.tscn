@@ -1,16 +1,17 @@
-[gd_scene load_steps=42 format=3 uid="uid://dgk3j14qj66fo"]
+[gd_scene load_steps=47 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
-[ext_resource type="Texture2D" uid="uid://dkudblk7oneng" path="res://Game/resources/sprites_player/sprites-climbing_2.png" id="2_uan04"]
-[ext_resource type="Texture2D" uid="uid://ckft70v84o36q" path="res://Game/resources/sprites_player/sprites-climbing-idle_2.png" id="3_uan04"]
-[ext_resource type="Texture2D" uid="uid://djym2gaegv584" path="res://Game/resources/sprites_player/sprites-jump_2.png" id="4_55vsq"]
-[ext_resource type="Texture2D" uid="uid://b7atagdugplg4" path="res://Game/resources/sprites_player/sprite-walking_2.png" id="5_uan04"]
+[ext_resource type="Texture2D" uid="uid://dccoarhnrnlc0" path="res://Game/resources/sprites_player/sprites-climbing_2.png" id="2_uan04"]
+[ext_resource type="Texture2D" uid="uid://dlgfg5birdlpk" path="res://Game/resources/sprites_player/sprites-climbing-idle_2.png" id="3_uan04"]
+[ext_resource type="Texture2D" uid="uid://bgqhviuf2211f" path="res://Game/resources/sprites_player/sprites-jump_2.png" id="4_55vsq"]
+[ext_resource type="Texture2D" uid="uid://5qieolmxb72i" path="res://Game/resources/sprites_player/sprites-falling.png" id="4_i0ihy"]
+[ext_resource type="Texture2D" uid="uid://bvi0l5fufn7qe" path="res://Game/resources/sprites_player/sprite-walking_2.png" id="5_uan04"]
 [ext_resource type="PackedScene" uid="uid://bnh8n283yi8w1" path="res://Game/Objects/rope_area.tscn" id="6_oyrjc"]
-[ext_resource type="Texture2D" uid="uid://ccvqbwpfpa3fu" path="res://Game/resources/sprites_player/sprites-idle_2.png" id="6_uan04"]
+[ext_resource type="Texture2D" uid="uid://clsfxvhslwv3n" path="res://Game/resources/sprites_player/sprites-idle_2.png" id="6_uan04"]
 [ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="7_ltdye"]
-[ext_resource type="AudioStream" uid="uid://bhnsufli8o2ad" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
-[ext_resource type="AudioStream" uid="uid://yduxwrcvrxjt" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
-[ext_resource type="AudioStream" uid="uid://b3wndiq6rfoly" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="AudioStream" uid="uid://pfp1a3338jfw" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
+[ext_resource type="AudioStream" uid="uid://csmoemob41pfx" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
+[ext_resource type="AudioStream" uid="uid://ui3smnec8r47" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
 [ext_resource type="PackedScene" uid="uid://bmlosaeikhnm8" path="res://Game/Objects/Lanterne.tscn" id="12_uan04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
@@ -47,6 +48,22 @@ region = Rect2(512, 0, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8p8j"]
 atlas = ExtResource("3_uan04")
 region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n07e0"]
+atlas = ExtResource("4_i0ihy")
+region = Rect2(0, 0, 246, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhnnj"]
+atlas = ExtResource("4_i0ihy")
+region = Rect2(246, 0, 246, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0svh5"]
+atlas = ExtResource("4_i0ihy")
+region = Rect2(492, 0, 246, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ylkk"]
+atlas = ExtResource("4_i0ihy")
+region = Rect2(738, 0, 246, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uan04"]
 atlas = ExtResource("4_55vsq")
@@ -162,6 +179,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_n07e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhnnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0svh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ylkk")
+}],
+"loop": true,
+"name": &"Falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_uan04")
 }, {
 "duration": 1.0,
@@ -248,7 +282,7 @@ shape = SubResource("RectangleShape2D_5gpxt")
 position = Vector2(26, 50)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_5gpxt")
-animation = &"Walk_Idle"
+animation = &"Falling"
 
 [node name="bottom_left" parent="." instance=ExtResource("6_oyrjc")]
 position = Vector2(-60, 38)
@@ -269,9 +303,11 @@ stream = ExtResource("7_oyrjc")
 stream = ExtResource("8_ltdye")
 
 [node name="LightSource" parent="." instance=ExtResource("7_ltdye")]
-radius = 200.0
+radius = 300.0
 flicker = 10.0
 offset = Vector2(22.835, 28.395)
+intensity = 2.0
+follow_camera = true
 
 [node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wxy0c")

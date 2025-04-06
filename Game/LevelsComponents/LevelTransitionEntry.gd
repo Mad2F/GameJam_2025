@@ -8,6 +8,8 @@ extends Node
 
 @export_file var previous_exit_point : String = "Main Menu" 
 
+
+
 func _ready():
 	$PlayerStartPosition.hide()
 	if (Globals.previousLevel == previous_exit_point):
@@ -15,6 +17,11 @@ func _ready():
 
 func _initPlayerPosition():
 	player = playerScene.instantiate()
+	Globals.player = player
+	player.dead.connect(_onPlayerDeath)
 	player.z_index = 0
 	player.position = $PlayerStartPosition.global_position
 	add_child(player)
+	
+func _onPlayerDeath():
+	print("Aie")

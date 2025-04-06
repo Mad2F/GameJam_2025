@@ -33,20 +33,19 @@ scale = Vector2(0.8, 0.766)
 texture = ExtResource("5_tft0n")
 
 [node name="RopeTexture" type="Sprite2D" parent="."]
-position = Vector2(21, 61)
+position = Vector2(22, 63)
+scale = Vector2(1, 0.970588)
 texture = ExtResource("6_slv2x")
 region_enabled = true
 region_rect = Rect2(50, 1.875, 18, 119.375)
 
 [node name="RopeTexture_middle" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(23, 182)
 texture = ExtResource("6_slv2x")
 region_enabled = true
 region_rect = Rect2(50, -0.875, 20, 122.125)
 
 [node name="RopeTexture_low" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(23, 299)
 texture = ExtResource("6_slv2x")
 region_enabled = true

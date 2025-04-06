@@ -24,7 +24,7 @@ const SPEED = 100.0
 const JUMP_FALL_SOUND_DRIVE := 0.65 # Between 0.0 - 1.0, 0.65 is a sweet spot
 const MAX_FALL_PX := 200.0 # Max falling height (in px) for the fall sound effect 
 
-@export var jump_height : float = 50
+@export var jump_height : float = 80
 @export var jump_time_to_peak : float = 0.4
 @export var jump_fall_time : float = 0.3
 
@@ -35,6 +35,9 @@ var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time
 var _last_safe_y := 0.
 var _last_y_on_ground := 0.
 var _last_position_on_ground := Vector2(0.,0.)
+
+var _lastTimeStoneLaunched : float = 0
+var _deltaTimeStone : float = 0.5
 
 var isOnRope = false
 var timeoff0 = 10
@@ -54,6 +57,7 @@ signal dead;
 func _ready():
 	animation.stop()
 	animation.play("Walk_Idle")
+	z_index = 2
 
 
 func _get_gravity():
@@ -65,6 +69,7 @@ func _get_gravity():
 
 func _physics_process(delta):
 	var movement = "Walk_Idle"
+	_lastTimeStoneLaunched += delta
 	
 	#Small timeoff for playability
 	if (timeoff > 0):
@@ -73,7 +78,6 @@ func _physics_process(delta):
 	
 	#Player is available
 	#If not on rope :
-	
 	if not isOnRope:
 		#add gravity
 		if not is_on_floor():
@@ -86,18 +90,22 @@ func _physics_process(delta):
 			else:
 				if ($lanterne.visible):
 					$lanterne.visible = false
-
 	
 		# Handle Jump.
 		if Input.is_action_just_pressed("move_jump") and is_on_floor():
 			velocity.y = _jump_velocity #move_toward(JUMP_VELOCITY, 0, SPEED)
 			state = State.IN_THE_AIR
-			print("JUMP")
 		elif state == State.IN_THE_AIR and is_on_floor():
 			state = State.IDLE
 			var effect = AudioServer.get_bus_effect(2, 0)
 			effect.drive = 0
 			fall_sound.play()
+
+		var isFalling = false
+		if (not is_on_floor()):
+			if position.y - _last_safe_y > 150:
+				movement = "Falling"
+				isFalling = true
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction = Input.get_axis("move_left", "move_right")
@@ -110,48 +118,50 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		#jump on/off rope
-		if Input.is_action_just_pressed("climb"):
-			print("CLIMB ON")
-			var rope_down_position = calculate_rope_down_position()
-			if (rope_down_position != null):
-				isOnRope = true
+		if (is_on_floor()):
+			#jump on/off rope
+			if Input.is_action_just_pressed("climb"):
+				print("CLIMB ON")
+				var rope_down_position = calculate_rope_down_position()
+				if (rope_down_position != null):
+					isOnRope = true
+					timeoff = timeoff0
+					state = State.CLIMBING
+					rope_under_tension_sound.play()
+					_on_rope_down_created(rope_down_position)
+					_last_position_on_ground = global_position
+					global_position = rope_down_position
+					toRight = !toRight
+				
+					set_collision_mask_value(1, true)
+					set_collision_mask_value(3, true)
+					#$CollisionShape2D.disabled = true
+				else:
+					isOnRope = false
+					timeoff = 0
+					print("No rope")
+				return
+			if Input.is_action_just_pressed("use_grapin"):
+				print("GRAPIN ON")
+				#isOnRope = true
 				timeoff = timeoff0
-				state = State.CLIMBING
-				rope_under_tension_sound.play()
-				_on_rope_down_created(rope_down_position)
-				_last_position_on_ground = global_position
-				global_position = rope_down_position
-				toRight = !toRight
+				var rope_up_position = calculate_rope_up_position()
+				if (rope_up_position != null):
+					state = State.CLIMBING
+					rope_under_tension_sound.play()
+					_on_rope_up_created(rope_up_position)
+					#_last_position_on_ground = global_position
+					#global_position = rope_down_position
 				
-				set_collision_mask_value(1, true)
-				set_collision_mask_value(3, true)
-				#$CollisionShape2D.disabled = true
-			else:
-				isOnRope = false
-				timeoff = 0
-				print("No rope")
-			return
-		if Input.is_action_just_pressed("use_grapin"):
-			print("GRAPIN ON")
-			#isOnRope = true
-			timeoff = timeoff0
-			var rope_up_position = calculate_rope_up_position()
-			if (rope_up_position != null):
-				state = State.CLIMBING
-				rope_under_tension_sound.play()
-				_on_rope_up_created(rope_up_position)
-				#_last_position_on_ground = global_position
-				#global_position = rope_down_position
-				
-				set_collision_mask_value(1, true)
-				set_collision_mask_value(3, true)
-				#$CollisionShape2D.disabled = true
-			else:
-				#isOnRope = false
-				timeoff = 0
-				print("No grapin")
-			return
+					set_collision_mask_value(1, true)
+					set_collision_mask_value(3, true)
+					#$CollisionShape2D.disabled = true
+				else:
+					#isOnRope = false
+					timeoff = 0
+					print("No grapin")
+				return
+
 	#rope movements:
 	else:
 		velocity.y = 0
@@ -168,7 +178,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("move_jump"):
 			print("JUMP OFF")
 			var jumpPos = isJumpOffFree()
-			print(jumpPos)
 			if (jumpPos != null):
 				goOffRope(jumpPos)
 			return
@@ -194,20 +203,24 @@ func _physics_process(delta):
 func calculate_rope_down_position():
 	if (toRight):
 		if $bottom_right.has_overlapping_bodies() == false:
-			return $bottom_right.global_position
+			var pos = $bottom_right.global_position
+			return pos
 	else:
 		if $bottom_left.has_overlapping_bodies() == false:
-			return $bottom_left.global_position
+			var pos = $bottom_left.global_position
+			return pos
 
 	return null
 
 func calculate_rope_up_position():
 	print('above head ', $above_head.has_overlapping_bodies(), $jump_left.has_overlapping_bodies(), $jump_right.has_overlapping_bodies())
-	if $above_head.has_overlapping_bodies() == false:
-		if (toRight):
-			return $jump_right.global_position
-		else:
-			return $jump_left.global_position
+	#if $above_head.has_overlapping_bodies() == false:
+	if (toRight):
+		var pos = $jump_right.global_position
+		return pos
+	else:
+		var pos = $jump_left.global_position
+		return pos
 
 	return null
 
@@ -270,7 +283,7 @@ func _on_rope_down_created(pos):
 	add_sibling(scene_instance)
 	scene_instance.set_name("Rope")
 	scene_instance.set_global_position(pos)
-	scene_instance.z_index = -1
+	scene_instance.z_index = 0
 	scene_instance.player_leaves_rope.connect(falls_off_rope)
 	isOnRope = true
 
@@ -300,9 +313,10 @@ func _on_rope_destroyed():
 	scene_instance.queue_free()
 
 func handleSonar():
-	if(Input.is_action_just_pressed("use_sonar")):
+	if(Input.is_action_just_pressed("use_sonar") and _lastTimeStoneLaunched > _deltaTimeStone):
+		_lastTimeStoneLaunched = 0
 		var instance: Stone = stone.instantiate()
-		var force = Vector2(-200.0, -300) if toRight else Vector2(200.0, -300.0)
-		instance.position = position
+		var force = Vector2(+200.0, -260) if toRight else Vector2(-200.0, -260.0)
+		instance.global_position = global_position + Vector2(30, 0) if toRight else global_position
 		instance.linear_velocity = force
 		get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(instance)

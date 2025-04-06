@@ -1,4 +1,13 @@
 res://default_bus_layout.tres
+<<<<<<< HEAD
 res://Game/Map.gd
 res://Game/Map.tscn
 res://Game/LevelsComponents/Fog.tscn
+=======
+res://MainMenu/MainMenu.tscn
+res://Game/Objects/Luciole.gd
+res://Game/player.tscn
+res://Game/Objects/rope.tscn
+res://Game/Levels/LevelTutorial.tscn
+res://Game/Levels/Level_biome1_1.tscn
+>>>>>>> 45d70373e5c9d6b247e807063349f44faa8e2d5a
