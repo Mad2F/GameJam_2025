@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=4 uid="uid://n8qwncqxkf74"]
+
+[ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="1_jnll6"]
+[ext_resource type="PackedScene" uid="uid://b28udu7of0te7" path="res://Game/LevelsComponents/Fog.tscn" id="2_sjmon"]
+[ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="3_nbcsi"]
+[ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="4_drsgo"]
+[ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="5_676gh"]
+[ext_resource type="Texture2D" uid="uid://d1lygb75kf0n" path="res://Game/resources/tilesets/demo.png" id="6_ol43u"]
+[ext_resource type="PackedScene" uid="uid://bos2a20xobnkf" path="res://Game/LevelsComponents/LevelTransitionEntry.tscn" id="7_2e8lc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wanyh"]
+texture = ExtResource("6_ol43u")
+texture_region_size = Vector2i(60, 60)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, -30, 30, -30, 30, 30, -30, 30)
+
+[sub_resource type="TileSet" id="TileSet_vjihd"]
+tile_size = Vector2i(60, 60)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_wanyh")
+
+[node name="Level0Bis" type="Node2D"]
+
+[node name="LevelShadow" parent="." instance=ExtResource("1_jnll6")]
+visible = false
+
+[node name="Fog" parent="." instance=ExtResource("2_sjmon")]
+visible = false
+
+[node name="WaterDrop" parent="." instance=ExtResource("3_nbcsi")]
+position = Vector2(225, 33)
+loop_time_second = 1
+
+[node name="BaseComponents" parent="." instance=ExtResource("4_drsgo")]
+
+[node name="LevelTransition" parent="." instance=ExtResource("5_676gh")]
+position = Vector2(16, 251)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAUAAQACAAAAAAABAAUAAQACAAAAAAACAAUAAQACAAAAAAADAAUAAQACAAAAAAAEAAUAAQACAAAAAAAFAAUAAQACAAAAAAAGAAUAAQACAAAAAAAHAAUAAQACAAAAAAAIAAUAAQACAAAAAAAJAAUAAQACAAAAAAAKAAUAAQACAAAAAAADAAsAAQACAAAAAAAEAAsAAQACAAAAAAAFAAsAAQACAAAAAAAGAAsAAQACAAAAAAAHAAsAAQACAAAAAAAIAAsAAQACAAAAAAAJAAsAAQACAAAAAAAKAAsAAQACAAAAAAALAAsAAQACAAAAAAAMAAsAAQACAAAAAAANAAsAAQACAAAAAAAOAAsAAQACAAAAAAAPAAsAAQACAAAAAAAQAAsAAQACAAAAAAARAAsAAQACAAAAAAASAAsAAQACAAAAAAATAAsAAQACAAAAAAAUAAsAAQACAAAAAAAVAAsAAQACAAAAAAAWAAsAAQACAAAAAAAXAAsAAQACAAAAAAAYAAsAAQACAAAAAAAQABAAAQACAAAAAAARABAAAQACAAAAAAASABAAAQACAAAAAAATABAAAQACAAAAAAAUABAAAQACAAAAAAAVABAAAQACAAAAAAAWABAAAQACAAAAAAAXABAAAQACAAAAAAAYABAAAQACAAAAAAAZABAAAQACAAAAAAAaABAAAQACAAAAAAAbABAAAQACAAAAAAAcABAAAQACAAAAAAAdABAAAQACAAAAAAAUAAUAAQACAAAAAAAVAAUAAQACAAAAAAAWAAUAAQACAAAAAAAXAAUAAQACAAAAAAAYAAUAAQACAAAAAAAZAAUAAQACAAAAAAAaAAUAAQACAAAAAAAbAAUAAQACAAAAAAAcAAUAAQACAAAAAAAdAAUAAQACAAAAAAAeAAUAAQACAAAAAAAfAAUAAQACAAAAAAAgAAUAAQACAAAAAAACAAsAAQACAAAAAAABAAsAAQACAAAAAAAAAAsAAQACAAAAAAA=")
+tile_set = SubResource("TileSet_vjihd")
+
+[node name="PlayerStartPosition" parent="." instance=ExtResource("7_2e8lc")]
+position = Vector2(150, 0)
+previous_exit_point = "Level 0"

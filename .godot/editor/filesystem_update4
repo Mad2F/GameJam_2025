@@ -1,14 +1,1 @@
-res://Game/LevelsComponents/Fog.tscn
-res://Game/LevelsComponents/LevelShadow.gdshader
-res://Game/LevelsComponents/LevelShadow.tscn
-res://Game/player.tscn
-res://Game/Levels/Level0.tscn
-res://Game/LevelsComponents/Fog.gd
-res://Game/player.gd
-res://Game/rope.gd
-res://Game/rope.tscn
-res://Game/Rope_Area.tscn
-res://Game/LevelsComponents/LevelBaseComponents.gd
-res://Game/LevelsComponents/LevelBaseComponents.tscn
-res://Game/Objects/WaterDrop.gd
-res://Game/Objects/LightSource.gd
+res://default_bus_layout.tres

@@ -32,6 +32,7 @@ var _jump_velocity : float = - 2.0 * jump_height / jump_time_to_peak
 var _jump_gravity : float = 2.0 * jump_height / (jump_time_to_peak * jump_time_to_peak)
 var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time)
 
+var _last_safe_y := 0.
 var _last_y_on_ground := 0.
 
 var isOnRope = false
@@ -41,8 +42,8 @@ var toRight = true
 
 var currentFloor = null
 
-signal createRope(message: Vector2)
-signal destroyRope()
+@onready var scene = preload("res://Game/rope.tscn")
+@onready var scene_instance = null
 
 # Start front idle animation on load
 func _ready():
@@ -104,8 +105,11 @@ func _physics_process(delta):
 			if (rope_position != null):
 				state = State.CLIMBING
 				rope_under_tension_sound.play()
-				createRope.emit(rope_position)
+				_on_rope_created(rope_position)
+				print(rope_position)
 				global_position = rope_position
+				print(global_position)
+				_last_y_on_ground = global_position.y
 
 				set_collision_mask_value(1, false)
 				set_collision_mask_value(3, true)
@@ -127,7 +131,7 @@ func _physics_process(delta):
 			rope_under_tension_sound.stop()
 			state = State.IDLE
 			timeoff = timeoff0
-			destroyRope.emit()
+			_on_rope_destroyed()
 			set_collision_mask_value(1, true)
 			set_collision_mask_value(3, false)
 			#$CollisionShape2D.disabled = false
@@ -135,8 +139,10 @@ func _physics_process(delta):
 			
 		var updown = Input.get_axis("ui_up", "ui_down")
 		if updown:
-			velocity.y = updown * SPEED
-			movement = "Climb"
+			#cannot go above rope limit
+			if position.y + delta * updown * SPEED >= _last_y_on_ground:
+				velocity.y = updown * SPEED
+				movement = "Climb"
 	
 	# All movement animations named appropriately
 	if movement == "Walk":
@@ -160,11 +166,21 @@ func calculate_rope_position():
 
 	return null
 
+func falls_off_rope():
+	print("player falls off")
+	isOnRope = false
+	_on_rope_destroyed()
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(3, false)
+	
+	return null
+
 func _process_fall():
-	var fall_height = int(position.y - _last_y_on_ground)
+	var fall_height = int(position.y - _last_safe_y)
 	if (is_on_floor() or isOnRope): #on considere la corde comme le sol d'un point de vue chute
 		#if (fall_height > 0):
 			#print("Aie, tombé d'une hauteur de " + str(fall_height) + " pixels") #on est tombé
+		_last_safe_y = position.y 
 		if fall_height > 0 and not isOnRope:
 			var fall_drive = fall_height
 			if fall_drive > MAX_FALL_PX:
@@ -173,4 +189,16 @@ func _process_fall():
 			var effect = AudioServer.get_bus_effect(2, 0) # SFX Jump Bus -> Distorition
 			effect.drive = fall_drive
 			fall_sound.play()
-		_last_y_on_ground = position.y 
+		_last_safe_y = position.y 
+		
+
+func _on_rope_created(pos):
+	scene_instance = scene.instantiate()
+	add_sibling(scene_instance)
+	scene_instance.set_name("Rope")
+	scene_instance.set_global_position(pos)
+	scene_instance.z_index = 2
+	scene_instance.player_leaves_rope.connect(falls_off_rope)
+
+func _on_rope_destroyed():
+	scene_instance.queue_free()
