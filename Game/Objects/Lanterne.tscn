@@ -10,7 +10,7 @@ script = ExtResource("1_6o2kb")
 
 [node name="LightSource" parent="." instance=ExtResource("2_m2fnc")]
 radius = 500.0
-intensity = 5.0
+intensity = 4.0
 
 [node name="LightSprite" type="Sprite2D" parent="."]
 modulate = Color(0.949047, 0.827776, 0.511135, 1)
