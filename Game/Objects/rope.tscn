@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://2348svrf3ir"]
 
-[ext_resource type="Script" uid="uid://bhpmge1dyvlo3" path="res://Game/Objects/rope.gd" id="1_h1h7e"]
-[ext_resource type="Texture2D" uid="uid://badud2kk48ixa" path="res://Game/resources/sprites_player/sprites-ropepick.png" id="5_tft0n"]
-[ext_resource type="Texture2D" uid="uid://cdg0lcnh0336b" path="res://Game/resources/sprites_player/sprites-rope.png" id="6_slv2x"]
+[ext_resource type="Script" uid="uid://ct8ljcqapgh6j" path="res://Game/Objects/rope.gd" id="1_h1h7e"]
+[ext_resource type="Texture2D" uid="uid://de2g8mkc2dqla" path="res://Game/resources/sprites_player/sprites-ropepick.png" id="5_tft0n"]
+[ext_resource type="Texture2D" uid="uid://bhowmtpml2feu" path="res://Game/resources/sprites_player/sprites-rope.png" id="6_slv2x"]
 [ext_resource type="PackedScene" uid="uid://bnh8n283yi8w1" path="res://Game/Objects/rope_area.tscn" id="7_6yuh4"]
-[ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/Objects/rope_area.gd" id="8_xq6us"]
-[ext_resource type="AudioStream" uid="uid://cjrg5xujxgu6r" path="res://Game/resources/audio/rope.ogg" id="9_skrkf"]
+[ext_resource type="Script" uid="uid://4rashaasrnv1" path="res://Game/Objects/rope_area.gd" id="8_xq6us"]
+[ext_resource type="AudioStream" uid="uid://f4abo8f4jpvw" path="res://Game/resources/audio/rope.ogg" id="9_skrkf"]
 
 [node name="Rope" type="Node2D"]
 script = ExtResource("1_h1h7e")
