@@ -11,8 +11,6 @@ var state : State = State.SMALL
 
 func _ready():
 	rope_sound.play()
-	print("deploy !")
-	
 	await get_tree().create_timer(0.2).timeout 
 	if $RopeArea_low.has_overlapping_bodies() == false:
 		state = State.LONG
@@ -36,7 +34,7 @@ func _ready():
 	
 	
 	add_child(timer)
-	timer.wait_time = 0.5
+	timer.wait_time = 0.05
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 

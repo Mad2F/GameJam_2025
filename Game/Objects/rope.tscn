@@ -33,7 +33,7 @@ scale = Vector2(0.8, 0.766)
 texture = ExtResource("5_tft0n")
 
 [node name="RopeTexture" type="Sprite2D" parent="."]
-position = Vector2(21, 59.25)
+position = Vector2(22, 63)
 scale = Vector2(1, 0.970588)
 texture = ExtResource("6_slv2x")
 region_enabled = true

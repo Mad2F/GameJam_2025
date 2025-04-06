@@ -179,16 +179,13 @@ sources/19 = SubResource("TileSetAtlasSource_dfiqd")
 [node name="Tutorial" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(544, 940)
 texture = ExtResource("1_un0xd")
 
 [node name="Fog" parent="." instance=ExtResource("3_gum33")]
-visible = false
 LevelDimension = Vector2(1080, 2160)
 
 [node name="LevelShadow" parent="." instance=ExtResource("2_xejrs")]
-visible = false
 
 [node name="WaterDrop" parent="." instance=ExtResource("4_n173v")]
 position = Vector2(225, 33)

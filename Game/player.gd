@@ -24,7 +24,7 @@ const SPEED = 100.0
 const JUMP_FALL_SOUND_DRIVE := 0.65 # Between 0.0 - 1.0, 0.65 is a sweet spot
 const MAX_FALL_PX := 200.0 # Max falling height (in px) for the fall sound effect 
 
-@export var jump_height : float = 50
+@export var jump_height : float = 80
 @export var jump_time_to_peak : float = 0.4
 @export var jump_fall_time : float = 0.3
 
@@ -54,6 +54,7 @@ signal dead;
 func _ready():
 	animation.stop()
 	animation.play("Walk_Idle")
+	z_index = 2
 
 
 func _get_gravity():
@@ -96,21 +97,24 @@ func _physics_process(delta):
 			effect.drive = 0
 			fall_sound.play()
 
+		var isFalling = false
 		if (not is_on_floor()):
 			if position.y - _last_safe_y > 150:
 				movement = "Falling"
+				isFalling = true
+
+		# Get the input direction and handle the movement/deceleration.
+		var direction = Input.get_axis("move_left", "move_right")
+		if direction:
+			velocity.x = direction * SPEED
+			movement = "Walk"
+			if not step_sound.playing and is_on_floor() :
+				state = State.WALKING
+				step_sound.play()
 		else:
-			# Get the input direction and handle the movement/deceleration.
-			var direction = Input.get_axis("move_left", "move_right")
-			if direction:
-				velocity.x = direction * SPEED
-				movement = "Walk"
-				if not step_sound.playing and is_on_floor() :
-					state = State.WALKING
-					step_sound.play()
-			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+		if (is_on_floor()):
 			#jump on/off rope
 			if Input.is_action_just_pressed("climb"):
 				print("CLIMB ON")
@@ -170,7 +174,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("move_jump"):
 			print("JUMP OFF")
 			var jumpPos = isJumpOffFree()
-			print(jumpPos)
 			if (jumpPos != null):
 				goOffRope(jumpPos)
 			return
@@ -197,27 +200,23 @@ func calculate_rope_down_position():
 	if (toRight):
 		if $bottom_right.has_overlapping_bodies() == false:
 			var pos = $bottom_right.global_position
-			pos.x = floor($bottom_right.global_position.x / 120) * 120
 			return pos
 	else:
 		if $bottom_left.has_overlapping_bodies() == false:
 			var pos = $bottom_left.global_position
-			pos.x = floor($bottom_left.global_position.x / 120) * 120
 			return pos
 
 	return null
 
 func calculate_rope_up_position():
 	print('above head ', $above_head.has_overlapping_bodies(), $jump_left.has_overlapping_bodies(), $jump_right.has_overlapping_bodies())
-	if $above_head.has_overlapping_bodies() == false:
-		if (toRight):
-			var pos = $jump_right.global_position
-			pos.x = floor($jump_right.global_position.x / 120) * 120 + 60
-			return pos
-		else:
-			var pos = $jump_left.global_position
-			pos.x = floor($jump_left.global_position.x / 120) * 120
-			return pos
+	#if $above_head.has_overlapping_bodies() == false:
+	if (toRight):
+		var pos = $jump_right.global_position
+		return pos
+	else:
+		var pos = $jump_left.global_position
+		return pos
 
 	return null
 
@@ -280,7 +279,7 @@ func _on_rope_down_created(pos):
 	add_sibling(scene_instance)
 	scene_instance.set_name("Rope")
 	scene_instance.set_global_position(pos)
-	scene_instance.z_index = -1
+	scene_instance.z_index = 0
 	scene_instance.player_leaves_rope.connect(falls_off_rope)
 	isOnRope = true
 
