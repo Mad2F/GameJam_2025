@@ -1,22 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://2348svrf3ir"]
+[gd_scene load_steps=7 format=3 uid="uid://2348svrf3ir"]
 
 [ext_resource type="Script" uid="uid://bhpmge1dyvlo3" path="res://Game/Objects/rope.gd" id="1_h1h7e"]
+[ext_resource type="Texture2D" uid="uid://badud2kk48ixa" path="res://Game/resources/sprites_player/sprites-ropepick.png" id="5_tft0n"]
+[ext_resource type="Texture2D" uid="uid://cdg0lcnh0336b" path="res://Game/resources/sprites_player/sprites-rope.png" id="6_slv2x"]
 [ext_resource type="PackedScene" uid="uid://bnh8n283yi8w1" path="res://Game/Objects/rope_area.tscn" id="7_6yuh4"]
 [ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/Objects/rope_area.gd" id="8_xq6us"]
 [ext_resource type="AudioStream" uid="uid://cjrg5xujxgu6r" path="res://Game/resources/audio/rope.ogg" id="9_skrkf"]
-[ext_resource type="Texture2D" uid="uid://c4p26iuhwhvha" path="res://Game/hook.png" id="10_o5kou"]
 
 [node name="Rope" type="Node2D"]
 script = ExtResource("1_h1h7e")
 
 [node name="RopeArea" parent="." instance=ExtResource("7_6yuh4")]
+visible = false
 script = ExtResource("8_xq6us")
 
 [node name="RopeArea_middle" parent="." instance=ExtResource("7_6yuh4")]
+visible = false
 scale = Vector2(1, 2)
 script = ExtResource("8_xq6us")
 
 [node name="RopeArea_low" parent="." instance=ExtResource("7_6yuh4")]
+visible = false
 scale = Vector2(1, 3)
 script = ExtResource("8_xq6us")
 
@@ -24,18 +28,39 @@ script = ExtResource("8_xq6us")
 stream = ExtResource("9_skrkf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(12.25, 12.75)
-scale = Vector2(0.0458984, 0.0439453)
-texture = ExtResource("10_o5kou")
+position = Vector2(22, 9)
+scale = Vector2(0.8, 0.766)
+texture = ExtResource("5_tft0n")
 
-[node name="RopeTexture" type="ColorRect" parent="."]
+[node name="RopeTexture" type="Sprite2D" parent="."]
+position = Vector2(21, 61)
+texture = ExtResource("6_slv2x")
+region_enabled = true
+region_rect = Rect2(50, 1.875, 18, 119.375)
+
+[node name="RopeTexture_middle" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(23, 182)
+texture = ExtResource("6_slv2x")
+region_enabled = true
+region_rect = Rect2(50, -0.875, 20, 122.125)
+
+[node name="RopeTexture_low" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(23, 299)
+texture = ExtResource("6_slv2x")
+region_enabled = true
+region_rect = Rect2(50, -0.875, 20, 122.125)
+
+[node name="RopeTexture_old" type="ColorRect" parent="."]
+visible = false
 offset_left = 16.0
 offset_top = 18.0
 offset_right = 20.0
 offset_bottom = 120.0
 color = Color(1, 0.819608, 0.360784, 1)
 
-[node name="RopeTexture_middle" type="ColorRect" parent="."]
+[node name="RopeTexture_middle_old" type="ColorRect" parent="."]
 visible = false
 offset_left = 16.0
 offset_top = 120.0
@@ -43,7 +68,7 @@ offset_right = 20.0
 offset_bottom = 240.0
 color = Color(1, 0.819608, 0.360784, 1)
 
-[node name="RopeTexture_low" type="ColorRect" parent="."]
+[node name="RopeTexture_low_old" type="ColorRect" parent="."]
 visible = false
 offset_left = 16.0
 offset_top = 240.0
