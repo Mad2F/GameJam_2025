@@ -36,6 +36,9 @@ var _last_safe_y := 0.
 var _last_y_on_ground := 0.
 var _last_position_on_ground := Vector2(0.,0.)
 
+var _lastTimeStoneLaunched : float = 0
+var _deltaTimeStone : float = 0.5
+
 var isOnRope = false
 var timeoff0 = 10
 var timeoff = 0
@@ -66,6 +69,7 @@ func _get_gravity():
 
 func _physics_process(delta):
 	var movement = "Walk_Idle"
+	_lastTimeStoneLaunched += delta
 	
 	#Small timeoff for playability
 	if (timeoff > 0):
@@ -309,9 +313,10 @@ func _on_rope_destroyed():
 	scene_instance.queue_free()
 
 func handleSonar():
-	if(Input.is_action_just_pressed("use_sonar")):
+	if(Input.is_action_just_pressed("use_sonar") and _lastTimeStoneLaunched > _deltaTimeStone):
+		_lastTimeStoneLaunched = 0
 		var instance: Stone = stone.instantiate()
-		var force = Vector2(-200.0, -300) if toRight else Vector2(200.0, -300.0)
-		instance.position = position
+		var force = Vector2(+200.0, -260) if toRight else Vector2(-200.0, -260.0)
+		instance.global_position = global_position + Vector2(30, 0) if toRight else global_position
 		instance.linear_velocity = force
 		get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(instance)
