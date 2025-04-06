@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://d3l2hitvl43u4"]
+[gd_scene load_steps=57 format=4 uid="uid://d3l2hitvl43u4"]
 
 [ext_resource type="Texture2D" uid="uid://b3qkd2nblitkx" path="res://Game/resources/graphics/backgrounds/biome1.png" id="1_un0xd"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="2_xejrs"]
@@ -28,6 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://bpgcwy1j6ucf1" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="26_bhghn"]
 [ext_resource type="Texture2D" uid="uid://bi4d5t3gs1ocf" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_74xt6"]
 [ext_resource type="Script" uid="uid://cjcdnb6hww3j3" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
+[ext_resource type="PackedScene" uid="uid://bnkm5fore2edu" path="res://Game/Objects/Luciole.tscn" id="29_xejrs"]
+[ext_resource type="Texture2D" uid="uid://ty77wtqdwts7" path="res://Game/resources/misc/crystal-small.png" id="30_0woi7"]
+[ext_resource type="Texture2D" uid="uid://b0lqo024ojmuf" path="res://Game/resources/misc/crystal-med.png" id="31_ac4fi"]
+[ext_resource type="Texture2D" uid="uid://bgvlak5x8di4d" path="res://Game/resources/misc/crystal-big.png" id="32_eykec"]
+[ext_resource type="Texture2D" uid="uid://do3t4adacwknh" path="res://Game/resources/misc/shroom-small.png" id="33_ewbu0"]
+[ext_resource type="Texture2D" uid="uid://c77s2swwf0vp4" path="res://Game/resources/misc/shroom-big.png" id="34_eykec"]
+[ext_resource type="Texture2D" uid="uid://dpw5ihanibn87" path="res://Game/resources/misc/bats.png" id="35_ewbu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("8_eykec")
@@ -175,12 +182,10 @@ sources/19 = SubResource("TileSetAtlasSource_dfiqd")
 position = Vector2(544, 940)
 texture = ExtResource("1_un0xd")
 
-[node name="LevelShadow" parent="." instance=ExtResource("2_xejrs")]
-visible = false
-
 [node name="Fog" parent="." instance=ExtResource("3_gum33")]
-position = Vector2(1, 0)
 LevelDimension = Vector2(1080, 2160)
+
+[node name="LevelShadow" parent="." instance=ExtResource("2_xejrs")]
 
 [node name="WaterDrop" parent="." instance=ExtResource("4_n173v")]
 position = Vector2(225, 33)
@@ -189,7 +194,7 @@ loop_time_second = 1
 [node name="BaseComponents" parent="." instance=ExtResource("5_et8f5")]
 
 [node name="LevelTransition" parent="." instance=ExtResource("6_0woi7")]
-position = Vector2(119, 1069)
+position = Vector2(854, 958)
 scale = Vector2(6, 6)
 nextLevelSceneName = "res://Game/Levels/Level1.tscn"
 currentLevelSceneName = "Level 0"
@@ -200,9 +205,195 @@ position = Vector2(39, -13)
 [node name="TileMapLayer120" type="TileMapLayer" parent="."]
 position = Vector2(1, 0)
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAAEAAIADAAAAAAAAAADAAIADAAAAAAAAAAEAAMACAAAAAAAAAADAAMACAAAAAAAAAD//wQACAAAAAAAAAD//wMACAAAAAAAAAD//wIACAAAAAAAAAD//wEACAAAAAAAAAD//wAACAAAAAAAAAD//wUACAAAAAAAAAD//wYACAAAAAAAAAD//wcACQAAAAAAAAD//wgACAAAAAAAAAD//wkACAAAAAAAAAD//woACAAAAAAAAAAAAAoACgAAAAAAAAABAAoACAAAAAAAAAACAAoACAAAAAAAAAADAAoACAAAAAAAAAAEAAoACAAAAAAAAAAFAAoACQAAAAAAAAAGAAoACAAAAAAAAAAHAAoACAAAAAAAAAAIAAoACAAAAAAAAAAAAAkADAAAAAAAAAABAAkADAAAAAAAAAACAAkADAAAAAAAAAADAAkADAAAAAAAAAAEAAkADAAAAAAAAAAFAAkADAAAAAAAAAAGAAkADAAAAAAAAAAHAAkADAAAAAAAAAAIAAkADAAAAAAAAAAAAAgABQAAAAEAAAAIAAgABQAAAAEAAAADAAQAAAAAAAAAAAADAAUAAAAAAAEAAAACAAQAAgAAAAAAAAABAAQAAQAAAAAAAAAAAAQAAQAAAAAAAAAPAAkADAAAAAAAAAAQAAkADAAAAAAAAAARAAkADAAAAAAAAAASAAkADAAAAAAAAAATAAkADAAAAAAAAAAUAAkADAAAAAAAAAAVAAkADAAAAAAAAAAJAAkADgAAAAAAAAAJAAoAEAAAAAAAAAD//wsACAAAAAAAAAD//wwACAAAAAAAAAD//w0ACAAAAAAAAAD//w4ACAAAAAAAAAD//w8ACAAAAAAAAAD//xAACAAAAAAAAAASAAAACAAAAAAAAAASAAEACAAAAAAAAAASAAIACAAAAAAAAAASAAMACAAAAAAAAAASAAQACAAAAAAAAAASAAUACAAAAAAAAAASAAYACAAAAAAAAAASAAcACAAAAAAAAAASAAgACAAAAAAAAAASAAoACAAAAAAAAAASAAsACAAAAAAAAAASAAwACAAAAAAAAAASAA0ACAAAAAAAAAASAA4ACAAAAAAAAAASAA8ACAAAAAAAAAASABAACAAAAAAAAAD//xIACAAAAAAAAAAAABIACAAAAAAAAAADABIACAAAAAAAAAAEABIACAAAAAAAAAAFABIACAAAAAAAAAAGABIACAAAAAAAAAAHABMACAAAAAAAAAAIABMACAAAAAAAAAAJABMACAAAAAAAAAANABMACAAAAAAAAAAOABMACAAAAAAAAAAPABMACAAAAAAAAAAQABMACAAAAAAAAAARABMACAAAAAAAAAARABIACAAAAAAAAAASABIACAAAAAAAAAAQABIACQAAAAAAAAAPABIACAAAAAAAAAAOABIACAAAAAAAAAANABIACAAAAAAAAAAJABIACAAAAAAAAAAIABIACAAAAAAAAAAHABIACAAAAAAAAAD//xMACAAAAAAAAAAAABMACAAAAAAAAAADABMACAAAAAAAAAAEABMACAAAAAAAAAAFABMACQAAAAAAAAAGABMACAAAAAAAAAASABMACAAAAAAAAAASABQACAAAAAAAAAARABQACAAAAAAAAAAQABQACAAAAAAAAAAPABQACAAAAAAAAAAOABQACAAAAAAAAAANABQACAAAAAAAAAAMABQACAAAAAAAAAALABQACAAAAAAAAAAKABQACAAAAAAAAAAJABQACAAAAAAAAAAIABQACAAAAAAAAAAHABQACAAAAAAAAAAGABQACAAAAAAAAAAFABQACAAAAAAAAAAEABQACAAAAAAAAAADABQACAAAAAAAAAAAABQACAAAAAAAAAD//xQACAAAAAAAAAD//xEACAAAAAAAAAASABEACAAAAAAAAAAAABEADAAAAAAAAAADABEADAAAAAAAAAAEABEADAAAAAAAAAAFABEADAAAAAAAAAAGABEADAAAAAAAAAAHABEADAAAAAAAAAAIABEADAAAAAAAAAAJABEADAAAAAAAAAANABEADAAAAAAAAAAOABEADAAAAAAAAAAPABEADAAAAAAAAAAQABEADAAAAAAAAAARABEADAAAAAAAAAAKABEADAAAAAAAAAAKABIACAAAAAAAAAAKABMACAAAAAAAAAALABEADAAAAAAAAAALABIACAAAAAAAAAALABMACAAAAAAAAAAMABEADAAAAAAAAAAMABIACAAAAAAAAAAMABMACAAAAAAAAAAOAAkAEwAAAAAAAAAPAAoACAAAAAAAAAAQAAoACAAAAAAAAAARAAoACAAAAAAAAAARAAsACAAAAAAAAAAPAAsAAAAAAAAAAAAPAAwAAAAAAAEAAAAEAAsAAAAAAAAAAAAEAAwAAAAAAAEAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAEAAAAAAAsAAQAAAAAAAAABAAsAAgAAAAAAAAACAAsAAgAAAAAAAAADAAsAAQAAAAAAAAAFAAsAAQAAAAAAAAAGAAsAAgAAAAAAAAAHAAsAAQAAAAAAAAAQAAsAAgAAAAAAAAAAAAIADAAAAAAAAAAAAAMACAAAAAAAAAABAAIADAAAAAAAAAABAAMACAAAAAAAAAACAAIADAAAAAAAAAACAAMADQAAAAAAAAAFAAIADAAAAAAAAAAGAAIADAAAAAAAAAAHAAIADAAAAAAAAAAIAAIADAAAAAAAAAAJAAIADAAAAAAAAAARAAIADAAAAAAAAAALAAIADgAAAAAAAAAFAAMACAAAAAAAAAAGAAMACAAAAAAAAAAHAAMACAAAAAAAAAAIAAMACAAAAAAAAAAJAAMACAAAAAAAAAAKAAMACAAAAAAAAAAKAAQACAAAAAAAAAAJAAQACAAAAAAAAAAIAAQACAAAAAAAAAAHAAQACAAAAAAAAAAGAAQACAAAAAAAAAAFAAQACAAAAAAAAAALAAMAEAAAAAAAAAALAAQAEQAAAAAAAAAKAAIADAAAAAAAAAAQAAIAEwAAAAAAAAAMAAQADAAAAAAAAAANAAQADAAAAAAAAAAOAAQADAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAAIADAAAAAAAAAADAAIADAAAAAAAAAAEAAMACAAAAAAAAAADAAMACAAAAAAAAAD//wQACAAAAAAAAAD//wMACAAAAAAAAAD//wIACAAAAAAAAAD//wEACAAAAAAAAAD//wAACAAAAAAAAAD//wUACAAAAAAAAAD//wYACAAAAAAAAAD//wcACQAAAAAAAAD//wgACAAAAAAAAAD//wkACAAAAAAAAAD//woACAAAAAAAAAAAAAoACgAAAAAAAAABAAoACAAAAAAAAAACAAoACAAAAAAAAAAGAAoACAAAAAAAAAAHAAoACAAAAAAAAAAIAAoACAAAAAAAAAAAAAkADAAAAAAAAAABAAkADAAAAAAAAAACAAkADAAAAAAAAAAGAAkADAAAAAAAAAAHAAkADAAAAAAAAAAIAAkADAAAAAAAAAAAAAgABQAAAAEAAAAIAAgABQAAAAEAAAADAAQAAAAAAAAAAAADAAUAAAAAAAEAAAACAAQAAgAAAAAAAAABAAQAAQAAAAAAAAAAAAQAAQAAAAAAAAAPAAkADAAAAAAAAAAQAAkADAAAAAAAAAARAAkADAAAAAAAAAASAAkADAAAAAAAAAATAAkADAAAAAAAAAAUAAkADAAAAAAAAAAVAAkADAAAAAAAAAAJAAkADAAAAAAAAAAJAAoACAAAAAAAAAD//wsACAAAAAAAAAD//wwACAAAAAAAAAD//w0ACAAAAAAAAAD//w4ACAAAAAAAAAD//w8ACAAAAAAAAAD//xAACAAAAAAAAAASAAAACAAAAAAAAAASAAEACAAAAAAAAAASAAIACAAAAAAAAAASAAMACAAAAAAAAAASAAQACAAAAAAAAAASAAUACAAAAAAAAAASAAYACAAAAAAAAAASAAcACAAAAAAAAAASAAgACAAAAAAAAAASAAoACAAAAAAAAAASAAsACAAAAAAAAAASAAwACAAAAAAAAAASAA0ACAAAAAAAAAASAA4ACAAAAAAAAAASAA8ACAAAAAAAAAASABAACAAAAAAAAAD//xIACAAAAAAAAAAAABIACAAAAAAAAAADABIACAAAAAAAAAAEABIACAAAAAAAAAAFABIACAAAAAAAAAAGABIACAAAAAAAAAAHABMACAAAAAAAAAAIABMACAAAAAAAAAAJABMACAAAAAAAAAANABMACAAAAAAAAAAOABMACAAAAAAAAAAPABMACAAAAAAAAAAQABMACAAAAAAAAAARABMACAAAAAAAAAARABIACAAAAAAAAAASABIACAAAAAAAAAAQABIACQAAAAAAAAAPABIACAAAAAAAAAAOABIACAAAAAAAAAANABIACAAAAAAAAAAJABIACAAAAAAAAAAIABIACAAAAAAAAAAHABIACAAAAAAAAAD//xMACAAAAAAAAAAAABMACAAAAAAAAAADABMACAAAAAAAAAAEABMACAAAAAAAAAAFABMACQAAAAAAAAAGABMACAAAAAAAAAASABMACAAAAAAAAAASABQACAAAAAAAAAARABQACAAAAAAAAAAQABQACAAAAAAAAAAPABQACAAAAAAAAAAOABQACAAAAAAAAAANABQACAAAAAAAAAAMABQACAAAAAAAAAALABQACAAAAAAAAAAKABQACAAAAAAAAAAJABQACAAAAAAAAAAIABQACAAAAAAAAAAHABQACAAAAAAAAAAGABQACAAAAAAAAAAFABQACAAAAAAAAAAEABQACAAAAAAAAAADABQACAAAAAAAAAAAABQACAAAAAAAAAD//xQACAAAAAAAAAD//xEACAAAAAAAAAASABEACAAAAAAAAAAAABEADAAAAAAAAAADABEADAAAAAAAAAAEABEADAAAAAAAAAAFABEADAAAAAAAAAAGABEADAAAAAAAAAAHABEADAAAAAAAAAAIABEADAAAAAAAAAAJABEADAAAAAAAAAANABEADAAAAAAAAAAOABEADAAAAAAAAAAPABEADAAAAAAAAAAQABEADAAAAAAAAAARABEADAAAAAAAAAAKABEADAAAAAAAAAAKABIACAAAAAAAAAAKABMACAAAAAAAAAALABEADAAAAAAAAAALABIACAAAAAAAAAALABMACAAAAAAAAAAMABEADAAAAAAAAAAMABIACAAAAAAAAAAMABMACAAAAAAAAAAOAAkADAAAAAAAAAAPAAoACAAAAAAAAAAQAAoACAAAAAAAAAARAAoACAAAAAAAAAARAAsACAAAAAAAAAAPAAsAAAAAAAAAAAAPAAwAAAAAAAEAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAEAAAAAAAsAAQAAAAAAAAABAAsAAgAAAAAAAAACAAsAAgAAAAAAAAAGAAsAAgAAAAAAAAAHAAsAAQAAAAAAAAAQAAsAAgAAAAAAAAAAAAIADAAAAAAAAAAAAAMACAAAAAAAAAABAAIADAAAAAAAAAABAAMACAAAAAAAAAACAAIADAAAAAAAAAACAAMADQAAAAAAAAAFAAIADAAAAAAAAAAGAAIADAAAAAAAAAAHAAIADAAAAAAAAAAIAAIADAAAAAAAAAAJAAIADAAAAAAAAAARAAIADAAAAAAAAAALAAIADgAAAAAAAAAFAAMACAAAAAAAAAAGAAMACAAAAAAAAAAHAAMACAAAAAAAAAAIAAMACAAAAAAAAAAJAAMACAAAAAAAAAAKAAMACAAAAAAAAAAKAAQACAAAAAAAAAAJAAQACAAAAAAAAAAIAAQACAAAAAAAAAAHAAQACAAAAAAAAAAGAAQACAAAAAAAAAAFAAQACAAAAAAAAAALAAMAEAAAAAAAAAALAAQAEQAAAAAAAAAKAAIADAAAAAAAAAAQAAIAEwAAAAAAAAAMAAQADAAAAAAAAAANAAQADAAAAAAAAAAOAAQADAAAAAAAAAANAAkADAAAAAAAAAAMAAkADAAAAAAAAAALAAkADAAAAAAAAAAKAAkADAAAAAAAAAAKAAoACAAAAAAAAAALAAoACAAAAAAAAAAMAAoACAAAAAAAAAANAAoACAAAAAAAAAAOAAoACAAAAAAAAAABABIACAAAAAAAAAACABIACAAAAAAAAAACABMACAAAAAAAAAABABMACAAAAAAAAAABABEADAAAAAAAAAACABEADAAAAAAAAAA=")
 tile_set = SubResource("TileSet_yvbsd")
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("28_65ilb")
+
+[node name="Luciole" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(862, 176)
+
+[node name="Luciole2" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(952, 211)
+
+[node name="Luciole8" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.588942, 0.993437, 0.528963, 1)
+position = Vector2(415, 971)
+
+[node name="Luciole7" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.588942, 0.993437, 0.528963, 1)
+position = Vector2(1047, 482)
+
+[node name="Luciole6" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.588942, 0.993437, 0.528963, 1)
+position = Vector2(72, 441)
+
+[node name="Luciole5" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.588942, 0.993437, 0.528963, 1)
+position = Vector2(126, 494)
+
+[node name="Luciole3" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(750, 208)
+
+[node name="Luciole9" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(336, 453)
+
+[node name="Luciole10" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(535, 512)
+
+[node name="Luciole13" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(308, 510)
+
+[node name="Luciole14" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.93467, 0.725161, 0.982856, 1)
+position = Vector2(928, 892)
+
+[node name="Luciole15" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.93467, 0.725161, 0.982856, 1)
+position = Vector2(780, 973)
+
+[node name="Luciole16" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.93467, 0.725161, 0.982856, 1)
+position = Vector2(805, 864)
+
+[node name="Luciole17" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0.93467, 0.725161, 0.982856, 1)
+position = Vector2(1023, 951)
+
+[node name="Luciole11" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(440, 454)
+
+[node name="Luciole12" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(422, 512)
+
+[node name="Luciole4" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(691, 73)
+
+[node name="Luciole18" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(524, 71)
+
+[node name="Luciole19" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(168, 26)
+
+[node name="Luciole20" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(53, 65)
+
+[node name="Luciole21" parent="." instance=ExtResource("29_xejrs")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(215, 85)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Shroom-small3" type="Sprite2D" parent="Objects"]
+position = Vector2(399, 898)
+texture = ExtResource("33_ewbu0")
+
+[node name="Shroom-small" type="Sprite2D" parent="Objects"]
+position = Vector2(1013, 421)
+texture = ExtResource("33_ewbu0")
+
+[node name="Shroom-small2" type="Sprite2D" parent="Objects"]
+position = Vector2(97, 424)
+texture = ExtResource("33_ewbu0")
+
+[node name="Crystal-small2" type="Sprite2D" parent="Objects"]
+position = Vector2(963, 889)
+rotation = 4.71239
+texture = ExtResource("30_0woi7")
+
+[node name="Crystal-small" type="Sprite2D" parent="Objects"]
+position = Vector2(1003, 899)
+texture = ExtResource("30_0woi7")
+
+[node name="Crystal-med" type="Sprite2D" parent="Objects"]
+position = Vector2(740, 900)
+texture = ExtResource("31_ac4fi")
+
+[node name="Crystal-big" type="Sprite2D" parent="Objects"]
+position = Vector2(947, 961)
+scale = Vector2(0.675, 0.495833)
+texture = ExtResource("32_eykec")
+
+[node name="Shroom-big" type="Sprite2D" parent="Objects"]
+position = Vector2(141, 420)
+texture = ExtResource("34_eykec")
+
+[node name="Bats" type="Sprite2D" parent="Objects"]
+position = Vector2(811, 419)
+texture = ExtResource("35_ewbu0")
+
+[node name="Bats2" type="Sprite2D" parent="Objects"]
+position = Vector2(847, 781)
+texture = ExtResource("35_ewbu0")
+
+[node name="Labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 447.0
+offset_bottom = 53.0
+text = "USE ARROW KEYS or A/D FOR MOVING"
+
+[node name="Label2" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 25.0
+offset_top = 58.0
+offset_right = 447.0
+offset_bottom = 81.0
+text = "PRESS SPACE TO JUMP"
+
+[node name="Label4" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.498
+anchor_right = 1.498
+offset_left = 715.08
+offset_top = 175.0
+offset_right = 1137.08
+offset_bottom = 198.0
+text = "USE C TO DEPLOY A ROPE"
+
+[node name="Label5" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.498
+anchor_right = 1.498
+offset_left = 715.08
+offset_top = 860.0
+offset_right = 1137.08
+offset_bottom = 883.0
+text = "TO MAIN GAME"
+
+[node name="Label6" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.498
+anchor_right = 1.498
+offset_left = 229.08
+offset_top = 469.0
+offset_right = 651.08
+offset_bottom = 518.0
+text = "BE CAREFUL NOT TO FALL !
+USE YOUR ROPE TO CLIMB DOWN"
