@@ -9,14 +9,22 @@ func _ready():
 	var newgame = get_node("NewGame")
 	var credits = get_node("Credits")
 	var tutorial = get_node("Tutorial")
-	newgame.message_button_pressed.connect(_on_message_button_pressed)
-	credits.message_button_pressed.connect(_on_message_button_pressed)
-	tutorial.message_button_pressed.connect(_on_message_button_pressed)
+	newgame.pressed.connect(_new_game_button_pressed)
+	credits.pressed.connect(_credits_button_pressed)
+	tutorial.pressed.connect(_new_game_tutorial_button_pressed)
 
 
-func _on_message_button_pressed(message: String):
+func _new_game_button_pressed():
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file("res://" + message)
+	get_tree().change_scene_to_file("res://Game/Levels/Level_biome1_1.tscn")
+
+func _new_game_tutorial_button_pressed():
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://Game/Levels/LevelTutorial.tscn")
+	
+func _credits_button_pressed():
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://Credits/Credits.tscn")
 
 
 func _on_button_mouse_entered() -> void:

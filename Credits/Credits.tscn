@@ -1,22 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://chmy28xdy5ytj"]
+[gd_scene load_steps=4 format=3 uid="uid://chmy28xdy5ytj"]
 
 [ext_resource type="Script" uid="uid://ducbdxha6vdkd" path="res://Common Scripts/panel.gd" id="1_ga4ak"]
 [ext_resource type="Script" uid="uid://dpudiw1ltntuj" path="res://Common Scripts/Back.gd" id="1_pqpwq"]
+[ext_resource type="Texture2D" uid="uid://08b5t7jm8ttj" path="res://Credits/credits.png" id="2_4rjik"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_ga4ak")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 716.0
-offset_bottom = 481.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(540, 131)
+texture = ExtResource("2_4rjik")
 
-[node name="Label5" type="Label" parent="ColorRect"]
-layout_mode = 0
+[node name="Label6" type="Label" parent="."]
 offset_left = 201.0
 offset_top = 285.0
 offset_right = 282.0
 offset_bottom = 312.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Kytsop"
 
 [node name="Label" type="Label" parent="."]
@@ -24,8 +23,14 @@ offset_left = 302.0
 offset_top = 49.0
 offset_right = 411.0
 offset_bottom = 72.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "ROLE CREDITS"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 662.0
+offset_top = 433.0
+offset_right = 695.0
+offset_bottom = 464.0
+color = Color(0.321569, 1, 0.423529, 1)
 
 [node name="Back" type="Button" parent="."]
 offset_left = 663.0
@@ -40,7 +45,6 @@ offset_left = 489.0
 offset_top = 261.0
 offset_right = 570.0
 offset_bottom = 288.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "fihuren"
 
 [node name="Label3" type="Label" parent="."]
@@ -48,7 +52,6 @@ offset_left = 284.0
 offset_top = 378.0
 offset_right = 365.0
 offset_bottom = 405.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "MadelineF"
 
 [node name="Label4" type="Label" parent="."]
@@ -56,7 +59,6 @@ offset_left = 344.0
 offset_top = 214.0
 offset_right = 425.0
 offset_bottom = 241.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Civ"
 
 [node name="Label5" type="Label" parent="."]
@@ -64,5 +66,4 @@ offset_left = 494.0
 offset_top = 347.0
 offset_right = 575.0
 offset_bottom = 374.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Jean-François Erdelyi"

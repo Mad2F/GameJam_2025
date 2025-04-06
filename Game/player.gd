@@ -33,7 +33,6 @@ var _jump_gravity : float = 2.0 * jump_height / (jump_time_to_peak * jump_time_t
 var _fall_gravity : float = 2.0 * jump_height / (jump_fall_time * jump_fall_time)
 
 var _last_safe_y := 0.
-var _last_y_on_ground := 0.
 var _last_position_on_ground := Vector2(0.,0.)
 
 var _lastTimeStoneLaunched : float = 0
@@ -70,6 +69,10 @@ func _get_gravity():
 
 
 func _physics_process(delta):
+	if (Input.is_action_pressed("escape")):
+		get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")
+		return
+		
 	var movement = "Walk_Idle"
 	_lastTimeStoneLaunched += delta
 	
@@ -103,11 +106,9 @@ func _physics_process(delta):
 			effect.drive = 0
 			fall_sound.play()
 
-		var isFalling = false
 		if (not is_on_floor()):
 			if position.y - _last_safe_y > 150:
 				movement = "Falling"
-				isFalling = true
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction = Input.get_axis("move_left", "move_right")
@@ -245,8 +246,6 @@ func calculate_rope_up_position():
 		var pos = $jump_left.global_position
 		return pos
 
-	return null
-
 func isJumpOffFree():
 	if (not toRight):
 		if $jump_left.has_overlapping_bodies() == false:
@@ -254,8 +253,6 @@ func isJumpOffFree():
 	else:
 		if $jump_right.has_overlapping_bodies() == false:
 			return $jump_right.global_position
-
-	return null
 
 func goOffRope(pos):
 	isOnRope = false
@@ -310,7 +307,7 @@ func _on_rope_down_created(pos):
 	scene_instance.player_leaves_rope.connect(falls_off_rope)
 	isOnRope = true
 
-func _on_rope_up_created(pos):
+func _on_rope_up_created(_pos):
 	grapin_dict.clear()
 	for i in range(5):
 		grapin_stone_instances[i] = stone.instantiate()

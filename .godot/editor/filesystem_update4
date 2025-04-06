@@ -8,3 +8,14 @@ res://Game/player.tscn
 res://Game/Levels/LevelTutorial.tscn
 res://Game/Levels/VictoryScreen.tscn
 res://Game/Objects/Stone.tscn
+res://Game/LevelsComponents/Camera.gd
+res://Game/Levels/VictoryScreen.gd
+res://MainMenu/MainMenu.tscn
+res://MainMenu/main_menu.gd
+res://MainMenu/tutoriel.gd
+res://Credits/Credits.tscn
+res://Game/player.gd
+res://Game/Objects/LightSource.gd
+res://Game/LevelsComponents/Fog.gd
+res://Game/LevelsComponents/LevelTransitionEntry.gd
+res://Game/Levels/Level1.tscn

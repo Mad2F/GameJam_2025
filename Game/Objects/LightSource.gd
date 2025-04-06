@@ -18,7 +18,7 @@ func _ready() -> void:
 	last_position = get_parent().position
 	level_shadow = get_tree().get_root().get_node(get_tree().current_scene.name +"/LevelShadow")
 	level_fog = get_tree().get_root().get_node(get_tree().current_scene.name +"/Fog")	
-	lightImage.resize(lightImage.get_width() * intensity, lightImage.get_height() * intensity,Image.INTERPOLATE_BILINEAR)
+	lightImage.resize(round(lightImage.get_width() * intensity), round(lightImage.get_height() * intensity),Image.INTERPOLATE_BILINEAR)
 	lightImage.convert(Image.FORMAT_RGBAH)
 	if(level_shadow):
 		level_shadow.add_light_source(get_parent().name, get_parent().global_position + offset, radius, 1.0, flicker)
@@ -53,7 +53,7 @@ func updateIntensity():
 	if(level_shadow):
 		level_shadow.set_light_intensity(get_parent().name, intensity)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(get_parent().position != last_position):
 		if follow_camera:
 			update_light()

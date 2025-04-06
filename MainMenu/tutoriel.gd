@@ -7,5 +7,5 @@ func _ready():
 	pressed.connect(_on_button_pressed)
 
 func _on_button_pressed():
-	message_button_pressed.emit("Tutorial/Tutorial.tscn") # also godot 4.x
+	message_button_pressed.emit("") # also godot 4.x
 	#TODO

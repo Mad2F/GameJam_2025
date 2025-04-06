@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotExample"
-run/main_scene="uid://d3l2hitvl43u4"
+run/main_scene="uid://b5gjq2hvrco3g"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
