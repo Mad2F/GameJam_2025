@@ -1,78 +1,60 @@
-[gd_scene load_steps=11 format=3 uid="uid://2348svrf3ir"]
+[gd_scene load_steps=6 format=3 uid="uid://2348svrf3ir"]
 
 [ext_resource type="Script" uid="uid://bhpmge1dyvlo3" path="res://Game/rope.gd" id="1_h1h7e"]
-[ext_resource type="Texture2D" uid="uid://civomkrimi83a" path="res://Game/resources/misc/piolet.jpg" id="1_j0smb"]
-[ext_resource type="Texture2D" uid="uid://cm1xmgk0blck0" path="res://Game/resources/misc/piolet_1.jpg" id="2_72abu"]
-[ext_resource type="Texture2D" uid="uid://b2tlx8mpyr86p" path="res://Game/resources/misc/piolet_2.jpg" id="3_svnwx"]
-[ext_resource type="Texture2D" uid="uid://w2pknb04c6jo" path="res://Game/resources/misc/piolet_3.jpg" id="4_svnwx"]
-[ext_resource type="Texture2D" uid="uid://c82f1cs7qpbb6" path="res://Game/resources/misc/piolet_4.jpg" id="5_h1h7e"]
-[ext_resource type="PackedScene" uid="uid://ddpidf15dw3w6" path="res://Game/Rope_Area.tscn" id="7_6yuh4"]
+[ext_resource type="PackedScene" uid="uid://btbrvw3w3ldj7" path="res://Game/rope_area.tscn" id="7_6yuh4"]
 [ext_resource type="Script" uid="uid://ddut5xx2ix5vn" path="res://Game/rope_area.gd" id="8_xq6us"]
 [ext_resource type="AudioStream" uid="uid://cjrg5xujxgu6r" path="res://Game/resources/audio/rope.ogg" id="9_skrkf"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3h45g"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_j0smb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_72abu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_svnwx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_svnwx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_h1h7e")
-}],
-"loop": false,
-"name": &"deploy",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_h1h7e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_svnwx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_svnwx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_72abu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_j0smb")
-}],
-"loop": false,
-"name": &"retract",
-"speed": 1.0
-}]
+[ext_resource type="Texture2D" uid="uid://c4p26iuhwhvha" path="res://Game/hook.png" id="10_o5kou"]
 
 [node name="Rope" type="Node2D"]
 script = ExtResource("1_h1h7e")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1.0
-offset_bottom = 192.0
-color = Color(0.222974, 0.981415, 0.81395, 1)
+[node name="RopeArea" parent="." instance=ExtResource("7_6yuh4")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("8_xq6us")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 1)
-scale = Vector2(0.166667, 0.25)
-sprite_frames = SubResource("SpriteFrames_3h45g")
-animation = &"retract"
-speed_scale = 5.0
-centered = false
+[node name="RopeArea_middle" parent="." instance=ExtResource("7_6yuh4")]
+visible = false
+position = Vector2(0, 120)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("8_xq6us")
 
-[node name="Area2D" parent="." instance=ExtResource("7_6yuh4")]
+[node name="RopeArea_low" parent="." instance=ExtResource("7_6yuh4")]
+visible = false
+position = Vector2(0, 240)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("8_xq6us")
 
 [node name="Rope" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_skrkf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12.25, 12.75)
+scale = Vector2(0.0458984, 0.0439453)
+texture = ExtResource("10_o5kou")
+
+[node name="RopeTexture" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 20.0
+offset_bottom = 120.0
+color = Color(1, 0.819608, 0.360784, 1)
+
+[node name="RopeTexture_middle" type="ColorRect" parent="."]
+visible = false
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 20.0
+offset_bottom = 240.0
+color = Color(1, 0.819608, 0.360784, 1)
+
+[node name="RopeTexture_low" type="ColorRect" parent="."]
+visible = false
+offset_left = 16.0
+offset_top = 240.0
+offset_right = 20.0
+offset_bottom = 360.0
+color = Color(1, 0.819608, 0.360784, 1)

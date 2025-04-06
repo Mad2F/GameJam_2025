@@ -1,7 +1,6 @@
 res://default_bus_layout.tres
 res://Game/Levels/Level0.tscn
-res://Game/LevelsComponents/LevelShadow.gdshader
+res://Game/rope.tscn
 res://Game/player.tscn
-res://Game/Levels/Level0_bis.tscn
-res://Game/Levels/Level1.tscn
-res://Game/LevelsComponents/LevelShadow.tscn
+res://Game/rope.gd
+res://Game/rope_area.tscn
