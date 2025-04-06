@@ -9,7 +9,6 @@ extends Node
 @export_file var previous_exit_point : String = "Main Menu" 
 
 
-
 func _ready():
 	$PlayerStartPosition.hide()
 	if (Globals.previousLevel == previous_exit_point):
@@ -25,3 +24,7 @@ func _initPlayerPosition():
 	
 func _onPlayerDeath():
 	print("Aie")
+
+func _process(delta):
+	if Input.is_action_pressed("ResetToCheckpoint") and Globals.previousLevel == previous_exit_point:
+		player.position = $PlayerStartPosition.global_position	
