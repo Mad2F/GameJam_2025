@@ -19,20 +19,24 @@ func _ready() -> void:
 	lightImage.convert(Image.FORMAT_RGBAH)
 	if(level_shadow):
 		level_shadow.add_light_source(get_parent().name, get_parent().global_position + offset, radius, 1.0, flicker)
+	_update_light()
 
 func _exit_tree() -> void:
 	if(level_shadow):
 		level_shadow.remove_light_source(get_parent().name)
+		
+func _update_light():
+	if(level_shadow):
+		var coordScale = Vector2(get_window().size) / Vector2(1080, 720)
+		var cam = get_viewport().get_camera_2d()
+		if(cam):
+			level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset - cam.position))
+		else:
+			level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset))
+	if(level_fog):
+		level_fog.clear_fog(get_parent().position + offset, lightImage)
 
 func _process(delta: float) -> void:
 	if(get_parent().position != last_position):
-		if(level_shadow):
-			var coordScale = Vector2(get_window().size) / Vector2(1080, 720)
-			var cam = get_viewport().get_camera_2d()
-			if(cam):
-				level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset - cam.position))
-			else:
-				level_shadow.set_light_position(get_parent().name, coordScale * (get_parent().position + offset))
-		if(level_fog):
-			level_fog.clear_fog(get_parent().position + offset, lightImage)
+		_update_light()
 	last_position = get_parent().position
