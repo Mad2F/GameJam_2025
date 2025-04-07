@@ -19,6 +19,38 @@ offset_bottom = 173.0
 scale = Vector2(2, 2)
 text = "Congratulations ! You have found the golden fish !"
 
+[node name="falls" type="Label" parent="."]
+modulate = Color(0.446965, 0.381927, 0.379085, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 409.0
+offset_top = 229.0
+offset_right = 535.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "You fell N times !"
+
+[node name="no_falls" type="Label" parent="."]
+modulate = Color(0.446965, 0.381927, 0.379085, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 78.0
+offset_top = 227.0
+offset_right = 542.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Waouh ! You didn't fall at all ! You are the greatest explorer !"
+
 [node name="Label2" type="Label" parent="."]
 modulate = Color(0.446965, 0.381927, 0.379085, 1)
 offset_left = 258.0

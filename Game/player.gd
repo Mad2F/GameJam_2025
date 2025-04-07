@@ -59,6 +59,7 @@ func _ready():
 	animation.stop()
 	animation.play("Walk_Idle")
 	z_index = 2
+	Globals.falls = 0
 
 
 func _get_gravity():
@@ -115,9 +116,10 @@ func _physics_process(delta):
 			if position.y - _last_safe_y > 150:
 				movement = "Falling"
 				
-			if (position.y - _last_safe_y> 180):
+			if (position.y - _last_safe_y> 175):
 				print("DEAD")
 				dead.emit()
+				Globals.falls += 1
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction = Input.get_axis("move_left", "move_right")
