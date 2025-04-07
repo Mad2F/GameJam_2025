@@ -1,41 +1,41 @@
 [gd_scene load_steps=58 format=4 uid="uid://d3l2hitvl43u4"]
 
-[ext_resource type="Texture2D" uid="uid://c3ad6vroid1xx" path="res://Game/resources/graphics/backgrounds/biome3.png" id="1_eykec"]
+[ext_resource type="Texture2D" uid="uid://daqxli6hxg4et" path="res://Game/resources/graphics/backgrounds/biome3.png" id="1_eykec"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="2_xejrs"]
 [ext_resource type="PackedScene" uid="uid://b28udu7of0te7" path="res://Game/LevelsComponents/Fog.tscn" id="3_gum33"]
 [ext_resource type="PackedScene" uid="uid://bwi1sj4yf21f4" path="res://Game/Objects/WaterDrop.tscn" id="4_n173v"]
 [ext_resource type="PackedScene" uid="uid://sdu51cj7kk0" path="res://Game/LevelsComponents/LevelBaseComponents.tscn" id="5_et8f5"]
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="6_0woi7"]
 [ext_resource type="PackedScene" uid="uid://bos2a20xobnkf" path="res://Game/LevelsComponents/LevelTransitionEntry.tscn" id="7_ac4fi"]
-[ext_resource type="Texture2D" uid="uid://b41gdaivcn178" path="res://Game/resources/tilesets/120x120/stalactite-big.png" id="8_eykec"]
-[ext_resource type="Texture2D" uid="uid://d1l6hqawyjejw" path="res://Game/resources/tilesets/120x120/stalactite-medium.png" id="9_ewbu0"]
-[ext_resource type="Texture2D" uid="uid://6pkrdtmmaq7g" path="res://Game/resources/tilesets/120x120/tile-lava.png" id="10_a6u1x"]
-[ext_resource type="Texture2D" uid="uid://b5l1cpfdpcnmc" path="res://Game/resources/tilesets/120x120/tile-ore.png" id="11_jyq6v"]
-[ext_resource type="Texture2D" uid="uid://c05rr254fuy2n" path="res://Game/resources/tilesets/120x120/tile-path.png" id="12_yb5rf"]
-[ext_resource type="Texture2D" uid="uid://dht3x0d7dcxif" path="res://Game/resources/tilesets/120x120/tile-skull.png" id="13_82cew"]
-[ext_resource type="Texture2D" uid="uid://8o163b8dme6c" path="res://Game/resources/tilesets/120x120/tile-slope.png" id="14_frh8l"]
-[ext_resource type="Texture2D" uid="uid://0b5nqax2h1bv" path="res://Game/resources/tilesets/120x120/tile-vertical-bottom.png" id="15_6hk1w"]
-[ext_resource type="Texture2D" uid="uid://cc70aa2ng2l0o" path="res://Game/resources/tilesets/120x120/tile-vertical.png" id="16_e2em6"]
-[ext_resource type="Texture2D" uid="uid://bllcbj3eq7an5" path="res://Game/resources/tilesets/120x120/tile-vertical-bottom-mirror.png" id="17_5rro4"]
-[ext_resource type="Texture2D" uid="uid://ccosh0tlddo5" path="res://Game/resources/tilesets/120x120/tile-vertical-mirror.png" id="18_6x6ep"]
-[ext_resource type="Texture2D" uid="uid://clcw3ocj2ut7x" path="res://Game/resources/tilesets/120x120/tile-slope-mirror.png" id="19_ju3sh"]
-[ext_resource type="Texture2D" uid="uid://cyl3b4rgacul8" path="res://Game/resources/tilesets/120x120/stalactite-small.png" id="20_r4ccn"]
-[ext_resource type="Texture2D" uid="uid://c355hufjo3uq" path="res://Game/resources/tilesets/120x120/stalagmite-big.png" id="21_a1fkv"]
-[ext_resource type="Texture2D" uid="uid://bfs21y2y604af" path="res://Game/resources/tilesets/120x120/stalagmite-medium.png" id="22_frfjk"]
-[ext_resource type="Texture2D" uid="uid://csddkql1xrfqs" path="res://Game/resources/tilesets/120x120/stalagmite-small.png" id="23_6dfcj"]
-[ext_resource type="Texture2D" uid="uid://dukorttqbksnb" path="res://Game/resources/tilesets/120x120/stalagmite-verybig.png" id="24_gdunx"]
-[ext_resource type="Texture2D" uid="uid://c3on65s1bjgu4" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="25_btlr5"]
-[ext_resource type="Texture2D" uid="uid://c0tbywfa01aia" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="26_bhghn"]
-[ext_resource type="Texture2D" uid="uid://bk2klgshmoh6s" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_74xt6"]
-[ext_resource type="Script" uid="uid://dqywsw3c7vwu5" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
+[ext_resource type="Texture2D" uid="uid://w2gm2m0bhjaq" path="res://Game/resources/tilesets/120x120/stalactite-big.png" id="8_eykec"]
+[ext_resource type="Texture2D" uid="uid://cucgp5sr8o85s" path="res://Game/resources/tilesets/120x120/stalactite-medium.png" id="9_ewbu0"]
+[ext_resource type="Texture2D" uid="uid://cw1hi6ojma8qf" path="res://Game/resources/tilesets/120x120/tile-lava.png" id="10_a6u1x"]
+[ext_resource type="Texture2D" uid="uid://dfo3q2h60r40o" path="res://Game/resources/tilesets/120x120/tile-ore.png" id="11_jyq6v"]
+[ext_resource type="Texture2D" uid="uid://drluf0r7nrhfq" path="res://Game/resources/tilesets/120x120/tile-path.png" id="12_yb5rf"]
+[ext_resource type="Texture2D" uid="uid://dctdrb4xr3hpn" path="res://Game/resources/tilesets/120x120/tile-skull.png" id="13_82cew"]
+[ext_resource type="Texture2D" uid="uid://bayuoabm0ob3a" path="res://Game/resources/tilesets/120x120/tile-slope.png" id="14_frh8l"]
+[ext_resource type="Texture2D" uid="uid://d0nqu3l37f0ug" path="res://Game/resources/tilesets/120x120/tile-vertical-bottom.png" id="15_6hk1w"]
+[ext_resource type="Texture2D" uid="uid://bksrqjehho3ku" path="res://Game/resources/tilesets/120x120/tile-vertical.png" id="16_e2em6"]
+[ext_resource type="Texture2D" uid="uid://cqkjh2gq3kmqu" path="res://Game/resources/tilesets/120x120/tile-vertical-bottom-mirror.png" id="17_5rro4"]
+[ext_resource type="Texture2D" uid="uid://ckdkt0xfevirs" path="res://Game/resources/tilesets/120x120/tile-vertical-mirror.png" id="18_6x6ep"]
+[ext_resource type="Texture2D" uid="uid://2nq3ctm1iy8" path="res://Game/resources/tilesets/120x120/tile-slope-mirror.png" id="19_ju3sh"]
+[ext_resource type="Texture2D" uid="uid://0fyfjgm05fq2" path="res://Game/resources/tilesets/120x120/stalactite-small.png" id="20_r4ccn"]
+[ext_resource type="Texture2D" uid="uid://b56t6cvg4cwlw" path="res://Game/resources/tilesets/120x120/stalagmite-big.png" id="21_a1fkv"]
+[ext_resource type="Texture2D" uid="uid://jxatj0i7kawl" path="res://Game/resources/tilesets/120x120/stalagmite-medium.png" id="22_frfjk"]
+[ext_resource type="Texture2D" uid="uid://c2nijehnd3wto" path="res://Game/resources/tilesets/120x120/stalagmite-small.png" id="23_6dfcj"]
+[ext_resource type="Texture2D" uid="uid://d0d0l5nsr2fat" path="res://Game/resources/tilesets/120x120/stalagmite-verybig.png" id="24_gdunx"]
+[ext_resource type="Texture2D" uid="uid://je3fkpvh15cp" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="25_btlr5"]
+[ext_resource type="Texture2D" uid="uid://bn8mgjjwhy5n8" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="26_bhghn"]
+[ext_resource type="Texture2D" uid="uid://dlyp36mlpoggx" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_74xt6"]
+[ext_resource type="Script" uid="uid://de6gmk14wkn38" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
 [ext_resource type="PackedScene" uid="uid://bnkm5fore2edu" path="res://Game/Objects/Luciole.tscn" id="29_xejrs"]
-[ext_resource type="Texture2D" uid="uid://ceotmh7xmtntp" path="res://Game/resources/misc/crystal-small.png" id="30_0woi7"]
-[ext_resource type="Texture2D" uid="uid://cgnrcgkxpkhsp" path="res://Game/resources/misc/crystal-med.png" id="31_ac4fi"]
-[ext_resource type="Texture2D" uid="uid://cx1eca8bn4pea" path="res://Game/resources/misc/crystal-big.png" id="32_eykec"]
-[ext_resource type="Texture2D" uid="uid://4ydq3jpc3kv3" path="res://Game/resources/misc/shroom-small.png" id="33_ewbu0"]
-[ext_resource type="Texture2D" uid="uid://do17q2bqogury" path="res://Game/resources/misc/shroom-big.png" id="34_eykec"]
-[ext_resource type="Texture2D" uid="uid://6fxjhrdc7luf" path="res://Game/resources/misc/bats.png" id="35_ewbu0"]
-[ext_resource type="Texture2D" uid="uid://ds70m437s1ih0" path="res://Game/resources/misc/help.png" id="36_ewbu0"]
+[ext_resource type="Texture2D" uid="uid://be3sd5e7f5i4h" path="res://Game/resources/misc/crystal-small.png" id="30_0woi7"]
+[ext_resource type="Texture2D" uid="uid://b4lt2ufmopbbj" path="res://Game/resources/misc/crystal-med.png" id="31_ac4fi"]
+[ext_resource type="Texture2D" uid="uid://5oi5qbtqvr18" path="res://Game/resources/misc/crystal-big.png" id="32_eykec"]
+[ext_resource type="Texture2D" uid="uid://qelr887frq20" path="res://Game/resources/misc/shroom-small.png" id="33_ewbu0"]
+[ext_resource type="Texture2D" uid="uid://jis85xhw45cq" path="res://Game/resources/misc/shroom-big.png" id="34_eykec"]
+[ext_resource type="Texture2D" uid="uid://bffvcwhivyw0k" path="res://Game/resources/misc/bats.png" id="35_ewbu0"]
+[ext_resource type="Texture2D" uid="uid://ceab0uyroah73" path="res://Game/resources/misc/help.png" id="36_ewbu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("8_eykec")
@@ -186,6 +186,14 @@ position = Vector2(527, 686)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("36_ewbu0")
 offset = Vector2(550, 50)
+
+[node name="ouch" type="ColorRect" parent="."]
+visible = false
+offset_left = -696.0
+offset_top = -364.0
+offset_right = 1681.0
+offset_bottom = 2031.0
+color = Color(1, 0, 0, 1)
 
 [node name="Tile-basic" type="Sprite2D" parent="."]
 z_index = -10

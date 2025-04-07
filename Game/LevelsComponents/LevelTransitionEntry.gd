@@ -23,7 +23,11 @@ func _initPlayerPosition():
 	add_child(player)
 	
 func _onPlayerDeath():
-	print("Aie")
+	get_parent().get_node("ouch").visible = true
+	player.position = $PlayerStartPosition.global_position	
+	await get_tree().create_timer(0.2).timeout 
+	get_parent().get_node("ouch").visible = false
+	
 
 func _process(_delta):
 	if Input.is_action_pressed("ResetToCheckpoint") and Globals.previousLevel == previous_exit_point:

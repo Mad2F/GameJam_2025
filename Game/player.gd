@@ -109,6 +109,10 @@ func _physics_process(delta):
 		if (not is_on_floor()):
 			if position.y - _last_safe_y > 150:
 				movement = "Falling"
+				
+			if (position.y - _last_safe_y> 180):
+				print("DEAD")
+				dead.emit()
 
 		# Get the input direction and handle the movement/deceleration.
 		var direction = Input.get_axis("move_left", "move_right")
@@ -291,11 +295,6 @@ func _process_fall():
 			fall_sound.play()
 			
 		_last_safe_y = position.y 
-	
-	if (position.y - _last_safe_y> 120):
-		print("DEAD")
-		dead.emit()
-		
 		
 
 func _on_rope_down_created(pos):
