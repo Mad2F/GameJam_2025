@@ -14,3 +14,4 @@ res://MainMenu/MainMenu.tscn
 res://Credits/Credits.tscn
 res://Game/Levels/Level1.tscn
 res://Game/Objects/rope.gd
+res://Game/LevelsComponents/Camera.gd

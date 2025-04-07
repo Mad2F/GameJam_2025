@@ -15,8 +15,8 @@ func _physics_process(_delta: float) -> void:
 		position.y = playerCharacter.position.y - ProjectSettings.get("display/window/size/viewport_height") / 4
 	if (get_parent() != null and get_parent().get_node("help") != null):
 		var helpPos = position
-		helpPos.x += ProjectSettings.get("display/window/size/viewport_height") / 1.38
-		helpPos.y += ProjectSettings.get("display/window/size/viewport_width") / 1.65
+		helpPos.x += ProjectSettings.get("display/window/size/viewport_height") / 1.85
+		helpPos.y += ProjectSettings.get("display/window/size/viewport_width") / 1.7
 		get_parent().get_node("help").set_position(helpPos)
 	#if(position.y - playerCharacter.position.y < -ProjectSettings.get("display/window/size/viewport_height") / 3 * 2):
 	#if(position.y - playerCharacter.position.y > ProjectSettings.get("display/window/size/viewport_height") / 3 * 2):
