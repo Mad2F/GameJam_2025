@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c3on65s1bjgu4" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="25_btlr5"]
 [ext_resource type="Texture2D" uid="uid://c0tbywfa01aia" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="26_bhghn"]
 [ext_resource type="Texture2D" uid="uid://bk2klgshmoh6s" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_74xt6"]
-[ext_resource type="Script" uid="uid://cjcdnb6hww3j3" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
+[ext_resource type="Script" uid="uid://dqywsw3c7vwu5" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
 [ext_resource type="PackedScene" uid="uid://bnkm5fore2edu" path="res://Game/Objects/Luciole.tscn" id="29_xejrs"]
 [ext_resource type="Texture2D" uid="uid://ceotmh7xmtntp" path="res://Game/resources/misc/crystal-small.png" id="30_0woi7"]
 [ext_resource type="Texture2D" uid="uid://cgnrcgkxpkhsp" path="res://Game/resources/misc/crystal-med.png" id="31_ac4fi"]
