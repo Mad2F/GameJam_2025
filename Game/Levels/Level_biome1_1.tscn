@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dukorttqbksnb" path="res://Game/resources/tilesets/120x120/stalagmite-verybig.png" id="25_ru7yq"]
 [ext_resource type="Texture2D" uid="uid://c3on65s1bjgu4" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="26_jvilp"]
 [ext_resource type="Texture2D" uid="uid://bk2klgshmoh6s" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_uwvyo"]
-[ext_resource type="Script" uid="uid://bu6fq8dpn77b1" path="res://Game/LevelsComponents/Camera.gd" id="28_pugl3"]
+[ext_resource type="Script" uid="uid://dqywsw3c7vwu5" path="res://Game/LevelsComponents/Camera.gd" id="28_pugl3"]
 [ext_resource type="PackedScene" uid="uid://bnkm5fore2edu" path="res://Game/Objects/Luciole.tscn" id="29_xv0dt"]
 [ext_resource type="Texture2D" uid="uid://4ydq3jpc3kv3" path="res://Game/resources/misc/shroom-small.png" id="30_0nk7e"]
 [ext_resource type="Texture2D" uid="uid://ceotmh7xmtntp" path="res://Game/resources/misc/crystal-small.png" id="31_3sqd0"]
