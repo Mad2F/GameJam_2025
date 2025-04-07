@@ -7,7 +7,4 @@ res://Game/Levels/LevelTutorial.tscn
 res://Game/Levels/Level_biome2_1.tscn
 res://Game/LevelsComponents/LevelShadow.tscn
 res://Game/player.gd
-<<<<<<< HEAD
-=======
 res://Game/Objects/rope.gd
->>>>>>> 11673c34837515ceb4860725f0459c58ff7ad07a

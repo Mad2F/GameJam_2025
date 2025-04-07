@@ -505,20 +505,4 @@ offset_bottom = 941.48
 text = "Press C to release Rope
 "
 
-[node name="Label11" type="Label" parent="Labels"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.214
-anchor_top = -2.137
-anchor_right = -1.214
-anchor_bottom = -2.137
-offset_left = 607.56
-offset_top = 922.48
-offset_right = 853.56
-offset_bottom = 1023.48
-text = "When climbing, press C to 
-release rope and hop on
-platform
-"
-
 [node name="Map" parent="." instance=ExtResource("37_a6u1x")]
