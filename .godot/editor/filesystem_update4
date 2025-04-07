@@ -19,3 +19,9 @@ res://Game/LevelsComponents/LevelTransition.tscn
 res://Game/LevelsComponents/LevelTransitionEntry.tscn
 res://Game/LevelsComponents/LevelBaseComponents.tscn
 res://Game/LevelsComponents/LevelTransitionEntry.gd
+res://Game/Levels/Goal.tscn
+res://Game/Levels/Goal_tuto.tscn
+res://MainMenu/main_menu.gd
+res://Game/Levels/Goal_new_game.tscn
+res://Game/Levels/goal.gd
+res://Game/Levels/goal_new_game.gd

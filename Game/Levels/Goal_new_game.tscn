@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://camff6oleidkc"]
+
+[ext_resource type="Texture2D" uid="uid://c0nd7mxhi6m2v" path="res://Game/resources/graphics/backgrounds/biome1.png" id="1_gcxtu"]
+[ext_resource type="Script" uid="uid://c30rjxixg4ko4" path="res://Game/Levels/goal_new_game.gd" id="1_qrmcb"]
+[ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="2_qrmcb"]
+[ext_resource type="Texture2D" uid="uid://dhpsjqfqud2t" path="res://Game/resources/misc/pngtree-multiple-layers-of-old-textured-parchment-paper-png-image_2327510.png" id="3_uhja6"]
+
+[node name="Goal_New_Game" type="Node2D"]
+script = ExtResource("1_qrmcb")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(546, 12)
+texture = ExtResource("1_gcxtu")
+
+[node name="LevelTransition" parent="." instance=ExtResource("2_qrmcb")]
+position = Vector2(119, 1069)
+scale = Vector2(6, 6)
+nextLevelSceneName = "res://Game/Levels/Level_biome1_1.tscn"
+currentLevelSceneName = "Main Menu"
+
+[node name="Pngtree-multiple-layers-of-old-textured-parchment-paper-png-image2327510" type="Sprite2D" parent="."]
+position = Vector2(564, 365)
+scale = Vector2(0.929931, 0.708403)
+texture = ExtResource("3_uhja6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 144.0
+offset_top = 161.0
+offset_right = 947.0
+offset_bottom = 680.0
+theme_override_colors/font_color = Color(0.740667, 0.383324, 0.183965, 1)
+theme_override_font_sizes/font_size = 64
+text = "Explore the depths 
+
+to find the mysterious
+
+GOLDEN FISH !
+"
+horizontal_alignment = 1

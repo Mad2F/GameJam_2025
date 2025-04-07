@@ -16,11 +16,11 @@ func _ready():
 
 func _new_game_button_pressed():
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file("res://Game/Levels/Level_biome1_1.tscn")
+	get_tree().change_scene_to_file("res://Game/Levels/Goal_new_game.tscn")
 
 func _new_game_tutorial_button_pressed():
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file("res://Game/Levels/LevelTutorial.tscn")
+	get_tree().change_scene_to_file("res://Game/Levels/Goal.tscn")
 	
 func _credits_button_pressed():
 	await get_tree().create_timer(1.0).timeout
