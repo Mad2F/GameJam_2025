@@ -372,6 +372,8 @@ func _on_floor_grapin_found(pos, index):
 
 func _on_rope_destroyed():
 	scene_instance.queue_free()
+	if (rope_under_tension_sound.is_playing()):
+		rope_under_tension_sound.stop()
 
 func handleSonar():
 	if(Input.is_action_just_pressed("use_sonar") and _lastTimeStoneLaunched > _deltaTimeStone):
