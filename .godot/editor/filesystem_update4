@@ -1,8 +1,13 @@
 res://default_bus_layout.tres
-res://Game/Levels/Level_biome1_1.tscn
+res://Game/player.tscn
 res://Game/LevelsComponents/LevelShadow.gdshader
+res://Game/Levels/Level_biome1_1.tscn
 res://Game/Map.tscn
 res://Game/Levels/LevelTutorial.tscn
 res://Game/Levels/Level_biome2_1.tscn
 res://Game/LevelsComponents/LevelShadow.tscn
 res://Game/player.gd
+<<<<<<< HEAD
+=======
+res://Game/Objects/rope.gd
+>>>>>>> 11673c34837515ceb4860725f0459c58ff7ad07a

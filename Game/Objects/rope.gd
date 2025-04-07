@@ -1,7 +1,7 @@
 extends Node2D
 
 signal player_leaves_rope
-@onready var rope_sound := $Rope
+#@onready var rope_sound := $Rope
 @onready var on_any_rope := true
 @onready var timer := Timer.new()
 
@@ -11,7 +11,7 @@ var state : State = State.SMALL
 var toRight = true
 
 func _ready():
-	rope_sound.play()
+	#rope_sound.play()
 	await get_tree().create_timer(0.2).timeout 
 	if $RopeArea_low.has_overlapping_bodies() == false:
 		state = State.LONG

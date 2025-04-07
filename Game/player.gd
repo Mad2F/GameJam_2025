@@ -15,12 +15,13 @@ enum State {IDLE, WALKING, IN_THE_AIR, CLIMBING}
 #@onready var falling_rock_sound := $FallingRock
 @onready var rope_under_tension_sound := $RopeUnderTension
 @onready var error_rope_sound := $RopeError
+@onready var rope_sound := $Grapin
 
 # Properties
 var animation_to_play := "Idle"
 var state : State = State.IDLE
 
-const SPEED = 100.0
+const SPEED = 120.0
 # About jump sound effect
 const JUMP_FALL_SOUND_DRIVE := 0.65 # Between 0.0 - 1.0, 0.65 is a sweet spot
 const MAX_FALL_PX := 200.0 # Max falling height (in px) for the fall sound effect 
@@ -143,6 +144,7 @@ func _physics_process(delta):
 					isOnRope = true
 					timeoff = timeoff0
 					state = State.CLIMBING
+					rope_sound.play()
 					rope_under_tension_sound.play()
 					_on_rope_down_created(rope_down_position)
 					_last_position_on_ground = global_position
@@ -166,7 +168,7 @@ func _physics_process(delta):
 				var rope_up_position = calculate_rope_up_position()
 				if (rope_up_position != null):
 					state = State.CLIMBING
-					rope_under_tension_sound.play()
+					rope_sound.play()
 					_on_rope_up_created(rope_up_position)
 					#_last_position_on_ground = global_position
 					#global_position = rope_down_position
@@ -365,6 +367,7 @@ func _on_floor_grapin_found(pos, index):
 				_last_position_on_ground.x -= 70
 			print("Create Rope at ", bestkey)
 			print("Last position on ground ", _last_position_on_ground)
+			rope_under_tension_sound.play()
 			_on_rope_down_created(bestkey, true)
 			global_position.x = bestkey.x
 			
