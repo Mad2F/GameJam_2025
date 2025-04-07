@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b28udu7of0te7"]
 
-[ext_resource type="Script" uid="uid://0s6n7qoibawk" path="res://Game/LevelsComponents/Fog.gd" id="1_qcsrs"]
+[ext_resource type="Script" uid="uid://ca4fieu4j7uhe" path="res://Game/LevelsComponents/Fog.gd" id="1_qcsrs"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_erdhv"]
 blend_mode = 3
