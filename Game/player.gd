@@ -45,6 +45,7 @@ var timeoff = 0
 var toRight = true
 
 var grapin_dict = {}
+var ropeToRight
 
 var currentFloor = null
 
@@ -160,6 +161,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("use_grapin"):
 				print("GRAPIN ON")
 				#isOnRope = true
+				ropeToRight = toRight
 				timeoff = timeoff0
 				var rope_up_position = calculate_rope_up_position()
 				if (rope_up_position != null):
@@ -321,7 +323,7 @@ func _on_rope_up_created(_pos):
 	for i in range(5):
 		grapin_stone_instances[i] = stone.instantiate()
 		var force = Vector2(0, -300)
-		var p = $grapin_right.global_position if toRight else $grapin_left.global_position
+		var p = $grapin_right.global_position if ropeToRight else $grapin_left.global_position
 		p.x += i * 10 - 30
 		grapin_stone_instances[i].position = p
 		grapin_stone_instances[i].linear_velocity = force
@@ -345,19 +347,19 @@ func _on_floor_grapin_found(pos, index):
 		for key in grapin_dict:
 			print(key)
 			if (grapin_dict[key] == true):
-				if (bestpos == -1 or (not toRight and bestpos < key.x) or (toRight and bestpos > key.x)):
+				if (bestpos == -1 or (not ropeToRight and bestpos < key.x) or (ropeToRight and bestpos > key.x)):
 					bestpos = key.x
 					bestkey = key
 		
 		if bestkey != null:
 			bestkey.y = bestkey.y - 60
-			if (toRight):
+			if (ropeToRight):
 				bestkey.x -= 40
 			else:
 				bestkey.x += 40
 				
 			_last_position_on_ground = bestkey
-			if (toRight):
+			if (ropeToRight):
 				_last_position_on_ground.x += 70 
 			else:
 				_last_position_on_ground.x -= 70

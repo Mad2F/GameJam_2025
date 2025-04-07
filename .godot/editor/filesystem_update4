@@ -4,5 +4,5 @@ res://Game/LevelsComponents/LevelShadow.gdshader
 res://Game/Map.tscn
 res://Game/Levels/LevelTutorial.tscn
 res://Game/Levels/Level_biome2_1.tscn
-res://Game/LevelsComponents/Camera.gd
 res://Game/LevelsComponents/LevelShadow.tscn
+res://Game/player.gd
