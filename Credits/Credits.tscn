@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://chmy28xdy5ytj"]
+[gd_scene load_steps=8 format=3 uid="uid://chmy28xdy5ytj"]
 
-[ext_resource type="Texture2D" uid="uid://cvwi1skysapui" path="res://Credits/credits.png" id="2_4rjik"]
+[ext_resource type="Texture2D" uid="uid://08b5t7jm8ttj" path="res://Credits/credits.png" id="2_4rjik"]
+[ext_resource type="Texture2D" uid="uid://dwfp1yvm3suey" path="res://Credits/catsop.png" id="2_whde4"]
+[ext_resource type="Texture2D" uid="uid://s1hfy5r3vsaa" path="res://Credits/chatdeline.png" id="3_cvm5q"]
+[ext_resource type="Texture2D" uid="uid://ci276a5blmifb" path="res://Credits/chathuren.png" id="4_q41j5"]
+[ext_resource type="Texture2D" uid="uid://dytbpcnosoe2s" path="res://Credits/Chatrwan.png" id="5_q41j5"]
+[ext_resource type="Texture2D" uid="uid://7hwo4tpbpq2x" path="res://Credits/chat-francois.png" id="6_0vace"]
 
 [sub_resource type="GDScript" id="GDScript_pqpwq"]
 script/source = "extends Node2D
@@ -17,50 +22,102 @@ script = SubResource("GDScript_pqpwq")
 position = Vector2(540, 131)
 texture = ExtResource("2_4rjik")
 
-[node name="Label6" type="Label" parent="."]
-offset_left = 225.0
-offset_top = 350.0
-offset_right = 315.0
-offset_bottom = 396.0
+[node name="kytsop" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 414.0
+offset_right = 337.0
+offset_bottom = 460.0
 theme_override_font_sizes/font_size = 34
 text = "Kytsop"
 
-[node name="Label" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
 offset_left = 383.0
 offset_top = 30.0
 offset_right = 679.0
 offset_bottom = 96.0
 theme_override_font_sizes/font_size = 50
-text = "ROLE CREDITS"
+text = "CREDITS"
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 225.0
-offset_top = 250.0
-offset_right = 323.0
-offset_bottom = 296.0
+[node name="dev" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 232.0
+offset_right = 543.0
+offset_bottom = 298.0
+theme_override_colors/font_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_font_sizes/font_size = 38
+text = "Dev"
+
+[node name="sound" type="Label" parent="."]
+offset_left = 685.0
+offset_top = 470.0
+offset_right = 840.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_font_sizes/font_size = 38
+text = "Audio SFX"
+
+[node name="2Dart" type="Label" parent="."]
+offset_left = 740.0
+offset_top = 259.0
+offset_right = 895.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_font_sizes/font_size = 38
+text = "2D Art"
+
+[node name="fihuren" type="Label" parent="."]
+offset_left = 734.0
+offset_top = 306.0
+offset_right = 837.0
+offset_bottom = 352.0
 theme_override_font_sizes/font_size = 34
 text = "Fihuren"
 
-[node name="Label3" type="Label" parent="."]
-offset_left = 225.0
-offset_top = 400.0
-offset_right = 363.0
-offset_bottom = 446.0
+[node name="mad" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 541.0
+offset_right = 385.0
+offset_bottom = 587.0
 theme_override_font_sizes/font_size = 34
-text = "Mad"
+text = "Madeline"
 
-[node name="Label4" type="Label" parent="."]
-offset_left = 225.0
-offset_top = 200.0
-offset_right = 306.0
-offset_bottom = 246.0
+[node name="civ" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 296.0
+offset_right = 412.0
+offset_bottom = 342.0
 theme_override_font_sizes/font_size = 34
 text = "Erwan \"Civ\""
 
-[node name="Label5" type="Label" parent="."]
-offset_left = 225.0
-offset_top = 300.0
-offset_right = 519.0
-offset_bottom = 346.0
+[node name="jf" type="Label" parent="."]
+offset_left = 543.0
+offset_top = 522.0
+offset_right = 837.0
+offset_bottom = 568.0
 theme_override_font_sizes/font_size = 34
 text = "Jean-François Erdelyi"
+
+[node name="Catsop" type="Sprite2D" parent="."]
+position = Vector2(179, 449)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_whde4")
+
+[node name="Chatdeline" type="Sprite2D" parent="."]
+position = Vector2(179, 576)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_cvm5q")
+
+[node name="Chathuren" type="Sprite2D" parent="."]
+position = Vector2(915, 340)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_q41j5")
+
+[node name="Chatrwan" type="Sprite2D" parent="."]
+position = Vector2(179, 337)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_q41j5")
+
+[node name="Chat-francois" type="Sprite2D" parent="."]
+position = Vector2(908, 538)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_0vace")

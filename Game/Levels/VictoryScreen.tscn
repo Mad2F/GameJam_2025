@@ -1,62 +1,126 @@
-[gd_scene load_steps=3 format=3 uid="uid://bubibsiolk838"]
+[gd_scene load_steps=4 format=3 uid="uid://bubibsiolk838"]
 
-[ext_resource type="Texture2D" uid="uid://drtorcufovffh" path="res://Game/resources/graphics/victory.png" id="1_3aek6"]
-[ext_resource type="Script" uid="uid://ckfcbpcxynugn" path="res://Game/Levels/VictoryScreen.gd" id="1_4k85o"]
+[ext_resource type="Texture2D" uid="uid://1adhea18l83p" path="res://Game/resources/graphics/victory.png" id="1_3aek6"]
+[ext_resource type="Script" uid="uid://1wo33cqxl0d4" path="res://Game/Levels/VictoryScreen.gd" id="1_4k85o"]
+[ext_resource type="Texture2D" uid="uid://6fxjhrdc7luf" path="res://Game/resources/misc/bats.png" id="3_7j3ii"]
 
 [node name="VictoryScreen" type="Node2D"]
 script = ExtResource("1_4k85o")
 
 [node name="Victory" type="Sprite2D" parent="."]
-position = Vector2(524, 458)
+position = Vector2(543, 452)
 texture = ExtResource("1_3aek6")
 
 [node name="Label" type="Label" parent="."]
-modulate = Color(0.446965, 0.381927, 0.379085, 1)
-offset_left = 150.0
-offset_top = 150.0
-offset_right = 535.0
-offset_bottom = 173.0
+offset_left = 60.0
+offset_top = 74.0
+offset_right = 540.0
+offset_bottom = 108.0
 scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 0.992157, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Congratulations ! You have found the golden fish !"
 
 [node name="falls" type="Label" parent="."]
-modulate = Color(0.446965, 0.381927, 0.379085, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 409.0
-offset_top = 229.0
-offset_right = 535.0
-offset_bottom = 252.0
+offset_left = 423.0
+offset_top = 179.0
+offset_right = 549.0
+offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.964706, 0.0980392, 0.964706, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "You fell N times !"
 
 [node name="no_falls" type="Label" parent="."]
-modulate = Color(0.446965, 0.381927, 0.379085, 1)
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 78.0
-offset_top = 227.0
-offset_right = 542.0
-offset_bottom = 262.0
+offset_left = 112.0
+offset_top = 174.0
+offset_right = 576.0
+offset_bottom = 209.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-text = "Waouh ! You didn't fall at all ! You are the greatest explorer !"
+theme_override_colors/font_color = Color(0.968627, 0.0980392, 0.968627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "And wow, you didn't fall at all ! 
+You are truly are the greatest explorer !"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-modulate = Color(0.446965, 0.381927, 0.379085, 1)
-offset_left = 258.0
-offset_top = 550.0
-offset_right = 572.0
-offset_bottom = 599.0
+offset_left = 256.0
+offset_top = 572.0
+offset_right = 570.0
+offset_bottom = 644.0
 scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.175, 1, 0.1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Thanks for playing our entry for LD57 ! 
-Press JUMP to exit"
+
+NB: did you find us all ?"
+horizontal_alignment = 2
+
+[node name="Bats" type="Sprite2D" parent="."]
+modulate = Color(1, 0.934667, 0.02, 1)
+position = Vector2(1003, 691)
+rotation = 3.14159
+texture = ExtResource("3_7j3ii")
+region_enabled = true
+region_rect = Rect2(10, 0, 30, 56.5)
+
+[node name="Bats2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.0526667, 0.02, 1)
+position = Vector2(1064, 682)
+rotation = 3.14159
+texture = ExtResource("3_7j3ii")
+region_enabled = true
+region_rect = Rect2(65, 0, 36, 78.5)
+
+[node name="Bats3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.02, 0.02, 1)
+position = Vector2(1033, 694)
+rotation = 3.14159
+texture = ExtResource("3_7j3ii")
+region_enabled = true
+region_rect = Rect2(10, 0, 30, 56.5)
+
+[node name="Bats4" type="Sprite2D" parent="."]
+modulate = Color(0.02, 0.02, 1, 1)
+position = Vector2(930, 681)
+rotation = 3.14159
+texture = ExtResource("3_7j3ii")
+region_enabled = true
+region_rect = Rect2(65, 0, 36, 78.5)
+
+[node name="Bats5" type="Sprite2D" parent="."]
+modulate = Color(0.02, 0.02, 1, 1)
+position = Vector2(903, 693)
+rotation = 3.14159
+texture = ExtResource("3_7j3ii")
+region_enabled = true
+region_rect = Rect2(10, 0, 30, 56.5)
+
+[node name="Bats6" type="Sprite2D" parent="."]
+modulate = Color(1, 0.902, 0.02, 1)
+position = Vector2(970, 681)
+rotation = 3.14159
+texture = ExtResource("3_7j3ii")
+region_enabled = true
+region_rect = Rect2(65, 0, 36, 78.5)

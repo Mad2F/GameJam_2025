@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://camff6oleidkc"]
 
-[ext_resource type="Texture2D" uid="uid://c0nd7mxhi6m2v" path="res://Game/resources/graphics/backgrounds/biome1.png" id="1_gcxtu"]
-[ext_resource type="Script" uid="uid://c30rjxixg4ko4" path="res://Game/Levels/goal_new_game.gd" id="1_qrmcb"]
+[ext_resource type="Texture2D" uid="uid://cr81o2m5b0f0c" path="res://Game/resources/graphics/backgrounds/biome1.png" id="1_gcxtu"]
+[ext_resource type="Script" uid="uid://cc8pa7vc4qpr" path="res://Game/Levels/goal_new_game.gd" id="1_qrmcb"]
 [ext_resource type="PackedScene" uid="uid://cl2n5cgbtahk0" path="res://Game/LevelsComponents/LevelTransition.tscn" id="2_qrmcb"]
-[ext_resource type="Texture2D" uid="uid://dhpsjqfqud2t" path="res://Game/resources/misc/pngtree-multiple-layers-of-old-textured-parchment-paper-png-image_2327510.png" id="3_uhja6"]
+[ext_resource type="Texture2D" uid="uid://cco5tdd1d7cva" path="res://Game/resources/misc/pngtree-multiple-layers-of-old-textured-parchment-paper-png-image_2327510.png" id="3_uhja6"]
 
 [node name="Goal_New_Game" type="Node2D"]
 script = ExtResource("1_qrmcb")
@@ -19,8 +19,8 @@ nextLevelSceneName = "res://Game/Levels/Level_biome1_1.tscn"
 currentLevelSceneName = "Main Menu"
 
 [node name="Pngtree-multiple-layers-of-old-textured-parchment-paper-png-image2327510" type="Sprite2D" parent="."]
-position = Vector2(564, 365)
-scale = Vector2(0.929931, 0.708403)
+position = Vector2(561, 380)
+scale = Vector2(2, 1.328)
 texture = ExtResource("3_uhja6")
 
 [node name="Label" type="Label" parent="."]
