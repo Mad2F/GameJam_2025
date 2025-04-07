@@ -22,3 +22,4 @@ res://Game/Levels/VictoryScreen.tscn
 res://Game/LevelsComponents/LevelShadow.gdshader
 res://Game/LevelsComponents/LevelShadow.gd
 res://Game/LevelsComponents/LevelShadow.tscn
+res://Game/Levels/LevelTutorial.tscn
