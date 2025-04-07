@@ -1,17 +1,17 @@
 [gd_scene load_steps=47 format=3 uid="uid://dgk3j14qj66fo"]
 
 [ext_resource type="Script" uid="uid://c6ly5svc3dstr" path="res://Game/player.gd" id="1_h4tjw"]
-[ext_resource type="Texture2D" uid="uid://cu81n1h6yxjm4" path="res://Game/resources/sprites_player/sprites-climbing_2.png" id="2_uan04"]
-[ext_resource type="Texture2D" uid="uid://3gob35b7ynxp" path="res://Game/resources/sprites_player/sprites-climbing-idle_2.png" id="3_uan04"]
-[ext_resource type="Texture2D" uid="uid://c85rt75limx21" path="res://Game/resources/sprites_player/sprites-jump_2.png" id="4_55vsq"]
-[ext_resource type="Texture2D" uid="uid://prkmankpnkn0" path="res://Game/resources/sprites_player/sprites-falling.png" id="4_i0ihy"]
-[ext_resource type="Texture2D" uid="uid://dlr3yiv5hiro1" path="res://Game/resources/sprites_player/sprite-walking_2.png" id="5_uan04"]
+[ext_resource type="Texture2D" uid="uid://dcs0rkyvu2h6t" path="res://Game/resources/sprites_player/sprites-climbing_2.png" id="2_uan04"]
+[ext_resource type="Texture2D" uid="uid://cfvxasgy44a6k" path="res://Game/resources/sprites_player/sprites-climbing-idle_2.png" id="3_uan04"]
+[ext_resource type="Texture2D" uid="uid://haydmvs8ug24" path="res://Game/resources/sprites_player/sprites-jump_2.png" id="4_55vsq"]
+[ext_resource type="Texture2D" uid="uid://cxs10005crptq" path="res://Game/resources/sprites_player/sprites-falling.png" id="4_i0ihy"]
+[ext_resource type="Texture2D" uid="uid://n8x3ymqie1so" path="res://Game/resources/sprites_player/sprite-walking_2.png" id="5_uan04"]
 [ext_resource type="PackedScene" uid="uid://bnh8n283yi8w1" path="res://Game/Objects/rope_area.tscn" id="6_oyrjc"]
-[ext_resource type="Texture2D" uid="uid://cuc6oot37movo" path="res://Game/resources/sprites_player/sprites-idle_2.png" id="6_uan04"]
+[ext_resource type="Texture2D" uid="uid://csacula7t2nq4" path="res://Game/resources/sprites_player/sprites-idle_2.png" id="6_uan04"]
 [ext_resource type="PackedScene" uid="uid://m08mibsg58x0" path="res://Game/Objects/LightSource.tscn" id="7_ltdye"]
-[ext_resource type="AudioStream" uid="uid://ckdou28hkjjy7" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
-[ext_resource type="AudioStream" uid="uid://c6wr7pf3drj05" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
-[ext_resource type="AudioStream" uid="uid://ta65m2kw0eet" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
+[ext_resource type="AudioStream" uid="uid://vv87ovm6y3md" path="res://Game/resources/audio/fall.ogg" id="7_oyrjc"]
+[ext_resource type="AudioStream" uid="uid://ca03q60oklsnc" path="res://Game/resources/audio/step.ogg" id="8_ltdye"]
+[ext_resource type="AudioStream" uid="uid://d05jdwyigbxmd" path="res://Game/resources/audio/rope_under_tension.ogg" id="8_wxy0c"]
 [ext_resource type="PackedScene" uid="uid://bmlosaeikhnm8" path="res://Game/Objects/Lanterne.tscn" id="12_uan04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
@@ -305,16 +305,16 @@ stream = ExtResource("8_ltdye")
 pitch_scale = 0.5
 bus = &"SFX Bus"
 
+[node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wxy0c")
+bus = &"SFX Bus"
+
 [node name="LightSource" parent="." instance=ExtResource("7_ltdye")]
 radius = 300.0
 flicker = 10.0
 offset = Vector2(22.835, 28.395)
 intensity = 2.0
 follow_camera = true
-
-[node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_wxy0c")
-bus = &"SFX Bus"
 
 [node name="lanterne_droite" parent="." instance=ExtResource("12_uan04")]
 visible = false

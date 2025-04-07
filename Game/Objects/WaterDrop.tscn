@@ -12,6 +12,7 @@ script = ExtResource("1_d14mi")
 shape = SubResource("RectangleShape2D_eosxd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX Bus"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
