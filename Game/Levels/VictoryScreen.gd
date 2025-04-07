@@ -2,6 +2,7 @@ extends Node
 
 var timeout = 100
 func _ready():
+	$Label2.hide()
 	await get_tree().create_timer(5).timeout 
 	
 func _process(_delta):
@@ -16,5 +17,6 @@ func _process(_delta):
 	if (timeout > 0):
 		timeout = timeout - 1
 		return
+	$Label2.show()
 	if Input.is_action_pressed("enter") || Input.is_action_pressed("escape") || Input.is_action_pressed("move_jump"):
 		get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")

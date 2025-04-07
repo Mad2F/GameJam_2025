@@ -11,3 +11,4 @@ res://Game/LevelsComponents/LevelShadow.tscn
 res://Game/Levels/LevelTutorial.tscn
 res://Game/player.tscn
 res://Credits/Credits.tscn
+res://Game/Levels/VictoryScreen.gd
