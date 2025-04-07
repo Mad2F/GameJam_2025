@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://d3l2hitvl43u4"]
+[gd_scene load_steps=59 format=4 uid="uid://d3l2hitvl43u4"]
 
 [ext_resource type="Texture2D" uid="uid://c3ad6vroid1xx" path="res://Game/resources/graphics/backgrounds/biome3.png" id="1_eykec"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="2_xejrs"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c3on65s1bjgu4" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="25_btlr5"]
 [ext_resource type="Texture2D" uid="uid://c0tbywfa01aia" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="26_bhghn"]
 [ext_resource type="Texture2D" uid="uid://bk2klgshmoh6s" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="27_74xt6"]
-[ext_resource type="Script" uid="uid://cjcdnb6hww3j3" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
+[ext_resource type="Script" uid="uid://bu6fq8dpn77b1" path="res://Game/LevelsComponents/Camera.gd" id="28_65ilb"]
 [ext_resource type="PackedScene" uid="uid://bnkm5fore2edu" path="res://Game/Objects/Luciole.tscn" id="29_xejrs"]
 [ext_resource type="Texture2D" uid="uid://ceotmh7xmtntp" path="res://Game/resources/misc/crystal-small.png" id="30_0woi7"]
 [ext_resource type="Texture2D" uid="uid://cgnrcgkxpkhsp" path="res://Game/resources/misc/crystal-med.png" id="31_ac4fi"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://do17q2bqogury" path="res://Game/resources/misc/shroom-big.png" id="34_eykec"]
 [ext_resource type="Texture2D" uid="uid://6fxjhrdc7luf" path="res://Game/resources/misc/bats.png" id="35_ewbu0"]
 [ext_resource type="Texture2D" uid="uid://ds70m437s1ih0" path="res://Game/resources/misc/help.png" id="36_ewbu0"]
+[ext_resource type="PackedScene" uid="uid://gcjamr68iw70" path="res://Game/Map.tscn" id="37_a6u1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("8_eykec")
@@ -524,3 +525,5 @@ text = "When climbing, press C to
 release rope and hop on
 platform
 "
+
+[node name="Map" parent="." instance=ExtResource("37_a6u1x")]

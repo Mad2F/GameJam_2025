@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dtfy4hx8xfnqx"]
+[gd_scene load_steps=76 format=4 uid="uid://dtfy4hx8xfnqx"]
 
 [ext_resource type="Texture2D" uid="uid://c0tbywfa01aia" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="1_lxh0a"]
 [ext_resource type="Texture2D" uid="uid://bfxe3fd62ov1u" path="res://Game/resources/graphics/backgrounds/biome2.png" id="2_8bw8y"]
@@ -34,7 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dukorttqbksnb" path="res://Game/resources/tilesets/120x120/stalagmite-verybig.png" id="29_x780c"]
 [ext_resource type="Texture2D" uid="uid://c3on65s1bjgu4" path="res://Game/resources/tilesets/120x120/stalagtite-verybig.png" id="30_67a0f"]
 [ext_resource type="Texture2D" uid="uid://bk2klgshmoh6s" path="res://Game/resources/tilesets/120x120/tile-crystal.png" id="31_m8tur"]
-[ext_resource type="Script" uid="uid://cjcdnb6hww3j3" path="res://Game/LevelsComponents/Camera.gd" id="32_1sm55"]
+[ext_resource type="Script" uid="uid://bu6fq8dpn77b1" path="res://Game/LevelsComponents/Camera.gd" id="32_1sm55"]
 [ext_resource type="Texture2D" uid="uid://do17q2bqogury" path="res://Game/resources/misc/shroom-big.png" id="34_33vjp"]
 [ext_resource type="Texture2D" uid="uid://6fxjhrdc7luf" path="res://Game/resources/misc/bats.png" id="35_rja7m"]
 [ext_resource type="Texture2D" uid="uid://bnr73rfb46wjl" path="res://Game/resources/misc/shroom-med.png" id="36_rmqr3"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://ds70m437s1ih0" path="res://Game/resources/misc/help.png" id="44_4y6xo"]
 [ext_resource type="Texture2D" uid="uid://bivskwk5qy41i" path="res://Game/resources/misc/lantern.png" id="45_20dp1"]
 [ext_resource type="Texture2D" uid="uid://4ydq3jpc3kv3" path="res://Game/resources/misc/shroom-small.png" id="46_6lo8g"]
+[ext_resource type="PackedScene" uid="uid://gcjamr68iw70" path="res://Game/Map.tscn" id="47_dqns2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("9_7as54")
@@ -647,3 +648,5 @@ position = Vector2(1403, 942)
 rotation = 3.14159
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("35_rja7m")
+
+[node name="Map" parent="." instance=ExtResource("47_dqns2")]
