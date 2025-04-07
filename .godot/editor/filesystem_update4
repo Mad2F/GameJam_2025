@@ -12,3 +12,6 @@ res://Game/Objects/Stone.tscn
 res://Credits/Credits.tscn
 res://Game/Levels/Level1.tscn
 res://Game/LevelsComponents/LevelShadow.tscn
+res://Game/Objects/rope.tscn
+res://Game/Objects/rope.gd
+res://Game/player.gd

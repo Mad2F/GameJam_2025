@@ -7,7 +7,7 @@ README.md::TextFile/TextFile::-1::1744013448::0::1::::<><><>0<>0<><>::
 ::res://Credits/::1744025291
 credits.png::CompressedTexture2D/CompressedTexture2D::6292756522940725260::1744013448::1744013536::1::::<><><>0<>0<>26624a19e7a29618ca5e866517ea132f<>res://.godot/imported/credits.png-af5d715ec54ddab2db7b3f5fc6f4b86a.ctex::
 Credits.tscn::PackedScene::5290442999133615615::1744025291::0::1::::<><><>0<>0<><>::uid://cvwi1skysapui::::res://Credits/credits.png
-::res://export/::1744025354
+::res://export/::1744026269
 index.apple-touch-icon.png::CompressedTexture2D::9168137828657848747::1744025343::1744026269::1::::<><><>0<>0<>b71684468ae92cfd2449b8e051588295<>res://.godot/imported/index.apple-touch-icon.png-2786902287ee3c081d87ddba9fd253fe.ctex::
 index.icon.png::CompressedTexture2D::5976467483832555759::1744025343::1744026269::1::::<><><>0<>0<>3a8bea394aacfb9c264977e3992d9d44<>res://.godot/imported/index.icon.png-3b121a4922cb9cfa20e3529a349a6f72.ctex::
 index.png::CompressedTexture2D::4582009348386940928::1744025343::1744026269::1::::<><><>0<>0<>8419d8d72a4b04f38eb9099377b94710<>res://.godot/imported/index.png-de14850a4c2320eaddca8799ea52db2b.ctex::
@@ -88,13 +88,14 @@ biome3.png::CompressedTexture2D/CompressedTexture2D::7193708698135633359::174401
 stalagmites.png::CompressedTexture2D/CompressedTexture2D::2822522621669906925::1744013448::1744013536::1::::<><><>0<>0<>1f2e426bf1ee1b448f4683948b719004<>res://.godot/imported/stalagmites.png-7850f40a9e57606c99f632c3a0154684.ctex::
 stalagtites.png::CompressedTexture2D/CompressedTexture2D::2196464840762713628::1744013448::1744013536::1::::<><><>0<>0<>01a8e1d0129015aa06e507c1e2a493d0<>res://.godot/imported/stalagtites.png-2e06f5a6b471de667e47f6ad16d0bbfe.ctex::
 vines.png::CompressedTexture2D/CompressedTexture2D::154601874258984535::1744013448::1744013536::1::::<><><>0<>0<>9c0773a6d96abc621b653e1a960a4cbc<>res://.godot/imported/vines.png-e846d4f13241de24f4a90ff7ebff9a68.ctex::
-::res://Game/resources/misc/::1744023486
+::res://Game/resources/misc/::1744026474
 bats.png::CompressedTexture2D/CompressedTexture2D::2748966585809317508::1744013448::1744013536::1::::<><><>0<>0<>bdd7473d6ac5f4d7f99003e063d7d8fb<>res://.godot/imported/bats.png-a52154e4d4b4641fcdcadd8799c186b7.ctex::
 crystal-big.png::CompressedTexture2D/CompressedTexture2D::2135106750260994081::1744013448::1744013536::1::::<><><>0<>0<>0d7a20e3cec028bcdf4e5569962ce137<>res://.godot/imported/crystal-big.png-9c7ae3d7b9265cf0ddc70dfeea81a2db.ctex::
 crystal-med.png::CompressedTexture2D/CompressedTexture2D::4445808202544242247::1744013448::1744013536::1::::<><><>0<>0<>14f434a1d4d01b12c12bc3a1d0b3dfce<>res://.godot/imported/crystal-med.png-5de41d85544b5dcd18f902f6d5807c5f.ctex::
 crystal-small.png::CompressedTexture2D/CompressedTexture2D::2726078481951941953::1744013448::1744013536::1::::<><><>0<>0<>b54cd316531b4343317a18e91b634f80<>res://.godot/imported/crystal-small.png-eb93b0adcb1de49f7a2cd8d7ffdea67e.ctex::
 green_circle.png::CompressedTexture2D/CompressedTexture2D::6281963546861502751::1744013448::1744013537::1::::<><><>0<>0<>a483f7cfa4c9caf7a265b9ab97bb8a40<>res://.godot/imported/green_circle.png-698e695acf402086bced52492a8edaa9.ctex::
 help.png::CompressedTexture2D/CompressedTexture2D::5053703192112149496::1744017941::1744017943::1::::<><><>0<>0<>16d70a5364c26894538b5a5368069e07<>res://.godot/imported/help.png-81b4eb7984ff8ffc09c7b83028599591.ctex::
+help_nomap.png::CompressedTexture2D::671696322774312424::1744026474::1744026537::1::::<><><>0<>0<>099d012c4561c31848291b15849ec763<>res://.godot/imported/help_nomap.png-3d5dd4ea472d8ff87c9eb6e8946ede82.ctex::
 lantern.png::CompressedTexture2D/CompressedTexture2D::303544368498080222::1744013448::1744013537::1::::<><><>0<>0<>754041da0ab118d72e933a676dadd2ee<>res://.godot/imported/lantern.png-e67b62223e169b8f6fbf3345aac3c318.ctex::
 light.png::CompressedTexture2D/CompressedTexture2D::923085178989341601::1744013448::1744013537::1::::<><><>0<>0<>a3afc3f8e6a5c1694a1b9e91791012fb<>res://.godot/imported/light.png-5678187f84c7ff2be28f6ac1d4af4722.ctex::
 map.png::CompressedTexture2D/CompressedTexture2D::2732045634315589028::1744013448::1744013537::1::::<><><>0<>0<>5a5df33cbcb24e538710e6c5d4b4b670<>res://.godot/imported/map.png-0e664304152f11bcdfd0d7c7ba638389.ctex::

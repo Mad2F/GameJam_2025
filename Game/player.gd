@@ -304,13 +304,14 @@ func _process_fall():
 		_last_safe_y = position.y 
 		
 
-func _on_rope_down_created(pos):
+func _on_rope_down_created(pos, inverted = false):
 	scene_instance = scene.instantiate()
 	add_sibling(scene_instance)
 	scene_instance.set_name("Rope")
 	scene_instance.set_global_position(pos)
 	scene_instance.z_index = 0
 	scene_instance.player_leaves_rope.connect(falls_off_rope)
+	scene_instance.toRight = toRight if inverted else !toRight
 	isOnRope = true
 
 func _on_rope_up_created(_pos):
@@ -360,7 +361,7 @@ func _on_floor_grapin_found(pos, index):
 				_last_position_on_ground.x -= 70
 			print("Create Rope at ", bestkey)
 			print("Last position on ground ", _last_position_on_ground)
-			_on_rope_down_created(bestkey)
+			_on_rope_down_created(bestkey, true)
 			global_position.x = bestkey.x
 			
 		else:

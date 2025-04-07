@@ -8,6 +8,7 @@ signal player_leaves_rope
 enum State {SMALL, MEDIUM, LONG}
 
 var state : State = State.SMALL
+var toRight = true
 
 func _ready():
 	rope_sound.play()
@@ -38,6 +39,9 @@ func _ready():
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 
+func _process(_delta):
+	$hook.flip_h = toRight	
+		
 
 func _exit_tree():
 	print("call here destroy")
