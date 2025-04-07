@@ -19,3 +19,6 @@ res://Game/Levels/Level0.tscn
 res://Game/Levels/Level_biome1_1.tscn
 res://Game/Levels/Level_biome2_1.tscn
 res://Game/Levels/VictoryScreen.tscn
+res://Game/LevelsComponents/LevelShadow.gdshader
+res://Game/LevelsComponents/LevelShadow.gd
+res://Game/LevelsComponents/LevelShadow.tscn

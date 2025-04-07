@@ -6,6 +6,10 @@ var lightRadius =  {}
 var lightBlur = {}
 var lightFlicker = {}
 @onready var mat: ColorRect = $foreground
+@export var shadowColor: Color = Color(0.0, 0.0, 0.0, 0.85)
+
+func _ready():
+	mat.material.set("shader_parameter/Foreground", shadowColor)	
 
 func add_light_source(id: String, coord: Vector2, radius: float, blur: float, flicker: float = 0) -> void:
 	lightCoord.set(id, coord)

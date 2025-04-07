@@ -217,5 +217,6 @@ use_kinematic_bodies = true
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("1_q1q7d")
+levelBoundary = Rect2(0, 0, 1000, 1200)
 
 [node name="Map" parent="." instance=ExtResource("29_2p4ue")]
