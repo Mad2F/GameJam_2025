@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://d3l2hitvl43u4"]
+[gd_scene load_steps=59 format=4 uid="uid://d3l2hitvl43u4"]
 
 [ext_resource type="Texture2D" uid="uid://nd30xw516cul" path="res://Game/resources/graphics/backgrounds/biome3.png" id="1_eykec"]
 [ext_resource type="PackedScene" uid="uid://cqt4olwg0dp8v" path="res://Game/LevelsComponents/LevelShadow.tscn" id="2_xejrs"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://b3gfgne40gcge" path="res://Game/resources/misc/shroom-big.png" id="34_eykec"]
 [ext_resource type="Texture2D" uid="uid://dawuvxwrrdj4y" path="res://Game/resources/misc/bats.png" id="35_ewbu0"]
 [ext_resource type="Texture2D" uid="uid://28hau6fwqssb" path="res://Game/resources/misc/help.png" id="36_ewbu0"]
+[ext_resource type="PackedScene" uid="uid://gcjamr68iw70" path="res://Game/Map.tscn" id="37_a6u1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("8_eykec")
@@ -513,3 +514,5 @@ text = "When climbing, press C to
 release rope and hop on
 platform
 "
+
+[node name="Map" parent="." instance=ExtResource("37_a6u1x")]

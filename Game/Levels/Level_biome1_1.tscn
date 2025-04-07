@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://xwsxoedtwav7"]
+[gd_scene load_steps=69 format=4 uid="uid://xwsxoedtwav7"]
 
 [ext_resource type="Texture2D" uid="uid://chhq48qg2x3un" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="1_1bby1"]
 [ext_resource type="Texture2D" uid="uid://bywhc8d2uexrf" path="res://Game/resources/graphics/backgrounds/biome1.png" id="2_hjad0"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://dawuvxwrrdj4y" path="res://Game/resources/misc/bats.png" id="35_wkex7"]
 [ext_resource type="Texture2D" uid="uid://r85hpoukbg6k" path="res://Game/resources/misc/light.png" id="41_b0sae"]
 [ext_resource type="Texture2D" uid="uid://28hau6fwqssb" path="res://Game/resources/misc/help.png" id="42_lqu2l"]
+[ext_resource type="PackedScene" uid="uid://gcjamr68iw70" path="res://Game/Map.tscn" id="43_8wlq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("9_8wlq4")
@@ -562,3 +563,5 @@ texture = ExtResource("35_wkex7")
 [node name="Bats3" type="Sprite2D" parent="."]
 position = Vector2(306, 1265)
 texture = ExtResource("35_wkex7")
+
+[node name="Map" parent="." instance=ExtResource("43_8wlq4")]

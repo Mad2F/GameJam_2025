@@ -23,3 +23,7 @@ res://Game/LevelsComponents/LevelShadow.gdshader
 res://Game/LevelsComponents/LevelShadow.gd
 res://Game/LevelsComponents/LevelShadow.tscn
 res://Game/Levels/LevelTutorial.tscn
+res://Game/Map.gd
+res://Game/Objects/Lanterne.tscn
+res://Game/Objects/Lanterne.gd
+res://Game/Objects/LightSource.tscn

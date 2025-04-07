@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://dtfy4hx8xfnqx"]
+[gd_scene load_steps=74 format=4 uid="uid://dtfy4hx8xfnqx"]
 
 [ext_resource type="Texture2D" uid="uid://chhq48qg2x3un" path="res://Game/resources/tilesets/120x120/tile-basic.png" id="1_lxh0a"]
 [ext_resource type="Texture2D" uid="uid://bytw320v0fclw" path="res://Game/resources/graphics/backgrounds/biome2.png" id="2_8bw8y"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://fa2vi1ghgog6" path="res://Game/resources/misc/crystal-small.png" id="39_xp0f4"]
 [ext_resource type="PackedScene" uid="uid://bnkm5fore2edu" path="res://Game/Objects/Luciole.tscn" id="40_iifyq"]
 [ext_resource type="Texture2D" uid="uid://28hau6fwqssb" path="res://Game/resources/misc/help.png" id="44_4y6xo"]
+[ext_resource type="PackedScene" uid="uid://gcjamr68iw70" path="res://Game/Map.tscn" id="45_20dp1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dxx1"]
 texture = ExtResource("9_7as54")
@@ -469,3 +470,5 @@ offset_top = 2664.0
 offset_right = 1869.0
 offset_bottom = 2687.0
 text = "WRONG WAY..."
+
+[node name="Map" parent="." instance=ExtResource("45_20dp1")]
