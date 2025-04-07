@@ -25,3 +25,4 @@ res://MainMenu/main_menu.gd
 res://Game/Levels/Goal_new_game.tscn
 res://Game/Levels/goal.gd
 res://Game/Levels/goal_new_game.gd
+res://Game/Levels/VictoryScreen.gd
