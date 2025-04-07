@@ -3,7 +3,7 @@ class_name Map
 
 @onready var map_foreground: TextureRect = $MapHidden
 @export var map_name: String
-const LightTexture = preload("res://Game/resources/misc/light.png")
+const LightTexture = preload("res://Game/resources/misc/light2.png")
 const MapLevel1Texture = preload("res://Game/resources/graphics/map_level1.png")
 const MapLevel2Texture = preload("res://Game/resources/graphics/map_level2.png")
 const MapTutoTexture = preload("res://Game/resources/graphics/map_tuto.png")
