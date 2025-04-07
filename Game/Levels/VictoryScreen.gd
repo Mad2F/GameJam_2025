@@ -1,5 +1,6 @@
 extends Node
 
+var timeout = 5000
 func _ready():
 	await get_tree().create_timer(5).timeout 
 	
@@ -11,6 +12,9 @@ func _process(_delta):
 	else:
 		$falls.visible = false
 		$no_falls.visible = true
-		
+	
+	if (timeout > 0):
+		timeout = timeout - 1
+		return
 	if Input.is_action_pressed("enter") || Input.is_action_pressed("escape") || Input.is_action_pressed("move_jump"):
 		get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")

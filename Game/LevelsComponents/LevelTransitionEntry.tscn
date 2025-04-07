@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bos2a20xobnkf"]
 
-[ext_resource type="Script" uid="uid://bhk1nfq26otsd" path="res://Game/LevelsComponents/LevelTransitionEntry.gd" id="1_phoub"]
-[ext_resource type="Texture2D" uid="uid://kjut82ri3tog" path="res://Game/resources/misc/green_circle.png" id="2_khxvi"]
+[ext_resource type="Script" uid="uid://2bcqjtvo5dtk" path="res://Game/LevelsComponents/LevelTransitionEntry.gd" id="1_phoub"]
+[ext_resource type="Texture2D" uid="uid://cvrba0hic8ajf" path="res://Game/resources/misc/green_circle.png" id="2_khxvi"]
 
 [node name="PlayerStartPosition" type="Node2D"]
 script = ExtResource("1_phoub")

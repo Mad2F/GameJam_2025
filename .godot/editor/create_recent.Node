@@ -1,6 +1,6 @@
-Sprite2D
-Label
 ColorRect
+Label
+Sprite2D
 CanvasLayer
 TextureRect
 Node2D

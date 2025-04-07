@@ -25,8 +25,17 @@ func _initPlayerPosition():
 func _onPlayerDeath():
 	get_parent().get_node("ouch").visible = true
 	player.position = $PlayerStartPosition.global_position	
+	get_parent().get_node("ouch_label").visible = true
+	get_parent().get_node("ouch_label").z_index = 3
+	get_parent().get_node("ouch_label").global_position = Vector2(0,0)
+	get_parent().get_node("ouch_rect").visible = true
+	get_parent().get_node("ouch_rect").z_index = 2
+	get_parent().get_node("ouch_rect").global_position = Vector2(0,0)
 	await get_tree().create_timer(0.2).timeout 
 	get_parent().get_node("ouch").visible = false
+	await get_tree().create_timer(2).timeout 
+	get_parent().get_node("ouch_label").visible = false
+	get_parent().get_node("ouch_rect").visible = false
 	
 
 func _process(_delta):
