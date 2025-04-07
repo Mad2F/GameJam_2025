@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5gjq2hvrco3g"]
+[gd_scene load_steps=6 format=3 uid="uid://b5gjq2hvrco3g"]
 
 [ext_resource type="Script" uid="uid://dixh7deqxp3py" path="res://MainMenu/main_menu.gd" id="1_otibh"]
 [ext_resource type="Texture2D" uid="uid://ct2ort3apsgkp" path="res://MainMenu/cover(1).png" id="2_3clmd"]
+[ext_resource type="Texture2D" uid="uid://7hengs7ewpau" path="res://MainMenu/title.png" id="3_430ii"]
 [ext_resource type="AudioStream" uid="uid://bgxc5mxk5k5ul" path="res://Game/resources/audio/placeholder_menu_select.ogg" id="5_3p42x"]
 [ext_resource type="AudioStream" uid="uid://dnqkse01ioyev" path="res://Game/resources/audio/placeholder_menu_validation.ogg" id="6_3clmd"]
 
@@ -9,38 +10,36 @@
 script = ExtResource("1_otibh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(562, 788)
+position = Vector2(558, 789)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_3clmd")
 
-[node name="Title" type="Label" parent="."]
-offset_left = 306.0
-offset_top = 112.0
-offset_right = 632.0
-offset_bottom = 167.0
-theme_override_font_sizes/font_size = 40
-text = "Cat In the Dark"
-horizontal_alignment = 1
+[node name="Title2" type="Sprite2D" parent="."]
+position = Vector2(526, 153)
+texture = ExtResource("3_430ii")
 
 [node name="NewGame" type="Button" parent="."]
-offset_left = 356.0
-offset_top = 262.0
-offset_right = 556.0
-offset_bottom = 297.0
+offset_left = 120.0
+offset_top = 458.0
+offset_right = 320.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 34
 text = "New Game"
 
 [node name="Credits" type="Button" parent="."]
-offset_left = 356.0
-offset_top = 362.0
-offset_right = 556.0
-offset_bottom = 397.0
+offset_left = 120.0
+offset_top = 598.0
+offset_right = 320.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 34
 text = "Credits"
 
 [node name="Tutorial" type="Button" parent="."]
-offset_left = 356.0
-offset_top = 312.0
-offset_right = 556.0
-offset_bottom = 347.0
+offset_left = 120.0
+offset_top = 528.0
+offset_right = 320.0
+offset_bottom = 582.0
+theme_override_font_sizes/font_size = 34
 text = "Tutorial"
 
 [node name="MenuSelect" type="AudioStreamPlayer" parent="."]
