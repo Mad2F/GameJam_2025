@@ -14,6 +14,7 @@ enum State {IDLE, WALKING, IN_THE_AIR, CLIMBING}
 @onready var step_sound := $Step
 #@onready var falling_rock_sound := $FallingRock
 @onready var rope_under_tension_sound := $RopeUnderTension
+@onready var error_rope_sound := $RopeError
 
 # Properties
 var animation_to_play := "Idle"
@@ -153,6 +154,7 @@ func _physics_process(delta):
 				else:
 					isOnRope = false
 					timeoff = 0
+					_error_sound()
 					print("No rope")
 				return
 			if Input.is_action_just_pressed("use_grapin"):
@@ -365,6 +367,7 @@ func _on_floor_grapin_found(pos, index):
 			global_position.x = bestkey.x
 			
 		else:
+			_error_sound()
 			print("GRAPIN not created ")
 
 func _on_rope_destroyed():
@@ -378,3 +381,6 @@ func handleSonar():
 		instance.global_position = global_position + Vector2(30, 0) if toRight else global_position
 		instance.linear_velocity = force
 		get_tree().get_root().get_node(get_tree().current_scene.get_path()).add_child(instance)
+
+func _error_sound():
+	error_rope_sound.play()

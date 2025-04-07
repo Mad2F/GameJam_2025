@@ -9,3 +9,5 @@ res://Game/Levels/VictoryScreen.tscn
 res://Game/Objects/rope.tscn
 res://Game/LevelsComponents/LevelShadow.tscn
 res://Game/Levels/LevelTutorial.tscn
+res://Game/player.gd
+res://Game/player.tscn
