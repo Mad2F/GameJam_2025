@@ -312,9 +312,13 @@ follow_camera = true
 [node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wxy0c")
 
-[node name="lanterne" parent="." instance=ExtResource("12_uan04")]
+[node name="lanterne_droite" parent="." instance=ExtResource("12_uan04")]
 visible = false
-position = Vector2(23, 87)
+position = Vector2(215, 28)
+
+[node name="lanterne_gauche" parent="." instance=ExtResource("12_uan04")]
+visible = false
+position = Vector2(-173, 29)
 
 [node name="grapin_left" type="Node2D" parent="."]
 position = Vector2(-23, -213)
