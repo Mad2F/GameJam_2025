@@ -298,9 +298,12 @@ position = Vector2(49, -64)
 
 [node name="Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oyrjc")
+bus = &"SFX Jump Bus"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ltdye")
+pitch_scale = 0.5
+bus = &"SFX Bus"
 
 [node name="LightSource" parent="." instance=ExtResource("7_ltdye")]
 radius = 300.0
@@ -311,6 +314,7 @@ follow_camera = true
 
 [node name="RopeUnderTension" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wxy0c")
+bus = &"SFX Bus"
 
 [node name="lanterne_droite" parent="." instance=ExtResource("12_uan04")]
 visible = false
